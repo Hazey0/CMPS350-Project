@@ -40,14 +40,13 @@ const phones= [
 const nameSplit=(a)=> a.split(" ");
 const searchQuery= "galaxy";
 const keywords= searchQuery.split(" ");
+///////SEARCH FUNCTION//////////////////////
 const searchResult=phones.filter((e)=>
 e.brand.toLowerCase()==keywords.reduce((a,v)=> v.toLowerCase()==e.brand.toLowerCase() ? v:a) || 
 e.name.toLowerCase().split(" ").includes(keywords.map((d)=> d.toLowerCase()))||
 e.year==keywords.reduce((a,v)=> v==e.year ? v:a) ||
 e.storage==keywords.reduce((a,v)=> v==e.storage ? v:a)
 );
+/////////////END OF SEARCH FUNCTION /////////////////
 searchResult2= phones.filter((e)=> e.brand.toLowerCase()==keywords.reduce((a,z)=> z.toLowerCase()==e.brand.toLowerCase() ? z.toLowerCase() : a.toLowerCase()))
 console.log(searchResult);
-const l=["kd","ew","fed","ed"];
-const e=l.includes("ew");
-console.log(e);
