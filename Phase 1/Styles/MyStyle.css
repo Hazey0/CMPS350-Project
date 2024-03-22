@@ -58,7 +58,7 @@ nav a:hover {
     padding: 1rem;
 }
 
-.featuredPhones {
+#featuredPhones {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 20px;
@@ -114,4 +114,7 @@ nav a:hover {
     .searchInput, nav a {
         font-size: 0.9rem;
     }
+}
+.footerStuff{
+    margin-top: 100px;
 }
