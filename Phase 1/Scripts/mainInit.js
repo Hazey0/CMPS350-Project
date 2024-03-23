@@ -109,7 +109,9 @@ document.addEventListener("DOMContentLoaded",()=>{
             if(user!=null){
                 localStorage.setItem("user",JSON.stringify(user));
             }
+            
             open("./item.html");
+            close()
            
         });
         ///////// attaching elements///////////
@@ -170,6 +172,10 @@ document.addEventListener("DOMContentLoaded",()=>{
             const guest=document.createElement("p");
             guest.innerHTML="Guest"
             guest.classList.add("guest");
+            const userImage=document.createElement("img");
+            userImage.src="../Media/icons/user.svg";
+            userImage.classList.add("userImage");
+            nav.appendChild(userImage);
             nav.appendChild(guest);
             if(nav.hasChildNodes==false){
             nav.replaceChildren();
@@ -180,7 +186,7 @@ document.addEventListener("DOMContentLoaded",()=>{
              open("./login.html");
             })
 
-            n
+            
             nav.appendChild(loginButton);}
             else{
 
@@ -188,32 +194,33 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
         else{
            const nav= document.querySelector("#loginButton")
-           const nav2=document.querySelector("#logo");
+           const userImage=document.createElement("img");
+           userImage.src="../Media/icons/user.svg";
+           userImage.classList.add("userImage");
            nav.replaceChildren();
            const logoutButton= document.createElement("button");
            logoutButton.innerHTML="Logout";
            logoutButton.classList.add("logoutButton");
            const usernam= document.createElement("p");
-           usernam.innerHTML= "User: "+user.username;
+           usernam.innerHTML= user.username;
            usernam.classList.add("username");
            usernam.style.marginLeft="30px"
            logoutButton.addEventListener("click",()=>{
             logout();
            })
-           nav2.style.display="flex";
-           nav2.style.felxdirection="column";
-           nav2.appendChild(usernam);
+           nav.appendChild(userImage);
+           nav.appendChild(usernam);
            nav.appendChild(logoutButton);
         }
     }
     function logout(){
         localStorage.removeItem("user");
         open("./main.html");
+        close();
         
     }
     logged();
     renderFunctions();
     renderFeaturedPhones();
     renderPhones();
-
 });
