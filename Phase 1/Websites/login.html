@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="../Scripts/Classes/User.js"></script>
-    <script src="../Scripts/loginInit.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="/Styles/login.css">
+    <script src="../Scripts/Classes/User.js"></script>
+    <script src="../Scripts/loginInit.js"></script>
 </head>
 <body>
-    <input type="text" id="username" placeholder="username" required>
-    <input type="password" id="password" placeholder="password" required>
-    <button id="loginButton">Login</button>
+    
+    <nav>
+        <div class="nav1">
+             <div class="navItem" id="logo">
+                    <div class="logo">
+                        <a href="../Websites/main.html">
+                            <img src="../Media/Icons/phoney.png" alt="Logo" width="80" height="80">
+                        </a>
+                    </div>
+             </div>
+
+        </div>
+
+    </nav>
+
+    <div class="container">
+        <form id="form" action="/">
+            <h1>Login</h1>
+            <div class="input-control">
+                <input id="username" name="username" type="text" placeholder="Username">
+                <div class="error"></div>
+            </div>
+
+            <div class="input-control">
+                <input id="password"name="password" type="password" placeholder="Password">
+                <div class="error"></div>
+            </div>
+
+            <button id="loginButton">Login</button>
+        </form>
+    </div>
 </body>
 </html>
