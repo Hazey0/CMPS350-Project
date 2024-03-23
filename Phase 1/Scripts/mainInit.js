@@ -148,14 +148,19 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     function logged(){
         if(user==null){
+            
             const nav= document.querySelector(".navItem")
+            if(nav==null){
             nav.replaceChildren();
             const loginButton= document.createElement("button");
             loginButton.innerHTML="Login";
             loginButton.addEventListener("click",()=>{
              open("./login.html");
             })
-            nav.appendChild(loginButton);
+            nav.appendChild(loginButton);}
+            else{
+
+            }
         }
         else{
            const nav= document.querySelector(".navItem")
@@ -168,11 +173,12 @@ document.addEventListener("DOMContentLoaded",()=>{
             logout();
            })
            nav.appendChild(usernam);
-           nav.appendChild(logout);
+           nav.appendChild(logoutButton);
         }
     }
     function logout(){
         localStorage.removeItem("user");
+        open("./main.html");
     }
     logged();
     renderFunctions();
