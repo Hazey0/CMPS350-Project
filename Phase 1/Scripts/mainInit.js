@@ -109,7 +109,9 @@ document.addEventListener("DOMContentLoaded",()=>{
             if(user!=null){
                 localStorage.setItem("user",JSON.stringify(user));
             }
+            
             open("./item.html");
+            close()
            
         });
         ///////// attaching elements///////////
@@ -214,11 +216,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     function logout(){
         localStorage.removeItem("user");
         open("./main.html");
+        close();
         
     }
     logged();
     renderFunctions();
     renderFeaturedPhones();
     renderPhones();
-
 });
