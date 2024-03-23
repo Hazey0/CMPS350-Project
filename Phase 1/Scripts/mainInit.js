@@ -1,6 +1,5 @@
 
 document.addEventListener("DOMContentLoaded",()=>{
-
     const phonesData=localStorage.getItem("phones");
     const phones=JSON.parse(phonesData);
 
@@ -12,6 +11,9 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     function renderFunctions(){
         const searchButton=document.querySelector("#searchButton");
+        searchButton.addEventListener("mouseOver",(event)=>{
+            searchButton.src="../Media/icons/searcHover.svg"
+        })
         searchButton.addEventListener("click",(event)=>{
             searchPhone();
         })
@@ -133,6 +135,9 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
     function searchPhone() {
+        if(document.querySelector(".cancelSearch") !=null){
+            document.querySelector(".cancelSearch").remove();
+        }
         const searchRequest=document.querySelector("#searchBar").value;
         const keywords=searchRequest.split(" ");
         const searchResult = phones.filter((e) =>
@@ -145,7 +150,15 @@ document.addEventListener("DOMContentLoaded",()=>{
        container.replaceChildren();
        searchResult.forEach((phone)=>container.appendChild(renderPhone(phone)));
        const searchDiv=document.querySelector("#searchDiv");
-       const cancelSearch=document.createElement("p");
+       const cancelSearch=document.createElement("img");
+       cancelSearch.src="../Media/icons/circle-x.svg";
+       cancelSearch.classList.add("cancelSearch");
+       cancelSearch.addEventListener("click",(event)=>{
+        renderPhones();
+        cancelSearch.remove();
+        
+       })
+       searchDiv.appendChild(cancelSearch);
     };
 
     function logged(){
@@ -168,17 +181,21 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
         else{
            const nav= document.querySelector("#loginButton")
+           const nav2=document.querySelector("#logo");
            nav.replaceChildren();
            const logoutButton= document.createElement("button");
            logoutButton.innerHTML="Logout";
            logoutButton.classList.add("logoutButton");
            const usernam= document.createElement("p");
-           usernam.innerHTML= user.username;
+           usernam.innerHTML= "User: "+user.username;
            usernam.classList.add("username");
+           usernam.style.marginLeft="30px"
            logoutButton.addEventListener("click",()=>{
             logout();
            })
-           nav.appendChild(usernam);
+           nav2.style.display="flex";
+           nav2.style.felxdirection="column";
+           nav2.appendChild(usernam);
            nav.appendChild(logoutButton);
         }
     }

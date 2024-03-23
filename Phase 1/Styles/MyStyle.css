@@ -179,8 +179,16 @@ nav a:hover {
 }
 /* controls the name that appears on the top after you login*/
 .username{
-
+    font-size: 100%;
+    color: #f4f4f4;
 }
 .logoutButton{
 
+}
+/* controls the logo that appears next to search*/
+.cancelSearch{
+
+}
+.searchButton :hover{
+    color: orange;
 }
