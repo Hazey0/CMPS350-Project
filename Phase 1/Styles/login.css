@@ -75,7 +75,7 @@ nav a:hover {
     text-align: center;
 }
 #form button :hover{
-pointer-events: visible;
+    pointer-events: visible;
 }
 
 #form button {
@@ -86,6 +86,7 @@ pointer-events: visible;
     background-color:transparent;
     border: 1px solid;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .input-control {
