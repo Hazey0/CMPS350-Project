@@ -144,6 +144,8 @@ document.addEventListener("DOMContentLoaded",()=>{
        const container=document.querySelector("#items");
        container.replaceChildren();
        searchResult.forEach((phone)=>container.appendChild(renderPhone(phone)));
+       const searchDiv=document.querySelector("#searchDiv");
+       const cancelSearch=document.createElement("p");
     };
 
     function logged(){
