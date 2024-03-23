@@ -1,16 +1,18 @@
 class User {
     username;
-    #password;
+    password;
     type;
     listedPhones;
     constructor(u,p,t){
         this.username=u;
-        this.#password=p;
+        this.password=p;
         this.type=t;
     }
-
+    getPass(){
+        
+    }
 }
-const users=[new User("ok",9423, "Customer"),
+const users=[new User("ok",974, "Customer"),
             new User("ksdjcvb",879423,"Seller"),
             new User("ksdjcvbv",8423,"Customer"),
             new User("ksjdbc",8793,"Seller"),
