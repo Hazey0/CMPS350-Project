@@ -7,7 +7,7 @@ class User {
     surname;
     address;
     back;
-    transactions=[];
+   transactions;
     constructor(u,p,t){
         this.username=u;
         this.password=p;
