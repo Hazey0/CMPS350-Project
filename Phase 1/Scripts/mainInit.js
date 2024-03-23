@@ -147,12 +147,25 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
         const searchRequest=document.querySelector("#searchBar").value;
         const keywords=searchRequest.split(" ");
+
+        const splits=(a)=>a.toLowerCase().split(" ");
+        const searchString=(keys,value) => keys.reduce((a,v)=>  splits(value).reduce((x,s)=>s.startsWith(v) ? true:x,false)                  ? true : a,false)
+        const searchInt =(keys,int)=> keys.reduce((a,v)=> v==int ? true : a,false);
         const searchResult = phones.filter((e) =>
-            e.brand.toLowerCase() == keywords.reduce((a, v) => v.toLowerCase() == e.brand.toLowerCase() ? v : a) ||
-            e.name.toLowerCase().split(" ").includes(keywords.map((d) => d.toLowerCase())) ||
-            e.year == keywords.reduce((a, v) => v == e.year ? v : a) ||
-            e.storage == keywords.reduce((a, v) => v == e.storage ? v : a)
-        )
+        
+                searchString(keywords,e.brand) && searchString(keywords,e.name)  || searchString(keywords,e.brand) && searchInt(keywords,e.storage) ||
+                searchString(keywords,e.brand) && searchInt(keywords,e.year)     || searchString(keywords,e.brand)                                  ||
+                searchString(keywords,e.name) && searchInt(keywords,e.year)      || searchString(keywords,e.name)                                   ||
+                searchString(keywords,e.name) && searchInt(keywords,e.storage)   || searchInt(keywords,e.year)                                      ||
+                searchInt(keywords,e.storage)                                    || searchInt(keywords,e.storage) && searchInt(keywords,e.year)     ||
+                searchInt(keywords,e.year)
+
+                
+            )
+        
+        
+
+
        const container=document.querySelector("#items");
        container.replaceChildren();
        searchResult.forEach((phone)=>container.appendChild(renderPhone(phone)));
