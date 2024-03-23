@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded",()=>{
 const data=localStorage.getItem("item");
 const phone=JSON.parse(data);
+const userData=localStorage.getItem("user");
+const user=JSON.parse(userData);
 console.log(phone);
+let loggedIn=false;
 
 function renderPhone(){
     const phoneBox=document.querySelector("#item");
@@ -16,32 +19,19 @@ function renderPhone(){
     const price= document.createElement("p");;
     const storage= document.createElement("p");
     const img=document.createElement('img');
-    brand.style.fontStyle="italic";
-    //////////////Style////////////////
-    phoneBox.style.display="flex";
-    phoneBox.style.flexDirection="column";
-    phoneBox.style.backgroundColor="grey";
-    phoneBox.style.borderRadius="20px";
-    phoneBox.style.width="200px";
-    phoneBox.style.height="400px";
-    phoneBox.style.padding="1.2%";
-    phoneBox.style.marginLeft="30px";
-    phoneBox.style.marginRight="30px";
-    phoneBox.style.marginTop="30px";
-    phoneBox.style.marginBottom="30px";
-    img.style.width="200px";
-    img.style.height="200px";
+    const buyButton=document.createElement("button");
     ///////////////assing values to each element////////////////////
+    buyButton.innerHTML="Buy for : "+phone.price;
+    buyButton.addEventListener('click',(event)=>{
+        purchase(user);
+    })
     brand.innerHTML=phone.brand;
     name.innerHTML="Model: "+phone.name;
     year.innerHTML="Year: "+phone.year;
     price.innerHTML="price: "+phone.price;
     storage.innerHTML="Storage: "+phone.storage;
     img.src=phone.img;
-    img.addEventListener("click",(event)=>{
-        localStorage.setItem("item",JSON.stringify(phone));
-        open("./item.html");
-    })
+ 
     ////////////// attaching elements///////////
     top.appendChild(brand);
     top.appendChild(img);
@@ -49,10 +39,23 @@ function renderPhone(){
     bottom.appendChild(year);
     bottom.appendChild(price);
     bottom.appendChild(storage);
+    bottom.appendChild(buyButton);
     phoneBox.appendChild(top);
     phoneBox.appendChild(bottom);
     
+   function purchase(user){
+    if(loggedIn){
+        if(user.balance>=phone.price){
 
+        }
+        else{
+            document.writeln("insuffienct balance");
+        }
+    }
+    else{
+        document.writeln("you are not logged in");
+    }
+   }
     
    
         
