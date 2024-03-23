@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     };
     function renderFeaturedPhones(){
         const container=document.querySelector("#featuredPhones");
-        container.style.marginBottom="200px"
         container.replaceChildren();
         featuredPhones.forEach((phone)=> container.appendChild(renderFeaturedPhone(phone)));
     }
