@@ -122,7 +122,7 @@ nav a:hover {
 .footerStuff{
     margin-top: 100px;
 }
-
+/*will effect the */
 .phone{
     border-color: #333;;
     border-style: solid;
@@ -131,17 +131,21 @@ nav a:hover {
     margin-right: 30px;
     padding: 1.1%;
 }
+/*will effect the featured phone*/
 .featuredPhone{
     
 }
+/*will effect the img of the phone*/
 .phoneImage{
     width: 200px;
     height: 200px;
 }
+/*will effect the img of the featured phone*/
 .featuredPhoneImage{
     width: 200px;
     height: 200px;
 }
+/*will effect the details of the phones that appear under the image of the phone*/
 .phoneDetails{
 font-family: Georgia, 'Times New Roman', Times, serif;
 display: block;
@@ -149,7 +153,7 @@ justify-content: center;
 padding: 1.1%;
 }
 
-
+/* will effect the area that contains the phones under the featured phones*/
 #items{
     display: flex;
     justify-content: start;
