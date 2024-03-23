@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded",()=>{
         const phoneBox=document.createElement("div");
         const top=document.createElement("div");
         const bottom=document.createElement("div");
-
         phoneBox.classList.add("phone");
         ////elements of the phone///
         const brand = document.createElement("p");
@@ -38,6 +37,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         const price= document.createElement("p");;
         const storage= document.createElement("p");
         const img=document.createElement('img');
+        const itemLink=document.createElement("a");
         /////adding ids to style them in css////
         brand.classList.add("phoneBrand");
         img.classList.add("PhoneImage");
@@ -45,20 +45,22 @@ document.addEventListener("DOMContentLoaded",()=>{
         img.classList.add("phoneImage");
         
         ///////////////assing values to each element////////////////////
+        itemLink.href="./item.html";
         brand.innerHTML=phone.brand;
         name.innerHTML="Model: "+phone.name;
         year.innerHTML="Year: "+phone.year;
         price.innerHTML="price: "+phone.price+"QR";
         storage.innerHTML="Storage: "+phone.storage;
         img.src=phone.img;
-        img.addEventListener("click",(event)=>{
+        itemLink.addEventListener("click",(event)=>{
             localStorage.setItem("item",JSON.stringify(phone));
             
-            open("./item.html");
         })
         ////////////// attaching elements///////////
+        itemLink.appendChild(img);
+        top.appendChild(itemLink);
         top.appendChild(brand);
-        top.appendChild(img);
+        top.appendChild(itemLink);
         bottom.appendChild(name);
         bottom.appendChild(year);
         bottom.appendChild(price);
@@ -87,6 +89,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
         phoneBox.classList.add("featuredPhone");
         ////elements of the phone///
+        const itemLink=document.createElement("a");
         const brand = document.createElement("p");
         const name = document.createElement("p");
         const year= document.createElement("p");
@@ -97,6 +100,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         brand.classList.add("phoneBrand");
         img.classList.add("featuredPhoneImage");
         bottom.classList.add("phoneDetails");
+        itemLink.href="./item.html";
         ///////////////assing values to each element////////////////////
         brand.innerHTML=phone.brand;
         name.innerHTML="Model: "+phone.name;
@@ -104,19 +108,15 @@ document.addEventListener("DOMContentLoaded",()=>{
         price.innerHTML="price: "+phone.price+"QR";
         storage.innerHTML="Storage: "+phone.storage;
         img.src=phone.img;
-        img.addEventListener("click",(event)=>{
+        itemLink.addEventListener("click",(event)=>{
             localStorage.setItem("item",JSON.stringify(phone));
-            if(user!=null){
-                localStorage.setItem("user",JSON.stringify(user));
-            }
             
-            open("./item.html");
-            close()
-           
         });
         ///////// attaching elements///////////
+        itemLink.appendChild(img);
+        top.appendChild(itemLink);
         top.appendChild(brand);
-        top.appendChild(img);
+        itemLink.appendChild(img);
         bottom.appendChild(name);
         bottom.appendChild(year);
         bottom.appendChild(price);
