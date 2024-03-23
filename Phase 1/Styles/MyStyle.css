@@ -1,5 +1,12 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
 
+.MAIN {
+    padding-left: 30px;
+    padding-right: 30px;
+}
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -14,17 +21,24 @@ body {
 .nav1{
     padding-right: 20px;
     padding-left: 20px;
-    height: 70px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between ;
     background-color: black;
 }
 
-.logo img {
-    width: 120px;
-    height: 60px;
-    transition: transform 0.3s ease;
+.logo {
+
+    a:hover{
+        background-color: black;
+    }
+
+    img {
+        width: 140px;
+        height: 50px;
+        transition: transform 0.3s ease;
+    }
 }
 
 .searchItem {
@@ -44,23 +58,44 @@ body {
 }
 
 .searchInput {
-    width: 100%;
+    width: 400px;
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 20px;
 }
 
 nav a {
+    padding: 10px 10px;
+    cursor: pointer;
     text-decoration: none;
     color: white;
 }
 
 nav a:hover {
-    padding: 3px;
     color: black;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 10px;
 }
+
+
+
+
+/* Latest Addition */
+.banner {
+
+    .LatestTitle {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    img {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+
+
 
 /* Featured Phones */
 .featuredTitle {
@@ -182,9 +217,26 @@ nav a:hover {
     font-size: 100%;
     color: #f4f4f4;
 }
-.logoutButton{
 
+
+.logoutButton {
+    padding: 10px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: black;
+    border: none;
+    border-radius: 15px;
 }
+.logoutButton:hover {
+    background-color: white;
+    color: black;
+}
+
+ 
 /* controls the logo that appears next to search*/
 .cancelSearch{
 
