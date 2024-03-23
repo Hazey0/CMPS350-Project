@@ -111,7 +111,7 @@ nav a:hover {
     text-align: center;
     font-size: 2rem;
     color: white;
-    background-color: black;
+    background-color: #FF6C00;
     padding: 0.5rem;
     border-radius: 30px;
 }
@@ -184,13 +184,13 @@ nav a:hover {
 
 /*will effect the */
 .phone{
-    border-color: #333;;
     border-style: solid;
     border-radius: 20px;
     margin-left: 30px;
     margin-bottom: 10px;
     margin-right: 30px;
     padding: 1.1%;
+    background-color:white;
 }
 /*will effect the featured phone*/
 .featuredPhone{
@@ -215,15 +215,15 @@ nav a:hover {
 .phoneDetails{
     font-family: Georgia, 'Times New Roman', Times, serif;
     display: block;
-    justify-content: center;
     padding: 1.1%;
+    
 }
 
 /* will effect the area that contains the phones under the featured phones*/
 .itemsheader{
     text-align: center;
     padding: 15px;
-    background-color: black;
+    background-color:#FF6C00;
     color: white;
     border-radius: 30px;
 }
@@ -293,4 +293,9 @@ nav a:hover {
 /* used to put a gap between the user logo and the user name that appears next to the search bar*/
 .userImage{
     margin-right: 15px;
+    margin-bottom: 7px;
+}
+.details{
+
+
 }

@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         phoneBox.classList.add("phone");
         ////elements of the phone///
+        const select=document.querySelector("#quantity");
         const brand = document.createElement("p");
         const name = document.createElement("p");
         const year = document.createElement("p");
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bottom.appendChild(seller);
         bottom.appendChild(buyButton);
         bottom.appendChild(total);
+        bottom.appendChild(select);
         phoneBox.appendChild(top);
         phoneBox.appendChild(bottom);
 

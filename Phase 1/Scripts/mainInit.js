@@ -43,6 +43,10 @@ document.addEventListener("DOMContentLoaded",()=>{
         img.classList.add("PhoneImage");
         bottom.classList.add("phoneDetails");
         img.classList.add("phoneImage");
+        name.classList.add("details");
+        year.classList.add("details");
+        price.classList.add("details");
+        storage.classList.add("details");
         
         ///////////////assing values to each element////////////////////
         itemLink.href="./item.html";
