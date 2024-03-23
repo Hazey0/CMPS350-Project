@@ -272,3 +272,21 @@ nav a:hover {
 .guest{
     color: white;
 }
+.loginButton{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;;
+}
+.login{
+    order: -1;
+}
+/*controls the username and logo that appears next to the search bar*/
+.user{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+/* used to put a gap between the user logo and the user name that appears next to the search bar*/
+.userImage{
+    margin-right: 15px;
+}

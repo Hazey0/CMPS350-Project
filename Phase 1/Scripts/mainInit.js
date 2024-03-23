@@ -168,49 +168,54 @@ document.addEventListener("DOMContentLoaded",()=>{
         console.log(user)
         if(user==null){
             
-            const nav= document.querySelector("#loginButton");
+            const nav2= document.querySelector("#loginButton");  
+            const nav1=document.querySelector("#user");          
+            nav2.replaceChildren();
+            const loginButton=document.createElement("a");
+            loginButton.classList.add("login");
+            loginButton.innerHTML="Login";
+            loginButton.href="login.html";
             const guest=document.createElement("p");
             guest.innerHTML="Guest"
             guest.classList.add("guest");
             const userImage=document.createElement("img");
             userImage.src="../Media/icons/user.svg";
             userImage.classList.add("userImage");
-            nav.appendChild(userImage);
-            nav.appendChild(guest);
-            if(nav.hasChildNodes==false){
-            nav.replaceChildren();
+            nav1.appendChild(userImage);
+            nav1.appendChild(guest);
 
-            const loginButton= document.createElement("button");
-            loginButton.innerHTML="Login";
-            loginButton.addEventListener("click",()=>{
-             open("./login.html");
-            })
+            nav2.appendChild(loginButton);
+            //if(nav.hasChildNodes==false){
+            //nav.replaceChildren();
+            //
+            //const loginButton= document.createElement("button");
+            //loginButton.innerHTML="Login";
+            //loginButton.addEventListener("click",()=>{
+            // open("./login.html");
+            //})
+
+                        }
 
             
-            nav.appendChild(loginButton);}
-            else{
-
-            }
-        }
         else{
-           const nav= document.querySelector("#loginButton")
+           const nav2= document.querySelector("#loginButton")
+           const nav1=document.querySelector("#user");  
            const userImage=document.createElement("img");
            userImage.src="../Media/icons/user.svg";
            userImage.classList.add("userImage");
-           nav.replaceChildren();
+           nav2.replaceChildren();
            const logoutButton= document.createElement("button");
            logoutButton.innerHTML="Logout";
            logoutButton.classList.add("logoutButton");
            const usernam= document.createElement("p");
            usernam.innerHTML= user.username;
            usernam.classList.add("username");
-           usernam.style.marginLeft="30px"
            logoutButton.addEventListener("click",()=>{
             logout();
            })
-           nav.appendChild(userImage);
-           nav.appendChild(usernam);
-           nav.appendChild(logoutButton);
+           nav1.appendChild(userImage);
+           nav1.appendChild(usernam);
+           nav2.appendChild(logoutButton);
         }
     }
     function logout(){
