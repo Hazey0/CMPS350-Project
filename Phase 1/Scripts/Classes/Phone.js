@@ -26,4 +26,12 @@ const phones= [
     new Phone("Xaomi","Mi 10",2023,1050,256,"../Media/images/mi10.jpg"),
     new Phone("Samsung","Galaxy S21 Plus",2022,1000,256,"../Media/images/s21plus.jpg"),
 ]
+phones[0].seller="mike";
+phones[1].seller="scammer";
+phones[2].seller="mike";
+phones[3].seller="scammer";
+phones[4].seller="mike";
+phones[5].seller="scammer";
+phones[6].seller="mike";
+
 localStorage.setItem("phones",JSON.stringify(phones));

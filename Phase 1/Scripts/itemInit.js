@@ -19,7 +19,9 @@ function renderPhone(){
     const storage= document.createElement("p");
     const img=document.createElement('img');
     const buyButton=document.createElement("button");
+    const seller=document.createElement("p")
     ///////////////assing values to each element////////////////////
+    seller.innerHTML="Seller: "+phone.seller;
     buyButton.innerHTML="Buy for : "+phone.price;
     buyButton.addEventListener('click',(event)=>{
         purchase();
@@ -38,15 +40,19 @@ function renderPhone(){
     bottom.appendChild(year);
     bottom.appendChild(price);
     bottom.appendChild(storage);
+    bottom.appendChild(seller);
     bottom.appendChild(buyButton);
     phoneBox.appendChild(top);
     phoneBox.appendChild(bottom);
+
     
    function purchase(){
-    console.log(user);
+    const total= phone.price* document.querySelector("#quantity").value;
+    console.log(total);
     if(user!=null){
        if(user.type=="Customer"){
-        if(user.money>=phone.price){
+        if(user.money>=total){
+            user.transactions.push(phone);
             document.writeln("purschase successful")
             console.log("debnuj")
         }

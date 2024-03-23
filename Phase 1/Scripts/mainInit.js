@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     function renderPhones(){
         const container=document.querySelector("#items");
-        container.style.backgroundColor="lightblue";
         container.replaceChildren();
         phones.forEach((phone)=> container.appendChild(renderPhone(phone)));
     }
@@ -39,7 +38,6 @@ document.addEventListener("DOMContentLoaded",()=>{
         const price= document.createElement("p");;
         const storage= document.createElement("p");
         const img=document.createElement('img');
-        brand.style.fontStyle="italic";
         /////adding ids to style them in css////
         brand.classList.add("phoneBrand");
         img.classList.add("PhoneImage");
@@ -55,6 +53,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         img.src=phone.img;
         img.addEventListener("click",(event)=>{
             localStorage.setItem("item",JSON.stringify(phone));
+            
             open("./item.html");
         })
         ////////////// attaching elements///////////
