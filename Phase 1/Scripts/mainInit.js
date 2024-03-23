@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         price;
         storage;
         img;
+        seller;
         constructor(b,n,y,p,s,i){
             this.brand=b;
             this.name=n;
@@ -58,20 +59,12 @@ document.addEventListener("DOMContentLoaded",()=>{
         const storage= document.createElement("p");
         const img=document.createElement('img');
         brand.style.fontStyle="italic";
-        //////////////Style////////////////
-        phoneBox.style.display="flex";
-        phoneBox.style.flexDirection="column";
-        phoneBox.style.backgroundColor="grey";
-        phoneBox.style.borderRadius="20px";
-        phoneBox.style.width="200px";
-        phoneBox.style.height="400px";
-        phoneBox.style.padding="1.2%";
-        phoneBox.style.marginLeft="30px";
-        phoneBox.style.marginRight="30px";
-        phoneBox.style.marginTop="30px";
-        phoneBox.style.marginBottom="30px";
-        img.style.width="200px";
-        img.style.height="200px";
+        /////adding ids to style them in css////
+        brand.classList.add("phoneBrand");
+        img.classList.add("PhoneImage");
+        bottom.classList.add("phoneDetails");
+        img.classList.add("phoneImage");
+        
         ///////////////assing values to each element////////////////////
         brand.innerHTML=phone.brand;
         name.innerHTML="Model: "+phone.name;
@@ -113,7 +106,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         const top=document.createElement("div");
         const bottom=document.createElement("div");
 
-        phoneBox.classList.add("phone");
+        phoneBox.classList.add("featuredPhone");
         ////elements of the phone///
         const brand = document.createElement("p");
         const name = document.createElement("p");
@@ -121,17 +114,10 @@ document.addEventListener("DOMContentLoaded",()=>{
         const price= document.createElement("p");;
         const storage= document.createElement("p");
         const img=document.createElement('img');
-        brand.style.fontStyle="italic";
-        //////////////Style////////////////
-        phoneBox.style.width="200px";
-        phoneBox.style.height="200px";
-        phoneBox.style.padding="1.2%";
-        phoneBox.style.marginLeft="30px";
-        phoneBox.style.marginRight="30px";
-        phoneBox.style.marginTop="30px";
-        phoneBox.style.marginBottom="30px";
-        img.style.width="200px";
-        img.style.height="200px";
+        /////adding ids to style them in css////
+        brand.classList.add("phoneBrand");
+        img.classList.add("featuredPhoneImage");
+        bottom.classList.add("phoneDetails");
         ///////////////assing values to each element////////////////////
         brand.innerHTML=phone.brand;
         name.innerHTML="Model: "+phone.name;
@@ -140,6 +126,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         storage.innerHTML="Storage: "+phone.storage;
         img.src=phone.img;
         img.addEventListener("click",(event)=>{
+            localStorage.setItem("item",JSON.stringify(phone));
             open("./item.html");
            
         });

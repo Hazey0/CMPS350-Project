@@ -73,7 +73,11 @@ nav a:hover {
     transition: transform 0.3s ease;
 }
 
-.phoneItem:hover {
+.phone:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.featuredPhone:hover {
     transform: translateY(-10px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
@@ -117,4 +121,38 @@ nav a:hover {
 }
 .footerStuff{
     margin-top: 100px;
+}
+
+.phone{
+    border-color: #333;;
+    border-style: solid;
+    border-radius: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 1.1%;
+}
+.featuredPhone{
+    
+}
+.phoneImage{
+    width: 200px;
+    height: 200px;
+}
+.featuredPhoneImage{
+    width: 200px;
+    height: 200px;
+}
+.phoneDetails{
+font-family: Georgia, 'Times New Roman', Times, serif;
+display: block;
+justify-content: center;
+padding: 1.1%;
+}
+
+
+#items{
+    display: flex;
+    justify-content: start;
+    padding: 1.3%;
+
 }
