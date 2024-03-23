@@ -1,5 +1,5 @@
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Gill Sans MT;
     margin: 0px;
 }
 
@@ -7,7 +7,7 @@ body {
 .nav1{
     padding-right: 20px;
     padding-left: 20px;
-    height: 80px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between ;
