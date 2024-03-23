@@ -167,14 +167,20 @@ document.addEventListener("DOMContentLoaded",()=>{
         if(user==null){
             
             const nav= document.querySelector("#loginButton");
-            console.log(nav.hasChildNodes()+ "condition true");
+            const guest=document.createElement("p");
+            guest.innerHTML="Guest"
+            guest.classList.add("guest");
+            nav.appendChild(guest);
             if(nav.hasChildNodes==false){
             nav.replaceChildren();
+
             const loginButton= document.createElement("button");
             loginButton.innerHTML="Login";
             loginButton.addEventListener("click",()=>{
              open("./login.html");
             })
+
+            n
             nav.appendChild(loginButton);}
             else{
 
