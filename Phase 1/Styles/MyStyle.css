@@ -1,3 +1,6 @@
+
+
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -9,9 +12,13 @@ body {
 
 
 .nav1{
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between ;
+    background-color: black;
 }
 
 .logo img {
@@ -20,14 +27,20 @@ body {
     transition: transform 0.3s ease;
 }
 
-.logo img:hover {
-    transform: rotate(360deg);
-}
-
 .searchItem {
     width: 100%;
+    display: flex;
     max-width: 500px;
     position: relative;
+
+    .sButton {
+       background-color: transparent;
+       border: none;
+
+       img{
+        border-radius: 5px;
+       }
+    }
 }
 
 .searchInput {
@@ -39,15 +52,14 @@ body {
 
 nav a {
     text-decoration: none;
-    color: #333;
-    background-color: #eaeaea;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
+    color: white;
 }
 
 nav a:hover {
-    background-color: #ddd;
+    padding: 3px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
 }
 
 /* Featured Phones */
@@ -147,10 +159,10 @@ nav a:hover {
 }
 /*will effect the details of the phones that appear under the image of the phone*/
 .phoneDetails{
-font-family: Georgia, 'Times New Roman', Times, serif;
-display: block;
-justify-content: center;
-padding: 1.1%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: block;
+    justify-content: center;
+    padding: 1.1%;
 }
 
 /* will effect the area that contains the phones under the featured phones*/
