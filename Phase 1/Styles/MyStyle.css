@@ -1,3 +1,7 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 
 .MAIN {
     padding-left: 30px;
@@ -61,12 +65,13 @@ body {
 }
 
 nav a {
+    padding: 10px 10px;
+    cursor: pointer;
     text-decoration: none;
     color: white;
 }
 
 nav a:hover {
-    padding: 3px;
     color: black;
     background-color: white;
     border-radius: 10px;
@@ -212,9 +217,26 @@ nav a:hover {
     font-size: 100%;
     color: #f4f4f4;
 }
-.logoutButton{
 
+
+.logoutButton {
+    padding: 10px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: black;
+    border: none;
+    border-radius: 15px;
 }
+.logoutButton:hover {
+    background-color: white;
+    color: black;
+}
+
+ 
 /* controls the logo that appears next to search*/
 .cancelSearch{
 
