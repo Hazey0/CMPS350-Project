@@ -147,10 +147,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     };
 
     function logged(){
+        console.log(user)
         if(user==null){
             
-            const nav= document.querySelector(".navItem")
-            if(nav==null){
+            const nav= document.querySelector("#loginButton");
+            console.log(nav.hasChildNodes()+ "condition true");
+            if(nav.hasChildNodes==false){
             nav.replaceChildren();
             const loginButton= document.createElement("button");
             loginButton.innerHTML="Login";
@@ -163,12 +165,14 @@ document.addEventListener("DOMContentLoaded",()=>{
             }
         }
         else{
-           const nav= document.querySelector(".navItem")
+           const nav= document.querySelector("#loginButton")
            nav.replaceChildren();
            const logoutButton= document.createElement("button");
            logoutButton.innerHTML="Logout";
+           logoutButton.classList.add("logoutButton");
            const usernam= document.createElement("p");
            usernam.innerHTML= user.username;
+           usernam.classList.add("username");
            logoutButton.addEventListener("click",()=>{
             logout();
            })
@@ -179,6 +183,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     function logout(){
         localStorage.removeItem("user");
         open("./main.html");
+        
     }
     logged();
     renderFunctions();
