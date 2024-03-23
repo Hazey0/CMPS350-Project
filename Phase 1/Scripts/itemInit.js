@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded",()=>{
+    const userData=localStorage.getItem("user");
+const user=JSON.parse(userData);
 const data=localStorage.getItem("item");
 const phone=JSON.parse(data);
-const userData=localStorage.getItem("user");
-const user=JSON.parse(userData);
-console.log(phone);
-let loggedIn=false;
 
+console.log(phone);
 function renderPhone(){
     const phoneBox=document.querySelector("#item");
     const top=document.createElement("div");
@@ -23,7 +22,7 @@ function renderPhone(){
     ///////////////assing values to each element////////////////////
     buyButton.innerHTML="Buy for : "+phone.price;
     buyButton.addEventListener('click',(event)=>{
-        purchase(user);
+        purchase();
     })
     brand.innerHTML=phone.brand;
     name.innerHTML="Model: "+phone.name;
@@ -43,13 +42,20 @@ function renderPhone(){
     phoneBox.appendChild(top);
     phoneBox.appendChild(bottom);
     
-   function purchase(user){
-    if(loggedIn){
-        if(user.balance>=phone.price){
-
+   function purchase(){
+    console.log(user);
+    if(user!=null){
+       if(user.type=="Customer"){
+        if(user.money>=phone.price){
+            document.writeln("purschase successful")
+            console.log("debnuj")
         }
         else{
+            
             document.writeln("insuffienct balance");
+        }}
+        else{
+            document.writeln("you are not a customer")
         }
     }
     else{

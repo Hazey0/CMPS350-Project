@@ -108,6 +108,9 @@ document.addEventListener("DOMContentLoaded",()=>{
         img.src=phone.img;
         img.addEventListener("click",(event)=>{
             localStorage.setItem("item",JSON.stringify(phone));
+            if(user!=null){
+                localStorage.setItem("user",JSON.stringify(user));
+            }
             open("./item.html");
            
         });
