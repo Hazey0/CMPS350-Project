@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const yourPath=getPage(window.location.pathname);
     console.log(yourPath)
     const mainPath="main.html";
+    let searchedPhones=[];
     
  
    
@@ -155,8 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
     function searchPhone() {
         if (document.querySelector(".cancelSearch") != null) {
             document.querySelector(".cancelSearch").remove();
@@ -184,6 +183,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const container = document.querySelector("#items");
         container.replaceChildren();
+        searchedPhones.push(...searchResult);
+        console.log(searchedPhones);
         searchResult.forEach((phone) => container.appendChild(renderPhone(phone)));
         const searchDiv = document.querySelector("#searchDiv");
         const cancelSearch = document.createElement("img");
@@ -209,7 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function logged() {
-        console.log(user)
         if (user == null) {
 
             const nav2 = document.querySelector("#loginButton");
