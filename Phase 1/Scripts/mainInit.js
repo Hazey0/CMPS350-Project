@@ -241,6 +241,21 @@ document.addEventListener("DOMContentLoaded",()=>{
         close();
         
     }
+    function sort(type,dir){
+
+        if(dir=="asc"){
+            renderAfterSort(phones.sort((a,b)=> a.type>b.type ? a:b))
+        }
+        else if (dic=="dsc"){
+            renderAfterSort(phones.sort((a,b)=> a.type<b.type ? a:b))
+        }
+
+    }
+    function renderAfterSort(phonz){
+        const container=document.querySelector("#items");
+        container.replaceChildren();
+        phonz.forEach((phone)=>container.appendChild(renderPhone(phone)));
+    }
     logged();
     renderFunctions();
     renderFeaturedPhones();
