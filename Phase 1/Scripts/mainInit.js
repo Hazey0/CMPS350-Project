@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     featuredPhones.push(phones[1]);
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
+    ////you have to replace this address with your in order to have a functional website//// 
     const yourPath="file:///C:/Users/Haze/Documents/GitHub/CMPS350-Project/Phase%201/Websites/main.html"
 
     function renderFunctions() {
