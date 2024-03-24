@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name.innerHTML = "Model: " + phone.name;
         year.innerHTML = "Year: " + phone.year;
         price.innerHTML = "price: " + phone.price + "QR";
-        storage.innerHTML = "Storage: " + phone.storage;
+        storage.innerHTML = "Storage: " + phone.storage+"GB";
         img.src = phone.img;
         itemLink.addEventListener("click", (event) => {
             localStorage.setItem("item", JSON.stringify(phone));
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name.innerHTML = "Model: " + phone.name;
         year.innerHTML = "Year: " + phone.year;
         price.innerHTML = "price: " + phone.price + "QR";
-        storage.innerHTML = "Storage: " + phone.storage;
+        storage.innerHTML = "Storage: " + phone.storage+"GB";
         img.src = phone.img;
         itemLink.addEventListener("click", (event) => {
             localStorage.setItem("item", JSON.stringify(phone));
@@ -410,6 +410,10 @@ document.addEventListener("DOMContentLoaded", () => {
         price.addEventListener("click", (event) => { replaceSortType(), showSortType(price, price.value) });
         year.addEventListener("click", (event) => { replaceSortType(), showSortType(year, year.value) });
         storage.addEventListener("click", (event) => { replaceSortType(), showSortType(storage, storage.value) });
+        name.addEventListener("mouseleave",(event) => {replaceSortType(); });
+        price.addEventListener("mouseleave",(event) => {replaceSortType(); });
+        year.addEventListener("mouseleave",(event) => {replaceSortType(); });
+        storage.addEventListener("mouseleave",(event) => {replaceSortType(); });
         /////structure//////
         name.appendChild(nameImg);
         price.appendChild(priceImg);
