@@ -197,3 +197,13 @@ nav a:hover {
     }
 
 }
+.userTab{
+    background-color: #f4f4f4;
+    padding: 7px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 200px;
+}

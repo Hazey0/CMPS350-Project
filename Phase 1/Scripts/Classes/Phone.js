@@ -43,7 +43,6 @@ const phones = [
     new Phone("Apple", "iPhone 12", 2020, 2499, 256, "../Media/images/iphone13.jpg"),
     new Phone("Samsung", "Galaxy Z Fold 5", 2024, 8499, 1028, "../Media/images/fold5.jpg"),
     new Phone("ZTE", "Axon 40", 2020, 499, 128, "../Media/images/Axon.jpg"),
-    /////////////////////////////////////////////////////
     new Phone("Motorola", "Moto G83", 2024, 1496.3, 128, "../Media/images/MotoG83.jpg"),
     new Phone("LG", "Wing 5G", 2022, 2773.3, 256, "../Media/images/LGWing5G.jpg"),
     new Phone("Asus", "ROG Phone 6", 2023, 4086.3, 512, "../Media/images/AsusROGPhone6.PNG"),

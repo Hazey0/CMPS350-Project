@@ -467,21 +467,15 @@ document.addEventListener("DOMContentLoaded", () => {
         //typeContain.appendChild(node);
 
     }
-    function userTab() {
-        if (user != null) {
-            const userContainer = document.querySelector("#user");
-            userContainer.addEventListener("click", (event) => {
-                showUserTab();
-            })
-        }
-    }
+
 
     function showUserTab() {
+        if(user!==null){
         const userContainer = document.querySelector("#user");
         closeUserTab();
         const userTab = document.createElement("div");
         userTab.classList.add("userTab");
-        if(user==!null){
+       
         if (user.type == "Customer") {
 
             const transaction = document.createElement("p");
@@ -495,6 +489,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             transaction.style.cursor="pointer";
             transaction.addEventListener("click",(event)=>{
+                window.open("./transactions.html");
+            })
+            transactionLogo.style.cursor="pointer";
+            transactionLogo.addEventListener("click",(event)=>{
                 window.open("./transactions.html");
             })
             transactionLogo.src="../Media/Icons/transLogo.svg";
@@ -560,8 +558,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
    
     logged();
-    showUserTab();
     renderFunctions();
+    showUserTab();
     renderSort();
     renderFeaturedPhones();
     renderPhones();
