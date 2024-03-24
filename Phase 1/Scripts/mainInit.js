@@ -11,8 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderFunctions() {
         const searchButton = document.querySelector("#searchButton");
-        searchButton.addEventListener("mouseOver", (event) => {
-            searchButton.src = "../Media/icons/searcHover.svg"
+        const searchImg = document.querySelector(".searchImage");
+        searchButton.addEventListener("mouseover", (event) => {
+            searchImg.src = "../Media/Icons/searchHover.svg"
+        })
+        searchButton.addEventListener("mouseout", (event) => {
+            searchImg.src = "../Media/Icons/search.svg"
         })
         searchButton.addEventListener("click", (event) => {
             searchPhone();
@@ -171,13 +175,24 @@ document.addEventListener("DOMContentLoaded", () => {
         searchResult.forEach((phone) => container.appendChild(renderPhone(phone)));
         const searchDiv = document.querySelector("#searchDiv");
         const cancelSearch = document.createElement("img");
-        cancelSearch.src = "../Media/icons/circle-x.svg";
+        cancelSearch.src = "../Media/icons/circlex.svg";
         cancelSearch.classList.add("cancelSearch");
+        cancelSearch.style.cursor = "pointer"
         cancelSearch.addEventListener("click", (event) => {
             renderPhones();
             cancelSearch.remove();
 
         })
+        cancelSearch.addEventListener("mouseover", (event) => {
+            cancelSearch.src = "../Media/icons/circlexHover.svg"
+
+        })
+        cancelSearch.addEventListener("mouseout", (event) => {
+            cancelSearch.src = "../Media/icons/circlex.svg"
+
+        })
+
+
         searchDiv.appendChild(cancelSearch);
     };
 
@@ -366,6 +381,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const yearImg = document.createElement("img");
         const priceImg = document.createElement("img");
         const storageImg = document.createElement("img");
+        nameImg.style.cursor="pointer";
+        yearImg.style.cursor="pointer";
+        priceImg.style.cursor="pointer";
+        storageImg.style.cursor="pointer";
         nameImg.src = "../Media/icons/sort.svg"
         yearImg.src = "../Media/icons/sort.svg"
         priceImg.src = "../Media/icons/sort.svg"
@@ -388,7 +407,7 @@ document.addEventListener("DOMContentLoaded", () => {
         sortContain.classList.add("sortContainer");
         ////adding events//////
         name.addEventListener("click", (event) => { replaceSortType(), showSortType(name, name.value) });
-        price.addEventListener("click", (event) => {replaceSortType(), showSortType(price, price.value) });
+        price.addEventListener("click", (event) => { replaceSortType(), showSortType(price, price.value) });
         year.addEventListener("click", (event) => { replaceSortType(), showSortType(year, year.value) });
         storage.addEventListener("click", (event) => { replaceSortType(), showSortType(storage, storage.value) });
         /////structure//////
@@ -409,10 +428,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ic.replaceChildren();
     }
     function showSortType(node, type) {
-        const typeContain =document.querySelector("#typeContain");
+        const typeContain = document.querySelector("#typeContain");
         const asc = document.createElement("button");
         const dsc = document.createElement("button");
-        const sortType=document.createElement("div");
+        const sortType = document.createElement("div");
         sortType.classList.add("sortType")
         asc.innerHTML = "ascending"
         dsc.innerHTML = "dscending"
