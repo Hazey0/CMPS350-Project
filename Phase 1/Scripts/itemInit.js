@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const phoneBox = document.querySelector("#item");
         const top = document.createElement("div");
         const bottom = document.createElement("div");
+        bottom.classList.add("phoneDetails")
         const quantitySelect = document.querySelector("#quantity");
         quantitySelect.max=phone.quantity;
         quantitySelect.addEventListener("click", (event) => {
@@ -20,12 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
         ////elements of the phone///
         const select=document.querySelector("#quantity");
         const brand = document.createElement("p");
+        brand.classList.add("brand");
         const name = document.createElement("p");
         const year = document.createElement("p");
-        const price = document.createElement("p");;
+        const price = document.createElement("p");
         const storage = document.createElement("p");
         const img = document.createElement('img');
         const buyButton = document.createElement("button");
+        buyButton.classList.add("buyButton");
         const seller = document.createElement("p")
         const total = document.createElement("p");
         const quantityv=document.createElement("p");
@@ -34,14 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
         total.innerHTML = phone.price;
         total.classList.add("total");
         seller.innerHTML = "Seller: " + phone.seller;
-        buyButton.innerHTML = "Buy for : "
+        buyButton.innerHTML = "Buy Now!"
         buyButton.addEventListener('click', (event) => {
             purchase();
         })
         brand.innerHTML = phone.brand;
         name.innerHTML = "Model: " + phone.name;
         year.innerHTML = "Year: " + phone.year;
-        price.innerHTML = "price: " + phone.price;
+        price.innerHTML = "Price: " + phone.price;
         storage.innerHTML = "Storage: " + phone.storage;
         img.src = phone.img;
 
@@ -52,11 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
         bottom.appendChild(year);
         bottom.appendChild(price);
         bottom.appendChild(storage);
+        bottom.appendChild(quantityv);
+        bottom.appendChild(select);
         bottom.appendChild(seller);
         bottom.appendChild(buyButton);
-        bottom.appendChild(total);
-        bottom.appendChild(select);
-        bottom.appendChild(quantityv);
         phoneBox.appendChild(top);
         phoneBox.appendChild(bottom);
 
