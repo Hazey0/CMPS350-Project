@@ -197,11 +197,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             transaction.style.cursor="pointer";
             transaction.addEventListener("click",(event)=>{
-                window.open("./transactions.html");
+                window.open("./transactions.html","_self");
             })
             transactionLogo.style.cursor="pointer";
             transactionLogo.addEventListener("click",(event)=>{
-                window.open("./transactions.html");
+                window.open("./transactions.html","_self");
             })
             transactionLogo.src="../Media/Icons/transLogo.svg";
             transaction.innerHTML="Transaction History";
@@ -235,10 +235,10 @@ document.addEventListener("DOMContentLoaded", () => {
             sell.style.cursor="pointer";
             sellLogo.style.cursor="pointer";
             sell.addEventListener("click",(event)=>{
-                window.open("./sell.html");
+                window.open("./sell.html","_self");
             })
             sellLogo.addEventListener("click",(event)=>{
-                window.open("./sell.html");
+                window.open("./sell.html","_self");
             })
             sellLogo.src="../Media/Icons/transLogo.svg";
             sell.innerHTML="Sell Item";
