@@ -29,5 +29,4 @@ const users=[new User("ok",974, "Customer"),
             new User("scammer",8793,"Seller"),
             new User("lsds",873,"Admin")];
 users[0].money=10000;
-console.log(users)
 localStorage.setItem("users",JSON.stringify(users));

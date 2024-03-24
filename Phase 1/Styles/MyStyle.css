@@ -299,3 +299,13 @@ nav a:hover {
 
 
 }
+/*controls the "price year storage year" sort buttons*/
+.sortContainer{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+/*controls the asc and dsc buttons for sorting*/
+sortType.{
+
+}
