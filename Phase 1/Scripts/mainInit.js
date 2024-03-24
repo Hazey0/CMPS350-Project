@@ -8,10 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
     featuredPhones.push(phones[1]);
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
+
+
     const getPage = (a) => a.split("/").reduce((a, v) => v)
     const yourPath = getPage(window.location.pathname);
-    console.log(yourPath)
     const mainPath = "main.html";
+    const prevData=localStorage.getItem("prevPath");
+    const prevPath=JSON.parse(prevData);
+    console.log("current :"+yourPath)
+    console.log("previous:"+prevPath);
+
+
     let searchedPhones = [];
 
 
@@ -76,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         img.src = phone.img;
         itemLink.addEventListener("click", (event) => {
             localStorage.setItem("item", JSON.stringify(phone));
+            localStorage.setItem("prevPath",(JSON.stringify(mainPath)))
 
         })
         ////////////// attaching elements///////////
@@ -230,6 +238,10 @@ document.addEventListener("DOMContentLoaded", () => {
             userImage.classList.add("userImage");
             nav1.appendChild(userImage);
             nav1.appendChild(guest);
+            console.log(guest);
+            nav2.addEventListener("click",(event)=>{
+                localStorage.setItem("prevPath",(JSON.stringify(mainPath)))
+            })
 
             nav2.appendChild(loginButton);
             //if(nav.hasChildNodes==false){
@@ -267,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function logout() {
         localStorage.removeItem("user");
-        open("./main.html");
+        open("./"+mainPath);
         close();
 
     }

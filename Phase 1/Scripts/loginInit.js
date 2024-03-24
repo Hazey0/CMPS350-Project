@@ -3,6 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const users = JSON.parse(usersData);
     console.log(users);
 
+    const getPage = (a) => a.split("/").reduce((a, v) => v)
+    const yourPath = getPage(window.location.pathname);
+    const mainPath = "login.html";
+    const prevData=localStorage.getItem("prevPath");
+    const prevPath=JSON.parse(prevData);
+    console.log("current :"+yourPath)
+    console.log("previous:"+prevPath);
+
     function log() {
         const loginButton = document.querySelector("#loginButton");
         loginButton.addEventListener("click", (event) => {
@@ -15,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // If tempUser is an empty array, no user was found
                 if (tempUser.length > 0) {
                     localStorage.setItem("user", JSON.stringify(tempUser[0]));
-                    open("./main.html");
+                    open("./"+prevPath);
                     close("./login.html") //apply on main.html part
                 } else {
                     // Alert the user if login is incorrect
