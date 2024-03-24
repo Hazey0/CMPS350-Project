@@ -156,6 +156,8 @@ function renderAfterSort(p){
 //
 
 
-console.log("--------------")
-sort("year","asc");
-console.log(phones);
+const yourPath=window.location.pathname;
+const mainPath="/main.html";
+
+const getPage=(a)=>a.split("/").reduce((a,v)=> v)
+console.log(getPage(yourPath));

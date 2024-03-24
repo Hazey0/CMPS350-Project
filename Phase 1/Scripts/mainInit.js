@@ -8,13 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
     featuredPhones.push(phones[1]);
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
-    ////you have to replace this address with your in order to have a functional website//// 
-    const yourPath="file:///C:/Users/Haze/Documents/GitHub/CMPS350-Project/Phase%201/Websites/main.html"
+    const getPage=(a)=>a.split("/").reduce((a,v)=> v)
+    const yourPath=getPage(window.location.pathname);
+    console.log(yourPath)
+    const mainPath="main.html";
+    
+ 
+   
 
     function renderFunctions() {
-        if(window.location.href=="file:///C:/Users/Haze/Documents/GitHub/CMPS350-Project/Phase%201/Websites/main.html"){
+        if(mainPath==yourPath){
         const searchButton = document.querySelector("#searchButton");
         const searchImg = document.querySelector(".searchImage");
+        document.addEventListener("keypress",(event)=>{event.key=="Enter"? searchPhone(): null })
         searchButton.addEventListener("mouseover", (event) => {
             searchImg.src = "../Media/Icons/searchHover.svg"
         })
@@ -28,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function renderPhones() {
-        if(window.location.href==yourPath){
+        if(mainPath==yourPath){
         const container = document.querySelector("#items");
         container.replaceChildren();
         phones.forEach((phone) => container.appendChild(renderPhone(phone)));}
@@ -90,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     };
     function renderFeaturedPhones() {
-        if(window.location.href==yourPath){
+        if(mainPath==yourPath){
         const container = document.querySelector("#featuredPhones");
         container.replaceChildren();
         featuredPhones.forEach((phone) => container.appendChild(renderFeaturedPhone(phone)));}
@@ -376,7 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
         phonz.forEach((phone) => container.appendChild(renderPhone(phone)));
     }
     function renderSort() {
-        if(window.location.href==yourPath){
+        if(mainPath==yourPath){
         const container = document.querySelector("#itemsheader")
         const ic = document.querySelector("#typeContain");
         const name = document.createElement('a');
