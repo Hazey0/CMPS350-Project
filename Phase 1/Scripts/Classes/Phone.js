@@ -7,7 +7,7 @@ class Phone {
     storage;
     img;
     seller;
-    quantity;
+    quantity=1;
     constructor(b, n, y, p, s, i) {
         this.brand = b;
         this.name = n;
@@ -45,30 +45,8 @@ const phones = [
     new Phone("ZTE", "Axon 40", 2020, 499, 128,"../Media/images/Axon.jpg"),
 ]
 
+phones[0].seller = "mike";phones[1].seller = "scammer";phones[2].seller = "mike";phones[3].seller = "scammer";phones[4].seller = "mike";phones[5].seller = "scammer";phones[6].seller = "scammer";phones[7].seller = "scammer";phones[8].seller = "scammer";phones[9].seller = "mike";phones[10].seller = "mike";phones[11].seller = "mike";phones[12].seller = "mike";phones[13].seller = "mike";phones[14].seller = "mike";phones[15].seller = "scammer";phones[16].seller = "scammer";phones[17].seller = "scammer";phones[18].seller = "scammer";phones[19].seller = "mike";phones[20].seller = "mike";phones[21].seller = "mike";phones[22].seller = "mike";phones[23].seller = "mike";
 
-phones[0].seller = "mike";
-phones[1].seller = "scammer";
-phones[2].seller = "mike";
-phones[3].seller = "scammer";
-phones[4].seller = "mike";
-phones[5].seller = "scammer";
-phones[6].seller = "scammer";
-phones[7].seller = "scammer";
-phones[8].seller = "scammer";
-phones[9].seller = "mike";
-phones[10].seller = "mike";
-phones[11].seller = "mike";
-phones[12].seller = "mike";
-phones[13].seller = "mike";
-phones[14].seller = "mike";
-phones[15].seller = "scammer";
-phones[16].seller = "scammer";
-phones[17].seller = "scammer";
-phones[18].seller = "scammer";
-phones[19].seller = "mike";
-phones[20].seller = "mike";
-phones[21].seller = "mike";
-phones[22].seller = "mike";
-phones[23].seller = "mike";
+  phones[0].quantity=2 ;  phones[1].quantity= 1;  phones[2].quantity=3   ;  phones[3].quantity= 5  ;  phones[4].quantity=  1 ;  phones[5].quantity= 7  ;  phones[6].quantity=  8 ;  phones[7].quantity=  3 ;  phones[8].quantity=  2 ;  phones[9].quantity=  2 ;phones[10].quantity =  1 ;phones[11].quantity =  4 ;phones[12].quantity =  1 ;phones[13].quantity =  6 ;phones[14].quantity =  7 ;phones[15].quantity =  4 ;phones[16].quantity =  3 ;phones[17].quantity =  9 ;phones[18].quantity =  7 ;phones[19].quantity =  4 ;phones[20].quantity =  3 ;phones[21].quantity =  1 ;phones[22].quantity =   2;phones[23].quantity =   3;
 
 localStorage.setItem("phones", JSON.stringify(phones));

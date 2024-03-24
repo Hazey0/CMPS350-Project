@@ -2,14 +2,16 @@
 document.addEventListener("DOMContentLoaded", () => {
     const phonesData = localStorage.getItem("phones");
     const phones = JSON.parse(phonesData);
-
+    console.log(window.location)
     const featuredPhones = [];
     featuredPhones.push(phones[0]);
     featuredPhones.push(phones[1]);
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
+    const yourPath="file:///C:/Users/Haze/Documents/GitHub/CMPS350-Project/Phase%201/Websites/main.html"
 
     function renderFunctions() {
+        if(window.location.href=="file:///C:/Users/Haze/Documents/GitHub/CMPS350-Project/Phase%201/Websites/main.html"){
         const searchButton = document.querySelector("#searchButton");
         const searchImg = document.querySelector(".searchImage");
         searchButton.addEventListener("mouseover", (event) => {
@@ -22,11 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
             searchPhone();
         })
     }
+    }
 
     function renderPhones() {
+        if(window.location.href==yourPath){
         const container = document.querySelector("#items");
         container.replaceChildren();
-        phones.forEach((phone) => container.appendChild(renderPhone(phone)));
+        phones.forEach((phone) => container.appendChild(renderPhone(phone)));}
     }
 
     function renderPhone(phone) {
@@ -85,9 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     };
     function renderFeaturedPhones() {
+        if(window.location.href==yourPath){
         const container = document.querySelector("#featuredPhones");
         container.replaceChildren();
-        featuredPhones.forEach((phone) => container.appendChild(renderFeaturedPhone(phone)));
+        featuredPhones.forEach((phone) => container.appendChild(renderFeaturedPhone(phone)));}
     }
 
     function renderFeaturedPhone(phone) {
@@ -370,6 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
         phonz.forEach((phone) => container.appendChild(renderPhone(phone)));
     }
     function renderSort() {
+        if(window.location.href==yourPath){
         const container = document.querySelector("#itemsheader")
         const ic = document.querySelector("#typeContain");
         const name = document.createElement('a');
@@ -425,7 +431,7 @@ document.addEventListener("DOMContentLoaded", () => {
         sortContain.appendChild(storage);
         container.appendChild(sortContain);
 
-
+        }
     }
     function replaceSortType() {
         const ic = document.querySelector("#typeContain");

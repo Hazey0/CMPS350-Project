@@ -9,10 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const phoneBox = document.querySelector("#item");
         const top = document.createElement("div");
         const bottom = document.createElement("div");
-        const quantity = document.querySelector("#quantity");
-        quantity.addEventListener("click", (event) => {
+        const quantitySelect = document.querySelector("#quantity");
+        quantitySelect.max=phone.quantity;
+        quantitySelect.addEventListener("click", (event) => {
             updatePrice();
         })
+
+        quantitySelect
         phoneBox.classList.add("phone");
         ////elements of the phone///
         const select=document.querySelector("#quantity");
@@ -25,7 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const buyButton = document.createElement("button");
         const seller = document.createElement("p")
         const total = document.createElement("p");
+        const quantityv=document.createElement("p");
         ///////////////assing values to each element////////////////////
+        quantityv.innerHTML="Quantity: "+phone.quantity;
         total.innerHTML = phone.price;
         total.classList.add("total");
         seller.innerHTML = "Seller: " + phone.seller;
@@ -51,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bottom.appendChild(buyButton);
         bottom.appendChild(total);
         bottom.appendChild(select);
+        bottom.appendChild(quantityv);
         phoneBox.appendChild(top);
         phoneBox.appendChild(bottom);
 
