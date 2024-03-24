@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(yourPath)
     const mainPath="main.html";
     let searchedPhones=[];
+
     
  
    
@@ -339,42 +340,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    function sort(t, dir) {
+    function sort(t, dir,phonies) {
         const type = t.toString();
         if (type == "price") {
             if (dir == "asc") {
-                renderAfterSort(phones.sort((a, b) => a.price - b.price))
+                renderAfterSort(phonies.sort((a, b) => a.price - b.price))
             }
             else if (dir == "dsc") {
-                renderAfterSort(phones.sort((a, b) => b.price - a.price))
+                renderAfterSort(phonies.sort((a, b) => b.price - a.price))
             }
         }
         //////////////////////
         if (type == "name") {
             if (dir == "asc") {
-                renderAfterSort(phones.sort((a, b) => compare(a.brand, b.brand) ? -1 : compare(b.brand, a.brand) ? 1 : 0))
+                renderAfterSort(phonies.sort((a, b) => compare(a.brand, b.brand) ? -1 : compare(b.brand, a.brand) ? 1 : 0))
             }
             else if (dir == "dsc") {
-                renderAfterSort(phones.sort((a, b) => compare(a.brand, b.brand) ? 1 : compare(b.brand, a.brand) ? -1 : 0))
+                renderAfterSort(phonies.sort((a, b) => compare(a.brand, b.brand) ? 1 : compare(b.brand, a.brand) ? -1 : 0))
             }
         }
         /////////////
         if (type == "storage") {
             if (dir == "asc") {
-                renderAfterSort(phones.sort((a, b) => a.storage - b.storage))
+                renderAfterSort(phonies.sort((a, b) => a.storage - b.storage))
             }
             else if (dir == "dsc") {
-                renderAfterSort(phones.sort((a, b) => b.storage - a.storage))
+                renderAfterSort(phonies.sort((a, b) => b.storage - a.storage))
             }
         }
         if (type == "year") {
             if (dir == "asc") {
-                renderAfterSort(phones.sort((a, b) => a.year - b.year))
+                renderAfterSort(phonies.sort((a, b) => a.year - b.year))
             }
             else if (dir == "dsc") {
-                renderAfterSort(phones.sort((a, b) => b.year - a.year))
+                renderAfterSort(phonies.sort((a, b) => b.year - a.year))
             }
+            
         }
+        searchedPhones=phonies;
     }
     function renderAfterSort(phonz) {
         const container = document.querySelector("#items");
@@ -454,8 +457,8 @@ document.addEventListener("DOMContentLoaded", () => {
         dsc.innerHTML = "dscending"
         asc.value = "asc";
         dsc.value = "dsc";
-        asc.addEventListener('click', (event) => { replaceSortType(), sort(type, asc.value) })
-        dsc.addEventListener('click', (event) => { replaceSortType(), sort(type, dsc.value) })
+        asc.addEventListener('click', (event) => {     searchedPhones.length>0 ? (replaceSortType(), sort(type, asc.value,searchedPhones)) :(replaceSortType() ,sort(type, asc.value,phones)) })
+        dsc.addEventListener('click', (event) => {  searchedPhones.length>0 ? (replaceSortType(), sort(type, dsc.value,searchedPhones)) :(replaceSortType() ,sort(type, dsc.value,phones)) })
         typeContain.appendChild(asc);
         typeContain.appendChild(dsc);
         node.appendChild(typeContain);
