@@ -501,11 +501,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             transaction.style.cursor="pointer";
             transaction.addEventListener("click",(event)=>{
-                window.open("./transactions.html");
+                window.open("./transactions.html","_self");
             })
             transactionLogo.style.cursor="pointer";
             transactionLogo.addEventListener("click",(event)=>{
-                window.open("./transactions.html");
+                window.open("./transactions.html","_self");
             })
             transactionLogo.src="../Media/Icons/transLogo.svg";
             transaction.innerHTML="Transaction History";
@@ -568,7 +568,6 @@ document.addEventListener("DOMContentLoaded", () => {
         closeIt.remove();}
 
     }
-   
     logged();
     renderFunctions();
     showUserTab();

@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function logout() {
         localStorage.removeItem("user");
-        open("./"+mainPath);
+        window.open("./"+mainPath,"_self");
 
 
     }
