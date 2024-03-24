@@ -481,8 +481,9 @@ document.addEventListener("DOMContentLoaded", () => {
         closeUserTab();
         const userTab = document.createElement("div");
         userTab.classList.add("userTab");
+        if(user==!null){
         if (user.type == "Customer") {
-            
+
             const transaction = document.createElement("p");
             const transactionLogo = document.createElement("img");
 
@@ -547,7 +548,7 @@ document.addEventListener("DOMContentLoaded", () => {
             u.style.display="";
             userContainer.querySelector(".userTab").remove();
         })
-
+        }
     }
     function closeUserTab() {
         const closeIt=document.querySelector(".userTab");
