@@ -8,38 +8,39 @@ document.addEventListener("DOMContentLoaded", () => {
     featuredPhones.push(phones[1]);
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
-    const getPage=(a)=>a.split("/").reduce((a,v)=> v)
-    const yourPath=getPage(window.location.pathname);
+    const getPage = (a) => a.split("/").reduce((a, v) => v)
+    const yourPath = getPage(window.location.pathname);
     console.log(yourPath)
-    const mainPath="main.html";
-    let searchedPhones=[];
+    const mainPath = "main.html";
+    let searchedPhones = [];
 
-    
- 
-   
+
+
+
 
     function renderFunctions() {
-        if(mainPath==yourPath){
-        const searchButton = document.querySelector("#searchButton");
-        const searchImg = document.querySelector(".searchImage");
-        document.addEventListener("keypress",(event)=>{event.key=="Enter"? searchPhone(): null })
-        searchButton.addEventListener("mouseover", (event) => {
-            searchImg.src = "../Media/Icons/searchHover.svg"
-        })
-        searchButton.addEventListener("mouseout", (event) => {
-            searchImg.src = "../Media/Icons/search.svg"
-        })
-        searchButton.addEventListener("click", (event) => {
-            searchPhone();
-        })
-    }
+        if (mainPath == yourPath) {
+            const searchButton = document.querySelector("#searchButton");
+            const searchImg = document.querySelector(".searchImage");
+            document.addEventListener("keypress", (event) => { event.key == "Enter" ? searchPhone() : null })
+            searchButton.addEventListener("mouseover", (event) => {
+                searchImg.src = "../Media/Icons/searchHover.svg"
+            })
+            searchButton.addEventListener("mouseout", (event) => {
+                searchImg.src = "../Media/Icons/search.svg"
+            })
+            searchButton.addEventListener("click", (event) => {
+                searchPhone();
+            })
+        }
     }
 
     function renderPhones() {
-        if(mainPath==yourPath){
-        const container = document.querySelector("#items");
-        container.replaceChildren();
-        phones.forEach((phone) => container.appendChild(renderPhone(phone)));}
+        if (mainPath == yourPath) {
+            const container = document.querySelector("#items");
+            container.replaceChildren();
+            phones.forEach((phone) => container.appendChild(renderPhone(phone)));
+        }
     }
 
     function renderPhone(phone) {
@@ -71,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name.innerHTML = "Model: " + phone.name;
         year.innerHTML = "Year: " + phone.year;
         price.innerHTML = "Price: " + phone.price + "QR";
-        storage.innerHTML = "Storage: " + phone.storage+"GB";
+        storage.innerHTML = "Storage: " + phone.storage + "GB";
         img.src = phone.img;
         itemLink.addEventListener("click", (event) => {
             localStorage.setItem("item", JSON.stringify(phone));
@@ -98,10 +99,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     };
     function renderFeaturedPhones() {
-        if(mainPath==yourPath){
-        const container = document.querySelector("#featuredPhones");
-        container.replaceChildren();
-        featuredPhones.forEach((phone) => container.appendChild(renderFeaturedPhone(phone)));}
+        if (mainPath == yourPath) {
+            const container = document.querySelector("#featuredPhones");
+            container.replaceChildren();
+            featuredPhones.forEach((phone) => container.appendChild(renderFeaturedPhone(phone)));
+        }
     }
 
     function renderFeaturedPhone(phone) {
@@ -128,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name.innerHTML = "Model: " + phone.name;
         year.innerHTML = "Year: " + phone.year;
         price.innerHTML = "Price: " + phone.price + "QR";
-        storage.innerHTML = "Storage: " + phone.storage+"GB";
+        storage.innerHTML = "Storage: " + phone.storage + "GB";
         img.src = phone.img;
         itemLink.addEventListener("click", (event) => {
             localStorage.setItem("item", JSON.stringify(phone));
@@ -340,7 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    function sort(t, dir,phonies) {
+    function sort(t, dir, phonies) {
         const type = t.toString();
         if (type == "price") {
             if (dir == "asc") {
@@ -375,9 +377,9 @@ document.addEventListener("DOMContentLoaded", () => {
             else if (dir == "dsc") {
                 renderAfterSort(phonies.sort((a, b) => b.year - a.year))
             }
-            
+
         }
-        searchedPhones=phonies;
+        searchedPhones = phonies;
     }
     function renderAfterSort(phonz) {
         const container = document.querySelector("#items");
@@ -385,61 +387,61 @@ document.addEventListener("DOMContentLoaded", () => {
         phonz.forEach((phone) => container.appendChild(renderPhone(phone)));
     }
     function renderSort() {
-        if(mainPath==yourPath){
-        const container = document.querySelector("#itemsheader")
-        const ic = document.querySelector("#typeContain");
-        const name = document.createElement('a');
-        const price = document.createElement('a');
-        const year = document.createElement('a');
-        const storage = document.createElement('a');
-        const sortContain = document.createElement('div');
-        const nameImg = document.createElement("img");
-        const yearImg = document.createElement("img");
-        const priceImg = document.createElement("img");
-        const storageImg = document.createElement("img");
-        nameImg.style.cursor="pointer";
-        yearImg.style.cursor="pointer";
-        priceImg.style.cursor="pointer";
-        storageImg.style.cursor="pointer";
-        nameImg.src = "../Media/icons/sort.svg"
-        yearImg.src = "../Media/icons/sort.svg"
-        priceImg.src = "../Media/icons/sort.svg"
-        storageImg.src = "../Media/icons/sort.svg"
-        /////assign names/////////
-        name.innerHTML = "Name";
-        price.innerHTML = "Price";
-        year.innerHTML = "Year";
-        storage.innerHTML = "Storage";
+        if (mainPath == yourPath) {
+            const container = document.querySelector("#itemsheader")
+            const ic = document.querySelector("#typeContain");
+            const name = document.createElement('a');
+            const price = document.createElement('a');
+            const year = document.createElement('a');
+            const storage = document.createElement('a');
+            const sortContain = document.createElement('div');
+            const nameImg = document.createElement("img");
+            const yearImg = document.createElement("img");
+            const priceImg = document.createElement("img");
+            const storageImg = document.createElement("img");
+            nameImg.style.cursor = "pointer";
+            yearImg.style.cursor = "pointer";
+            priceImg.style.cursor = "pointer";
+            storageImg.style.cursor = "pointer";
+            nameImg.src = "../Media/icons/sort.svg"
+            yearImg.src = "../Media/icons/sort.svg"
+            priceImg.src = "../Media/icons/sort.svg"
+            storageImg.src = "../Media/icons/sort.svg"
+            /////assign names/////////
+            name.innerHTML = "Name";
+            price.innerHTML = "Price";
+            year.innerHTML = "Year";
+            storage.innerHTML = "Storage";
 
-        name.value = "name";
-        price.value = "price";
-        year.value = "year";
-        storage.value = "storage";
-        /////assign css selectors///
-        name.classList.add("sortName");
-        price.classList.add("sortPrice");
-        year.classList.add("sortYear");
-        storage.classList.add("sortStorage");
-        sortContain.classList.add("sortContainer");
-        ////adding events//////
-        name.addEventListener("click", (event) => { replaceSortType(), showSortType(name, name.value) });
-        price.addEventListener("click", (event) => { replaceSortType(), showSortType(price, price.value) });
-        year.addEventListener("click", (event) => { replaceSortType(), showSortType(year, year.value) });
-        storage.addEventListener("click", (event) => { replaceSortType(), showSortType(storage, storage.value) });
-        name.addEventListener("mouseleave",(event) => {replaceSortType(); });
-        price.addEventListener("mouseleave",(event) => {replaceSortType(); });
-        year.addEventListener("mouseleave",(event) => {replaceSortType(); });
-        storage.addEventListener("mouseleave",(event) => {replaceSortType(); });
-        /////structure//////
-        name.appendChild(nameImg);
-        price.appendChild(priceImg);
-        year.appendChild(yearImg);
-        storage.appendChild(storageImg);
-        sortContain.appendChild(name);
-        sortContain.appendChild(year);
-        sortContain.appendChild(price);
-        sortContain.appendChild(storage);
-        container.appendChild(sortContain);
+            name.value = "name";
+            price.value = "price";
+            year.value = "year";
+            storage.value = "storage";
+            /////assign css selectors///
+            name.classList.add("sortName");
+            price.classList.add("sortPrice");
+            year.classList.add("sortYear");
+            storage.classList.add("sortStorage");
+            sortContain.classList.add("sortContainer");
+            ////adding events//////
+            name.addEventListener("click", (event) => { replaceSortType(), showSortType(name, name.value) });
+            price.addEventListener("click", (event) => { replaceSortType(), showSortType(price, price.value) });
+            year.addEventListener("click", (event) => { replaceSortType(), showSortType(year, year.value) });
+            storage.addEventListener("click", (event) => { replaceSortType(), showSortType(storage, storage.value) });
+            name.addEventListener("mouseleave", (event) => { replaceSortType(); });
+            price.addEventListener("mouseleave", (event) => { replaceSortType(); });
+            year.addEventListener("mouseleave", (event) => { replaceSortType(); });
+            storage.addEventListener("mouseleave", (event) => { replaceSortType(); });
+            /////structure//////
+            name.appendChild(nameImg);
+            price.appendChild(priceImg);
+            year.appendChild(yearImg);
+            storage.appendChild(storageImg);
+            sortContain.appendChild(name);
+            sortContain.appendChild(year);
+            sortContain.appendChild(price);
+            sortContain.appendChild(storage);
+            container.appendChild(sortContain);
 
         }
     }
@@ -457,17 +459,79 @@ document.addEventListener("DOMContentLoaded", () => {
         dsc.innerHTML = "dscending"
         asc.value = "asc";
         dsc.value = "dsc";
-        asc.addEventListener('click', (event) => {     searchedPhones.length>0 ? (replaceSortType(), sort(type, asc.value,searchedPhones)) :(replaceSortType() ,sort(type, asc.value,phones)) })
-        dsc.addEventListener('click', (event) => {  searchedPhones.length>0 ? (replaceSortType(), sort(type, dsc.value,searchedPhones)) :(replaceSortType() ,sort(type, dsc.value,phones)) })
+        asc.addEventListener('click', (event) => { searchedPhones.length > 0 ? (replaceSortType(), sort(type, asc.value, searchedPhones)) : (replaceSortType(), sort(type, asc.value, phones)) })
+        dsc.addEventListener('click', (event) => { searchedPhones.length > 0 ? (replaceSortType(), sort(type, dsc.value, searchedPhones)) : (replaceSortType(), sort(type, dsc.value, phones)) })
         typeContain.appendChild(asc);
         typeContain.appendChild(dsc);
         node.appendChild(typeContain);
         //typeContain.appendChild(node);
 
     }
-    renderSort();
+    function userTab() {
+        if (user != null) {
+            const userContainer = document.querySelector("#user");
+            userContainer.addEventListener("click", (event) => {
+                showUserTab();
+            })
+        }
+    }
+
+    function showUserTab() {
+        const userContainer = document.querySelector("#user");
+        closeUserTab();
+        if (user.type == "Customer") {
+            const transactionDiv = document.createElement("div");
+            const transaction = document.createElement("p");
+            const transactionLogo = document.createElement("img");
+
+            transactionDiv.classList.add("transactionDiv");
+            transaction.classList.add("transaction");
+            transactionLogo.classList.add("transactionLogo");
+
+
+
+            transactionDiv.style.cursor="pointer";
+            transactionDiv.addEventListener("click",(event)=>{
+                window.open("./Transactions.html");
+            })
+            transactionLogo.src="../Media/Icons/transLogo.svg";
+            transaction.innerHTML="Transaction History";
+
+            transactionDiv.appendChild(transaction);
+            transactionDiv.appendChild(transactionLogo);
+            userContainer.addEventListener("click",(event)=>{
+                const u=document.querySelector(".username")
+                const ui=document.querySelector(".userImage")
+                u.style.display="none";
+                userContainer.appendChild(transactionDiv);
+            })
+            
+            transactionDiv.addEventListener("mouseleave",(event)=>{
+                const u=document.querySelector(".username")
+                u.style.display="";
+                userContainer.querySelector(".transactionDiv").remove();
+            })
+
+
+        }
+        else if (user.type == "Seller") {
+
+        }
+
+    }
+    function closeUserTab() {
+        const closeIt=document.querySelector(".transactionDiv");
+        console.log(closeIt);
+        if(closeIt!=null){
+            closeIt.replaceChildren();
+        closeIt.remove();}
+
+    }
+   
     logged();
+    showUserTab();
     renderFunctions();
+    renderSort();
     renderFeaturedPhones();
     renderPhones();
 });
