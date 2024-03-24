@@ -24,7 +24,7 @@ class User {
     }
 }
 const users=[new User("ok",974, "Customer"),
-            new User("mike",879423,"Seller"),
+            new User("mike",911,"Seller"),
             new User("ksdjcvbv",8423,"Customer"),
             new User("scammer",8793,"Seller"),
             new User("lsds",873,"Admin")];

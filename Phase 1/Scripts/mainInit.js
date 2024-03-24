@@ -479,48 +479,78 @@ document.addEventListener("DOMContentLoaded", () => {
     function showUserTab() {
         const userContainer = document.querySelector("#user");
         closeUserTab();
+        const userTab = document.createElement("div");
+        userTab.classList.add("userTab");
         if (user.type == "Customer") {
-            const transactionDiv = document.createElement("div");
+            
             const transaction = document.createElement("p");
             const transactionLogo = document.createElement("img");
 
-            transactionDiv.classList.add("transactionDiv");
+            
             transaction.classList.add("transaction");
             transactionLogo.classList.add("transactionLogo");
 
 
 
-            transactionDiv.style.cursor="pointer";
-            transactionDiv.addEventListener("click",(event)=>{
-                window.open("./Transactions.html");
+            transaction.style.cursor="pointer";
+            transaction.addEventListener("click",(event)=>{
+                window.open("./transactions.html");
             })
             transactionLogo.src="../Media/Icons/transLogo.svg";
             transaction.innerHTML="Transaction History";
 
-            transactionDiv.appendChild(transaction);
-            transactionDiv.appendChild(transactionLogo);
+            userTab.appendChild(transaction);
+            userTab.appendChild(transactionLogo);
             userContainer.addEventListener("click",(event)=>{
                 const u=document.querySelector(".username")
                 const ui=document.querySelector(".userImage")
                 u.style.display="none";
-                userContainer.appendChild(transactionDiv);
+                userContainer.appendChild(userTab);
             })
-            
-            transactionDiv.addEventListener("mouseleave",(event)=>{
-                const u=document.querySelector(".username")
-                u.style.display="";
-                userContainer.querySelector(".transactionDiv").remove();
-            })
+
+
 
 
         }
         else if (user.type == "Seller") {
+            const sell = document.createElement("p");
+            const sellLogo = document.createElement("img");
 
+            
+            sell.classList.add("sell");
+            sellLogo.classList.add("sellLogo");
+
+
+
+            sell.style.cursor="pointer";
+            sellLogo.style.cursor="pointer";
+            sell.addEventListener("click",(event)=>{
+                window.open("./sell.html");
+            })
+            sellLogo.addEventListener("click",(event)=>{
+                window.open("./sell.html");
+            })
+            sellLogo.src="../Media/Icons/transLogo.svg";
+            sell.innerHTML="Sell Item";
+
+            userTab.appendChild(sell);
+            userTab.appendChild(sellLogo);
+            userContainer.addEventListener("click",(event)=>{
+                const u=document.querySelector(".username")
+                const ui=document.querySelector(".userImage")
+                u.style.display="none";
+                userContainer.appendChild(userTab);
+            })
         }
+        userTab.addEventListener("mouseleave",(event)=>{
+            const u=document.querySelector(".username")
+            u.style.display="";
+            userContainer.querySelector(".userTab").remove();
+        })
 
     }
     function closeUserTab() {
-        const closeIt=document.querySelector(".transactionDiv");
+        const closeIt=document.querySelector(".userTab");
         console.log(closeIt);
         if(closeIt!=null){
             closeIt.replaceChildren();
