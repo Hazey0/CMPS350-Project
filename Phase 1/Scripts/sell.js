@@ -153,6 +153,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const u=document.querySelector(".username")
                 const ui=document.querySelector(".userImage")
                 u.style.display="none";
+                userContainer.replaceChildren();
+                userContainer.appendChild(ui);
+                userContainer.appendChild(u);
                 userContainer.appendChild(userTab);
             })
         }
