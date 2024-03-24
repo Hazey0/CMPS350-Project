@@ -11,8 +11,36 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("current :"+yourPath)
     console.log("previous:"+prevPath);
 
+    //let openedWindow;
+//
+    //function openWindow() {
+    //  openedWindow = window.open(prevPath,"_self");
+    //}
+    //
+    //function closeWindow() {
+    //  openedWindow.close();
+    //}
+    //function refresh(){
+    //    location.reload();
+    //}
+    function setPrevPath(){
+        localStorage.setItem("prevPath",JSON.stringify(mainPath));
+    }
+
     function log() {
+        
+        const mainLink=document.querySelector(".mainLink")
+        mainLink.addEventListener("click",(event)=>{setPrevPath()})
+       
         const loginButton = document.querySelector("#loginButton");
+        loginButton.addEventListener("mouseover",(event)=>{
+            loginButton.style.backgroundColor="#ff6c00";
+            loginButton.style.color="white";
+        })
+        loginButton.addEventListener("mouseout",(event)=>{
+            loginButton.style.backgroundColor="white";
+            loginButton.style.color="grey";
+        })
         loginButton.addEventListener("click", (event) => {
             const pass = document.querySelector("#password").value;
             const username = document.querySelector("#username").value;
@@ -22,21 +50,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(tempUser);
                 // If tempUser is an empty array, no user was found
                 if (tempUser.length > 0) {
+                    alert("Login successful")
                     localStorage.setItem("user", JSON.stringify(tempUser[0]));
-                    open("./"+prevPath);
-                    close("./login.html") //apply on main.html part
+                    localStorage.setItem("prevPath",JSON.stringify(mainPath))
+                    window.open("main.html")
+
+
+                    //close() //apply on main.html part
                 } else {
                     // Alert the user if login is incorrect
                     alert("Incorrect username or password. Please try again.");
-                    open("./login.html");
-                    close("./login.html") 
+
 
                 }
             }else{
                     // Alert the user if login is incorrect
                     alert("No username or password. Please try again.");
-                    open("./login.html");
-                    close("./login.html") 
+
 
                 
             }

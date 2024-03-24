@@ -90,15 +90,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 else {
 
-                    document.writeln("insuffienct balance");
+                    window.alert("insuffienct balance")
                 }
             }
             else {
-                document.writeln("you are not a customer")
+                window.alert("you are not a customer")
             }
         }
         else {
-            document.writeln("you are not logged in");
+            window.alert("you are not logged in");
+            setTimeout(()=>{
+                window.open("./login.html","_self")
+            },1000)
         }
     }
 

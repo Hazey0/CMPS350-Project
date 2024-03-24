@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
     function renderFunctions() {
         if (mainPath == yourPath) {
             const searchButton = document.querySelector("#searchButton");
@@ -279,8 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function logout() {
         localStorage.removeItem("user");
-        open("./"+mainPath);
-        close();
+        window.open("./"+mainPath,"_self");
 
     }
 
@@ -536,14 +534,13 @@ document.addEventListener("DOMContentLoaded", () => {
             sell.style.cursor="pointer";
             sellLogo.style.cursor="pointer";
             sell.addEventListener("click",(event)=>{
-                window.open("./sell.html");
+                window.open("./sell.html","_self");
             })
             sellLogo.addEventListener("click",(event)=>{
-                window.open("./sell.html");
+                window.open("./sell.html","_self");
             })
             sellLogo.src="../Media/Icons/transLogo.svg";
             sell.innerHTML="Sell Item";
-
             userTab.appendChild(sell);
             userTab.appendChild(sellLogo);
             userContainer.addEventListener("click",(event)=>{
