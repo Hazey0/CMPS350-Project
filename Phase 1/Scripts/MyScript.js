@@ -1,6 +1,4 @@
-function notEmpty(li){
-    return li.length!==0;
-}
+
 class Phone{
     brand;
     name;
@@ -19,14 +17,6 @@ class Phone{
     }
 }
 const phones= [
-    new Phone("Samsung","Galaxy S23",2023,1650,256,"../Media/images/s23.jpg"),
-    new Phone("Apple","IPhone 14",2023,2300,128,"../Media/images/iPhone14.jpg"),
-    new Phone("One Plus","9T",2022,800,256,"../Media/images/9T.jpg"),
-    new Phone("Google","Pixle 5",2018,650,128,"../Media/images/pixel5.jpg"),
-    new Phone("Samsung","Galaxy S24 Ultra",2024,5300,512,"../Media/images/s24U.jpg"),
-    new Phone("Nokia","P10",2022,500,64,"../Media/images/nokia.jpg"),
-    new Phone("Xaomi","Mi 10",2023,1050,256,"../Media/images/mi10.jpg"),
-    new Phone("Samsung","Galaxy S21 Plus",2022,1000,256,"../Media/images/s21plus.jpg"),
     new Phone("Samsung", "Galaxy S23", 2023, 1650, 256, "../Media/images/s23.jpg"),
     new Phone("Apple", "IPhone 14", 2023, 2300, 128, "../Media/images/iPhone14.jpg"),
     new Phone("One Plus", "9T", 2022, 800, 256, "../Media/images/9T.jpg"),
@@ -57,13 +47,32 @@ const phones= [
     new Phone("Asus", "ROG Phone 6", 2023, 4086.3, 512, "../Media/images/AsusROGPhone6.PNG"),
     new Phone("BlackBerry", "KEY2 LE", 2018, 1298.3, 64, "../Media/images/BlackBerryKEY2LE.jpg"),
     new Phone("TCL", "20 Pro 5G", 2024, 1846.3, 128, "../Media/images/TCL20Pro5G.jpg"),
+    new Phone("Sharp", "Aquos Zero 3", 2023, 3356.3, 256, "../Media/images/SharpAquosZero3.jpg"),
+    new Phone("Sony", "Xperia 1 V", 2024, 5193.3, 512, "../Media/images/SonyXperia1V.jpg"),
+    new Phone("Google", "Pixel 8a", 2024, 1846.3, 128, "../Media/images/Pixel8a.jpg"),
+    new Phone("OnePlus", "Nord 3", 2024, 2606.3, 256, "../Media/images/OnePlusNord3.jpg"),
+    new Phone("Xiaomi", "Redmi Note 13 Pro", 2024, 4836.3, 256, "../Media/images/RedmiNote13Pro.jpg"),
+    new Phone("Nokia", "X30 5G", 2024, 1496.3, 128, "../Media/images/NokiaX30.jpg"),
+    new Phone("Samsung", "Galaxy A54", 2024, 1666.3, 128, "../Media/images/A54.jpg"),
+    new Phone("Apple", "iPhone SE 4", 2024, 2043.3, 128, "../Media/images/iPhoneSE4.jpg"),
+    new Phone("Vivo", "X90 Pro+", 2024, 8541.3, 512, "../Media/images/VivoX90Pro+.jpeg"),
+    new Phone("Huawei", "Nova 10 SE", 2024, 1846.3, 128, "../Media/images/HuaweiNova10SE.PNG"),
+    new Phone("Honor", "Magic Vs", 2024, 6716.3, 256, "../Media/images/HonorMagicVs.jpg"),
+    new Phone("ZTE", "Nubia Z50 Ultra", 2024, 3111.3, 512, "../Media/images/ZTENubiaZ50Ultra.jpg"),
+    new Phone("Microsoft", "Surface Duo 3", 2024, 8996.3, 512, "../Media/images/SurfaceDuo3.PNG"),
+    new Phone("Tecno", "Phantom X3", 2024, 3333.3, 256, "../Media/images/TecnoPhantomX3.jpg"),
+    new Phone("Samsung", "Galaxy Z Fold 5", 2024, 8999, 512, "../Media/images/GalaxyZFold5.jpg"),
+
 ]
+function notEmpty(li){
+    return li.length!==0;
+}
 
 function searchAlgo(){
     let result=[];
  
 
-    const searchRequest = "galaxy 256"
+    const searchRequest = "galaxy s21"
     let keywords = searchRequest.split(" ");
     const len=keywords.length
     console.log(len);

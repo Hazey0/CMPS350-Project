@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let keywords = searchRequest.split(" ");
         const len=keywords.length
         keywords=keywords.filter((e)=> e!="")
-        
+        keywords.reverse();
         const e="fr"
         const clearSpace=(li)=>( i.filter((e)=>e!=""))
         ////methods////
