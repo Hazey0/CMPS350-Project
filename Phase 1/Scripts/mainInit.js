@@ -2,7 +2,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const phonesData = localStorage.getItem("phones");
     const phones = JSON.parse(phonesData);
-    console.log(window.location)
     const featuredPhones = [];
     featuredPhones.push(phones[0]);
     featuredPhones.push(phones[1]);
@@ -13,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const getPage = (a) => a.split("/").reduce((a, v) => v)
     const yourPath = getPage(window.location.pathname);
     const mainPath = "main.html";
-    const prevData=localStorage.getItem("prevPath");
-    const prevPath=JSON.parse(prevData);
-    console.log("current :"+yourPath)
-    console.log("previous:"+prevPath);
+    const prevData = localStorage.getItem("prevPath");
+    const prevPath = JSON.parse(prevData);
+    console.log("current :" + yourPath)
+    console.log("previous:" + prevPath);
 
 
     let searchedPhones = [];
@@ -51,11 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderPhone(phone) {
         const phoneBox = document.createElement("div");
-        phoneBox.addEventListener("mouseover",(event)=>{
-            phoneBox.style.backgroundColor="#ff6c00";
+        phoneBox.addEventListener("mouseover", (event) => {
+            phoneBox.style.backgroundColor = "#ff6c00";
         })
-        phoneBox.addEventListener("mouseout",(event)=>{
-            phoneBox.style.backgroundColor="";
+        phoneBox.addEventListener("mouseout", (event) => {
+            phoneBox.style.backgroundColor = "";
         })
         const top = document.createElement("div");
         const bottom = document.createElement("div");
@@ -88,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         img.src = phone.img;
         itemLink.addEventListener("click", (event) => {
             localStorage.setItem("item", JSON.stringify(phone));
-            localStorage.setItem("prevPath",(JSON.stringify(mainPath)))
+            localStorage.setItem("prevPath", (JSON.stringify(mainPath)))
 
         })
         ////////////// attaching elements///////////
@@ -169,31 +168,94 @@ document.addEventListener("DOMContentLoaded", () => {
 
     };
 
+    function notEmpty(li){
+        return li.length!==0;
+    }
+
+    
+    function searchAlgo(){
+        let result=[];
+        const searchRequest = document.querySelector("#searchBar").value;
+        let keywords = searchRequest.split(" ");
+        keywords=keywords.filter((e)=> e!="")
+        
+        const e="fr"
+        const clearSpace=(li)=>( i.filter((e)=>e!=""))
+        ////methods////
+        const splits = (a) => a.toLowerCase().split(" ").filter((x)=>x!='');
+        const searchString2 = (keys, value) => keys.reduce((a, v) => splits(value).reduce((x, s) => s.startsWith(v)&&s.endsWith(v) ? true : x, false) ? true : a, false)
+        const searchString = (keys, value) => keys.reverse().reduce((a, v) => splits(value).reverse().reduce((x, s) => s.startsWith(v)&&s.endsWith(v) ? true : x, false) ? true : a, false)
+        const searchInt = (keys, int) => keys.reduce((a, v) => v == int ? true : a, false);
 
 
+        //////very specific search e.g()///////////1st/////////////
+       result= phones.filter((e) =>
+        
+        (( searchString(keywords, e.brand) && searchInt(keywords, e.storage) ||
+            searchString(keywords, e.brand) && searchInt(keywords, e.year) || searchString(keywords, e.name) && searchInt(keywords, e.year) ||
+            searchString(keywords, e.name) && searchInt(keywords, e.storage) || searchInt(keywords, e.storage) && searchInt(keywords, e.year) )
+                        &&
 
+
+            (searchString(keywords, e.brand) || searchString(keywords, e.name) ||    searchInt(keywords, e.year) || searchInt(keywords, e.storage)))
+
+        )
+        if(notEmpty(result)){
+            console.log("1st")
+            return result;
+        }
+///////////2nd search////////////
+        result= phones.filter((e) =>
+        
+        (
+
+            searchString(keywords, e.name) )
+        )
+
+        if(notEmpty(result)){
+            console.log("2nd")
+            return result;
+        }
+///////////3rd search////////////
+        result= phones.filter((e) =>
+        
+        (
+            searchString(keywords, e.brand) && searchString(keywords, e.name) )
+        )
+        if(notEmpty(result)){
+            console.log("3rd")
+            return result;
+        }
+///////////4th search////////////
+
+        result= phones.filter((e) =>
+        
+        ((searchString(keywords, e.brand) && searchString(keywords, e.name) || searchString(keywords, e.brand) && searchInt(keywords, e.storage) ||
+            searchString(keywords, e.brand) && searchInt(keywords, e.year) || searchString(keywords, e.name) && searchInt(keywords, e.year) ||
+            searchString(keywords, e.name) && searchInt(keywords, e.storage) || searchInt(keywords, e.storage) && searchInt(keywords, e.year) )
+                        ||
+
+
+            (searchString(keywords, e.brand) || searchString(keywords, e.name) ||    searchInt(keywords, e.year) || searchInt(keywords, e.storage)))
+
+        )
+        if(notEmpty(result)){
+            console.log("4th")
+            return result;
+        }
+        
+
+    }
     function searchPhone() {
         if (document.querySelector(".cancelSearch") != null) {
             document.querySelector(".cancelSearch").remove();
         }
-        const searchRequest = document.querySelector("#searchBar").value;
-        const keywords = searchRequest.split(" ");
 
-        const splits = (a) => a.toLowerCase().split(" ");
-        const searchString = (keys, value) => keys.reduce((a, v) => splits(value).reduce((x, s) => s.startsWith(v) ? true : x, false) ? true : a, false)
-        const searchInt = (keys, int) => keys.reduce((a, v) => v == int ? true : a, false);
-        const searchResult = phones.filter((e) =>
-
-            searchString(keywords, e.brand) && searchString(keywords, e.name) || searchString(keywords, e.brand) && searchInt(keywords, e.storage) ||
-            searchString(keywords, e.brand) && searchInt(keywords, e.year) || searchString(keywords, e.brand) ||
-            searchString(keywords, e.name) && searchInt(keywords, e.year) || searchString(keywords, e.name) ||
-            searchString(keywords, e.name) && searchInt(keywords, e.storage) || searchInt(keywords, e.year) ||
-            searchInt(keywords, e.storage) || searchInt(keywords, e.storage) && searchInt(keywords, e.year) ||
-            searchInt(keywords, e.year)
+        
 
 
-        )
-
+        const searchResult = searchAlgo();
+        
 
 
 
@@ -244,8 +306,8 @@ document.addEventListener("DOMContentLoaded", () => {
             nav1.appendChild(userImage);
             nav1.appendChild(guest);
             console.log(guest);
-            nav2.addEventListener("click",(event)=>{
-                localStorage.setItem("prevPath",(JSON.stringify(mainPath)))
+            nav2.addEventListener("click", (event) => {
+                localStorage.setItem("prevPath", (JSON.stringify(mainPath)))
             })
 
             nav2.appendChild(loginButton);
@@ -284,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function logout() {
         localStorage.removeItem("user");
-        window.open("./"+mainPath,"_self");
+        window.open("./" + mainPath, "_self");
 
     }
 
@@ -486,89 +548,90 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     function showUserTab() {
-        if(user!==null){
-        const userContainer = document.querySelector("#user");
-        closeUserTab();
-        const userTab = document.createElement("div");
-        userTab.classList.add("userTab");
-       
-        if (user.type == "Customer") {
+        if (user !== null) {
+            const userContainer = document.querySelector("#user");
+            closeUserTab();
+            const userTab = document.createElement("div");
+            userTab.classList.add("userTab");
 
-            const transaction = document.createElement("p");
-            const transactionLogo = document.createElement("img");
+            if (user.type == "Customer") {
 
-            
-            transaction.classList.add("transaction");
-            transactionLogo.classList.add("transactionLogo");
+                const transaction = document.createElement("p");
+                const transactionLogo = document.createElement("img");
 
 
+                transaction.classList.add("transaction");
+                transactionLogo.classList.add("transactionLogo");
 
-            transaction.style.cursor="pointer";
-            transaction.addEventListener("click",(event)=>{
-                window.open("./transactions.html","_self");
+
+
+                transaction.style.cursor = "pointer";
+                transaction.addEventListener("click", (event) => {
+                    window.open("./transactions.html", "_self");
+                })
+                transactionLogo.style.cursor = "pointer";
+                transactionLogo.addEventListener("click", (event) => {
+                    window.open("./transactions.html", "_self");
+                })
+                transactionLogo.src = "../Media/Icons/transLogo.svg";
+                transaction.innerHTML = "Transaction History";
+
+                userTab.appendChild(transaction);
+                userTab.appendChild(transactionLogo);
+                userContainer.addEventListener("click", (event) => {
+                    const u = document.querySelector(".username")
+                    const ui = document.querySelector(".userImage")
+                    u.style.display = "none";
+                    userContainer.appendChild(userTab);
+                })
+
+
+
+
+            }
+            else if (user.type == "Seller") {
+                const sell = document.createElement("p");
+                const sellLogo = document.createElement("img");
+
+
+                sell.classList.add("sell");
+                sellLogo.classList.add("sellLogo");
+
+
+
+                sell.style.cursor = "pointer";
+                sellLogo.style.cursor = "pointer";
+                sell.addEventListener("click", (event) => {
+                    window.open("./sell.html", "_self");
+                })
+                sellLogo.addEventListener("click", (event) => {
+                    window.open("./sell.html", "_self");
+                })
+                sellLogo.src = "../Media/Icons/transLogo.svg";
+                sell.innerHTML = "Sell Item";
+                userTab.appendChild(sell);
+                userTab.appendChild(sellLogo);
+                userContainer.addEventListener("click", (event) => {
+                    const u = document.querySelector(".username")
+                    const ui = document.querySelector(".userImage")
+                    u.style.display = "none";
+                    userContainer.appendChild(userTab);
+                })
+            }
+            userTab.addEventListener("mouseleave", (event) => {
+                const u = document.querySelector(".username")
+                u.style.display = "";
+                userContainer.querySelector(".userTab").remove();
             })
-            transactionLogo.style.cursor="pointer";
-            transactionLogo.addEventListener("click",(event)=>{
-                window.open("./transactions.html","_self");
-            })
-            transactionLogo.src="../Media/Icons/transLogo.svg";
-            transaction.innerHTML="Transaction History";
-
-            userTab.appendChild(transaction);
-            userTab.appendChild(transactionLogo);
-            userContainer.addEventListener("click",(event)=>{
-                const u=document.querySelector(".username")
-                const ui=document.querySelector(".userImage")
-                u.style.display="none";
-                userContainer.appendChild(userTab);
-            })
-
-
-
-
-        }
-        else if (user.type == "Seller") {
-            const sell = document.createElement("p");
-            const sellLogo = document.createElement("img");
-
-            
-            sell.classList.add("sell");
-            sellLogo.classList.add("sellLogo");
-
-
-
-            sell.style.cursor="pointer";
-            sellLogo.style.cursor="pointer";
-            sell.addEventListener("click",(event)=>{
-                window.open("./sell.html","_self");
-            })
-            sellLogo.addEventListener("click",(event)=>{
-                window.open("./sell.html","_self");
-            })
-            sellLogo.src="../Media/Icons/transLogo.svg";
-            sell.innerHTML="Sell Item";
-            userTab.appendChild(sell);
-            userTab.appendChild(sellLogo);
-            userContainer.addEventListener("click",(event)=>{
-                const u=document.querySelector(".username")
-                const ui=document.querySelector(".userImage")
-                u.style.display="none";
-                userContainer.appendChild(userTab);
-            })
-        }
-        userTab.addEventListener("mouseleave",(event)=>{
-            const u=document.querySelector(".username")
-            u.style.display="";
-            userContainer.querySelector(".userTab").remove();
-        })
         }
     }
     function closeUserTab() {
-        const closeIt=document.querySelector(".userTab");
+        const closeIt = document.querySelector(".userTab");
         console.log(closeIt);
-        if(closeIt!=null){
+        if (closeIt != null) {
             closeIt.replaceChildren();
-        closeIt.remove();}
+            closeIt.remove();
+        }
 
     }
     logged();

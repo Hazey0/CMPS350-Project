@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
-    const data = localStorage.getItem("item");
-    const phone = JSON.parse(data);
+    //const data = localStorage.getItem("item");
+    //const phone = JSON.parse(data);
+
+    const phonesData = localStorage.getItem("phones");
+    const phones = JSON.parse(phonesData);
 
 
     const getPage = (a) => a.split("/").reduce((a, v) => v)
