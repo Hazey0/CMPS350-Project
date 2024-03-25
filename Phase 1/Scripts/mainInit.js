@@ -19,12 +19,26 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(phones)
 
 
+    function popem(a){
+        for(var x=0; x < a; x++){
+            phones.pop();
+        }
+        localStorage.removeItem("phones")
+        localStorage.setItem("phones",JSON.stringify(phones));
+    }
+    ///////used to manually delete phones///
+    popem();
+
+
+    
     let searchedPhones = [];
 
 
 
 
     function renderFunctions() {
+
+        //localStorage.removeItem("phone");
         
         if (mainPath == yourPath) {
             const searchButton = document.querySelector("#searchButton");
@@ -80,16 +94,18 @@ document.addEventListener("DOMContentLoaded", () => {
         storage.classList.add("details");
 
         ///////////////assing values to each element////////////////////
-        itemLink.href = "./item.html";
+        
         brand.innerHTML = phone.brand;
         name.innerHTML = "Model: " + phone.name;
         year.innerHTML = "Year: " + phone.year;
         price.innerHTML = "Price: " + phone.price + "QR";
         storage.innerHTML = "Storage: " + phone.storage + "GB";
         img.src = phone.img;
-        itemLink.addEventListener("click", (event) => {
-            localStorage.setItem("item", JSON.stringify(phone));
+        img.addEventListener("click", (event) => {
+            console.log(phone);
+            localStorage.setItem("phone", JSON.stringify(phone));
             localStorage.setItem("prevPath", (JSON.stringify(mainPath)))
+            window.open("./item.html","_self");
 
         })
         ////////////// attaching elements///////////
@@ -147,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
         storage.innerHTML = "Storage: " + phone.storage + "GB";
         img.src = phone.img;
         itemLink.addEventListener("click", (event) => {
-            localStorage.setItem("item", JSON.stringify(phone));
+            localStorage.setItem("phone", JSON.stringify(phone));
 
         });
         ///////// attaching elements///////////

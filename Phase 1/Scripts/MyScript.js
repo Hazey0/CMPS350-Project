@@ -187,9 +187,19 @@ readFile('../CMPS350-Project/Phase 1/Scripts/JSON/phones.json', 'utf8', (err, da
     console.log(phonesArray); // This will print the array of phone objects
   }
 });
+const ig="C:\fakepath\banner2.jpg"
 
-const phonesData = require('./phones.json'); 
-console.log(phonesData);
+const nep=getImg(img);
+function getImg(img){
+    let p=[];
+     p=img.split("/")
+    const imgName=p.pop();
+    console.log("IMG PATHC:"+imgName)
+    console.log("the path::::"+yourPath)
+    const newP=yourPath+imgName
+    console.log("img path:"+newP);
+    return newP
+}
 
 
 

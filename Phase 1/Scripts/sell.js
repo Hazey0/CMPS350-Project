@@ -21,12 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function init(){
         
         const storage=document.querySelector("#storage")
-        //storage.addEventListener("click",(event)=>{
-        //    
-        //})
         const confirm=document.createElement("button");
         confirm.innerHTML="confirm";
-        confirm.classList.add("confirm");
+        confirm.classList.add("button");
         const submitTab=document.querySelector("#submitTab");
         console.log(submitTab);
         const submitButton=document.querySelector("#submitButton");
@@ -34,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
         submitTab.addEventListener("click",(event)=>{
            
             if(checkInputs()){
-                alert("inputs validaited")
                 submitButton.style.display="none";
                 submitTab.appendChild(confirm);
                 confirm.addEventListener("click",(event)=>{
@@ -52,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const brand=document.querySelector("#brand").value;
         const model=document.querySelector("#model").value;
         const price=document.querySelector("#price").value;
+        const year=document.querySelector("#year").value;
         const storage=document.querySelector("#storage").value;
         const img=document.querySelector("#image").value;
         const quantity=document.querySelector("#quantity").value;
@@ -63,8 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(img!='')
         console.log(quantity)
 
-        if(brand!=""  &&   model!=""    &&   price!=""       && storage>=16     && img!=""  && quantity>0 ){
-            console.log("all inputs true")
+        if(brand!=""  &&   model!=""    &&   price!=""       && storage>=16     && img!=""  && quantity>0 && year>0){
             return true;
         }
         else{
@@ -75,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function submits(){
         const brand=document.querySelector("#brand").value;
         const model=document.querySelector("#model").value;
+        const year=document.querySelector("#year").value;
         const price=document.querySelector("#price").value;
         const storage=document.querySelector("#storage").value;
         const img=document.querySelector("#image").value;
@@ -89,18 +86,40 @@ document.addEventListener("DOMContentLoaded", () => {
         let newPhone={};
         newPhone.brand=brand;
         newPhone.name=model;
+        newPhone.year=year;
         newPhone.price=price
         newPhone.storage=storage;
-        newPhone.img=img;
+        
+        newPhone.img=getImg(img);
         newPhone.quantity=quantity;
-        newPhone.seller=user;
+        newPhone.seller=user.name;
         phones.push(newPhone);
         localStorage.removeItem("phones");
         localStorage.setItem("phones",JSON.stringify(phones));
         console.log(phones)
+        localStorage.setItem("phone",JSON.stringify(newPhone))
         alert("phone listed successfully")
+        window.open("item.html","_self");
         
     }
+
+    function getImg(img){
+        let p=[];
+         p=img.split("/")
+        const imgName=p.pop();
+        console.log("IMG PATHC:"+imgName)
+        console.log("the path::::"+yourPath)
+        const newP=yourPath+imgName
+        console.log("img path:"+newP);
+        return newP
+    }
+    //function moveFile(img){
+    //    var object = new ActiveXObject("Scripting.FileSystemObject");
+    //    var file = object.GetFile(img);
+    //    console.log(file+"file int")
+    //    console.log(mainPath+"target path")
+    //    file.Move(mainPath);
+    // }
 
     function logged() {
         console.log(user)

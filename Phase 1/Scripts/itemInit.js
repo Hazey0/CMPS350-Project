@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
-    const data = localStorage.getItem("item");
-    const phone = JSON.parse(data);
+
 
     const getPage = (a) => a.split("/").reduce((a, v) => v)
     const yourPath = getPage(window.location.pathname);
@@ -12,8 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("current :"+yourPath)
     console.log("previous:"+prevPath);
 
-    console.log(phone);
-    function renderPhone() {
+    
+
+
+    function init(){
+        const data = localStorage.getItem("phone");
+        const phone = JSON.parse(data);
+        console.log(phone+"phone cur");
+        renderPhone(phone)
+    }
+    function renderPhone(phone) {
         const phoneBox = document.querySelector("#item");
         const top = document.createElement("div");
         const bottom = document.createElement("div");
@@ -106,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    renderPhone();
+    //renderPhone();
     function updatePrice() {
         const quantity = document.querySelector("#quantity");
         const selected = quantity.value;
@@ -273,6 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
         closeIt.remove();}
 
     }
+    init()
     logged();
     showUserTab();
 
