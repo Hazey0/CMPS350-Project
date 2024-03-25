@@ -39,30 +39,30 @@
         <form id="phoneForm">
           <div class="form-group">
             <label for="brand">Brand:</label>
-            <input type="text" id="brand" name="brand" required>
+            <input type="text" id="brand" name="brand" required >
           </div>
           <div class="form-group">
             <label for="model">Model:</label>
-            <input type="text" id="model" name="model" required>
+            <input type="text" id="model" name="model" required >
           </div>
           <div class="form-group">
             <label for="price">Price:</label>
-            <input type="number" id="price" name="price" step="0.01" required placeholder="199.99"> 
+            <input type="number" id="price" name="price" step="0.01" required placeholder="199.99" > 
           </div>
           <div class="form-group">
             <label for="storage">Storage (GB):</label>
-            <input type="number" id="storage" name="storage" min="1" required>
+            <input type="number" id="storage" name="storage" min="16" required max="1024" step=16 >
           </div>
           <div class="form-group">
             <label for="image">Select Image</label>
-            <input type="file" placeholder="Select Image" >
+            <input type="file" placeholder="Select Image" id="image" >
           </div>
           <div class="form-group">
             <label for="quantity">Quantity in Stock:</label>
-            <input type="number" id="quantity" name="quantity" min="0" required>
+            <input type="number" id="quantity" name="quantity" min="1" required value=1>
           </div>
-          <div class="vert">
-            <button class="button" type="submit" id="submitButton">Add Phone</button>
+          <div class="vert"  id="submitButton">
+            <button class="button"  id="submitButton">Add Phone</button>
           </div>
         </form>
       </main>

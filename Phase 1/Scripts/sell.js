@@ -18,7 +18,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+    function init(){
+        const storage=document.querySelector("#storage")
+        storage.addEventListener("click",(event)=>{
+            
+        })
+        const submitButton=document.querySelector("#submitButton");
+        submitButton.addEventListener("click",(event)=>{
+            console.log(checkInputs())
+            if(checkInputs()){
+               submit();
+                
+            }
+        })
 
+
+    }
+    function submit(){
+        const brand=document.querySelector("#brand").value;
+        const model=document.querySelector("#model").value;
+        console.log(model);
+        const price=document.querySelector("#price").value;
+        const storage=document.querySelector("#storage").value;
+        const img=document.querySelector("#img").value;
+        const quantity=document.querySelector("#quantity").value;
+        console.log(model);
+    }
+    function checkInputs(){
+        const brand=document.querySelector("#brand").value;
+        console.log(brand+"brand")
+        const model=document.querySelector("#model").value;
+        const price=document.querySelector("#price").value;
+        console.log("price:"+price)
+        const storage=document.querySelector("#storage").value;
+        const img=document.querySelector("#image").value;
+        const quantity=document.querySelector("#quantity").value;
+        if(brand!=""  &&   model!=""    &&   price!=""       && storage!=""     && img!=""  && quantity>=16 ){
+            console.log("all inputs true")
+            return true;
+        }
+    }
     function logged() {
         console.log(user)
         if (user == null) {
@@ -177,6 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
         closeIt.remove();}
 
     }
+    init();
     logged();
     showUserTab();
 
