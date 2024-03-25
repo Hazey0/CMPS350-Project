@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     function renderFunctions() {
+        
         if (mainPath == yourPath) {
             const searchButton = document.querySelector("#searchButton");
             const searchImg = document.querySelector(".searchImage");

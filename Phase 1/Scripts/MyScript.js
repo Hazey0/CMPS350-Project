@@ -1,4 +1,4 @@
-
+import phonesData from './phones.json'; 
 class Phone{
     brand;
     name;
@@ -175,7 +175,21 @@ function searchAlgo(){
 }
 
 
-console.log(searchAlgo());
+
+// Read the JSON data from the file
+readFile('../CMPS350-Project/Phase 1/Scripts/JSON/phones.json', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+  } else {
+    // Parse the JSON string back into a JavaScript object
+    const phonesArray = JSON.parse(data);
+
+    console.log(phonesArray); // This will print the array of phone objects
+  }
+});
+
+const phonesData = require('./phones.json'); 
+console.log(phonesData);
 
 
 

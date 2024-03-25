@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //})
         const confirm=document.createElement("button");
         confirm.innerHTML="confirm";
+        confirm.classList.add("confirm");
         const submitTab=document.querySelector("#submitTab");
         console.log(submitTab);
         const submitButton=document.querySelector("#submitButton");
@@ -87,16 +88,18 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(quantity)
         let newPhone={};
         newPhone.brand=brand;
-        newPhone.model=model;
+        newPhone.name=model;
         newPhone.price=price
         newPhone.storage=storage;
         newPhone.img=img;
         newPhone.quantity=quantity;
         newPhone.seller=user;
         phones.push(newPhone);
+        localStorage.removeItem("phones");
         localStorage.setItem("phones",JSON.stringify(phones));
-        alert("phone listed successfully")
         console.log(phones)
+        alert("phone listed successfully")
+        
     }
 
     function logged() {
