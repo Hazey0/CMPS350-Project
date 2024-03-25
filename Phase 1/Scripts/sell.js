@@ -89,10 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
         newPhone.year=year;
         newPhone.price=price
         newPhone.storage=storage;
-        
         newPhone.img=getImg(img);
         newPhone.quantity=quantity;
-        newPhone.seller=user.name;
+        newPhone.seller=user.username;
         phones.push(newPhone);
         localStorage.removeItem("phones");
         localStorage.setItem("phones",JSON.stringify(phones));
@@ -105,13 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getImg(img){
         let p=[];
-         p=img.split("/")
+         p=img.split("\\")
         const imgName=p.pop();
-        console.log("IMG PATHC:"+imgName)
-        console.log("the path::::"+yourPath)
-        const newP=yourPath+imgName
-        console.log("img path:"+newP);
-        return newP
+        return "../Media/images/"+imgName
     }
     //function moveFile(img){
     //    var object = new ActiveXObject("Scripting.FileSystemObject");

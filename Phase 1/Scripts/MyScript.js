@@ -1,4 +1,4 @@
-import phonesData from './phones.json'; 
+
 class Phone{
     brand;
     name;
@@ -177,25 +177,16 @@ function searchAlgo(){
 
 
 // Read the JSON data from the file
-readFile('../CMPS350-Project/Phase 1/Scripts/JSON/phones.json', 'utf8', (err, data) => {
-  if (err) {
-    console.error('Error reading file:', err);
-  } else {
-    // Parse the JSON string back into a JavaScript object
-    const phonesArray = JSON.parse(data);
-
-    console.log(phonesArray); // This will print the array of phone objects
-  }
-});
-const ig="C:\fakepath\banner2.jpg"
+const yourPath="item.html"
+const img="C:\\fakepath\\banner2.jpg"
 
 const nep=getImg(img);
 function getImg(img){
     let p=[];
-     p=img.split("/")
+     p=img.split("\\")
     const imgName=p.pop();
     console.log("IMG PATHC:"+imgName)
-    console.log("the path::::"+yourPath)
+    console.log("the path:"+yourPath)
     const newP=yourPath+imgName
     console.log("img path:"+newP);
     return newP

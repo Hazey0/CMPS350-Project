@@ -1,0 +1,118 @@
+/* Basic reset styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* Header styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+/* Main content styles */
+main {
+  padding: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Cart item styles */
+.cart-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.cart-item img {
+  width: 200px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-details h3,
+.item-details p {
+  margin: 5px 0;
+}
+
+.price {
+  font-weight: bold;
+}
+
+/* Quantity selector styles */
+.quantity-selector {
+  margin-top: 10px;
+}
+
+.quantity-selector label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.quantity-selector select {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+main{
+  margin-top: 100px;
+}
+/* Shipping address form styles */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: calc(50% - 10px);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+/* Button styles */
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #222;
+}
+
+/* Footer styles */
+footer {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: center;
+}
