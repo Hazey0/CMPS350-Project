@@ -5,9 +5,9 @@
     <script src="../Scripts/sell.js"></script>
     <link rel="stylesheet" href="../Styles/sell.css">
     <link rel="stylesheet" href="../Styles/MyStyle.css">
- 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="../Media/Icons/p.png">
+    <title>Sell A Phone</title>
 </head>
 <body>
     <section id="'Navigation">
@@ -32,16 +32,10 @@
                     <a class="login" href="login.html" id="login">Login</a><!--  Put some links here-->
                  </div>
             </div>
-            <!--
-            <div class="nav2">
-                <h3>Connect Your World, Effortlessly</h3>
-            </div>
-            -->
     </nav>
-    <h1>--------</h1>
     </section>
     <main id="addPhone">
-        <h2>Add a New Phone</h2>
+      <h2 class="title">Add Phone To Sell</h2>
         <form id="phoneForm">
           <div class="form-group">
             <label for="brand">Brand:</label>
@@ -53,7 +47,7 @@
           </div>
           <div class="form-group">
             <label for="price">Price:</label>
-            <input type="number" id="price" name="price" step="0.01" required> (e.g., 199.99)
+            <input type="number" id="price" name="price" step="0.01" required placeholder="199.99"> 
           </div>
           <div class="form-group">
             <label for="storage">Storage (GB):</label>
@@ -61,13 +55,15 @@
           </div>
           <div class="form-group">
             <label for="image">Image URL:</label>
-            <input type="url" id="image" name="image" required> (e.g., https://example.com/phone.jpg)
+            <input type="url" id="image" name="image" required placeholder="https://example.com/phone.jpg">
           </div>
           <div class="form-group">
             <label for="quantity">Quantity in Stock:</label>
             <input type="number" id="quantity" name="quantity" min="0" required>
           </div>
-          <button type="submit">Add Phone</button>
+          <div class="vert">
+            <button class="button" type="submit">Add Phone</button>
+          </div>
         </form>
       </main>
       
