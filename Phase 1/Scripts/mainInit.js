@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevPath = JSON.parse(prevData);
     console.log("current :" + yourPath)
     console.log("previous:" + prevPath);
+    console.log(phones)
 
 
     let searchedPhones = [];

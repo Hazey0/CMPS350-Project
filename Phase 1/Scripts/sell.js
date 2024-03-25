@@ -19,45 +19,86 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     function init(){
+        
         const storage=document.querySelector("#storage")
-        storage.addEventListener("click",(event)=>{
-            
-        })
+        //storage.addEventListener("click",(event)=>{
+        //    
+        //})
+        const confirm=document.createElement("button");
+        confirm.innerHTML="confirm";
+        const submitTab=document.querySelector("#submitTab");
+        console.log(submitTab);
         const submitButton=document.querySelector("#submitButton");
-        submitButton.addEventListener("click",(event)=>{
-            console.log(checkInputs())
+        console.log(submitButton)
+        submitTab.addEventListener("click",(event)=>{
+           
             if(checkInputs()){
-               submit();
+                alert("inputs validaited")
+                submitButton.style.display="none";
+                submitTab.appendChild(confirm);
+                confirm.addEventListener("click",(event)=>{
+                   
+                    submits();
+                })
+               
                 
             }
         })
 
 
     }
-    function submit(){
-        const brand=document.querySelector("#brand").value;
-        const model=document.querySelector("#model").value;
-        console.log(model);
-        const price=document.querySelector("#price").value;
-        const storage=document.querySelector("#storage").value;
-        const img=document.querySelector("#img").value;
-        const quantity=document.querySelector("#quantity").value;
-        console.log(model);
-    }
     function checkInputs(){
         const brand=document.querySelector("#brand").value;
-        console.log(brand+"brand")
         const model=document.querySelector("#model").value;
         const price=document.querySelector("#price").value;
-        console.log("price:"+price)
         const storage=document.querySelector("#storage").value;
         const img=document.querySelector("#image").value;
         const quantity=document.querySelector("#quantity").value;
-        if(brand!=""  &&   model!=""    &&   price!=""       && storage!=""     && img!=""  && quantity>=16 ){
+
+        console.log(brand!="")
+        console.log(model!=0)
+        console.log(price>0)
+        console.log(storage>=16)
+        console.log(img!='')
+        console.log(quantity)
+
+        if(brand!=""  &&   model!=""    &&   price!=""       && storage>=16     && img!=""  && quantity>0 ){
             console.log("all inputs true")
             return true;
         }
+        else{
+            alert("filed missing")
+            false
+        }
     }
+    function submits(){
+        const brand=document.querySelector("#brand").value;
+        const model=document.querySelector("#model").value;
+        const price=document.querySelector("#price").value;
+        const storage=document.querySelector("#storage").value;
+        const img=document.querySelector("#image").value;
+        const quantity=document.querySelector("#quantity").value;
+        console.log("price:"+price)
+        console.log(brand)
+        console.log(model)
+        console.log(price)
+        console.log(storage)
+        console.log(img)
+        console.log(quantity)
+        let newPhone={};
+        newPhone.brand=brand;
+        newPhone.model=model;
+        newPhone.price=price
+        newPhone.storage=storage;
+        newPhone.img=img;
+        newPhone.quantity=quantity;
+        newPhone.seller=user;
+        phones.push(newPhone);
+        localStorage.setItem("phones",JSON.stringify(phones));
+        alert("phone listed successfully")
+        console.log(phones)
+    }
+
     function logged() {
         console.log(user)
         if (user == null) {
