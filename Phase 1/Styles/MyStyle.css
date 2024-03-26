@@ -357,7 +357,6 @@ nav a:hover {
 
 .details{
     margin: 5px;
-
 }
 /*controls the "price year storage year" sort buttons*/
 .sortContainer{
@@ -369,16 +368,22 @@ nav a:hover {
 .sortType{
 
 }
+
 .userTab{
-    background-color: #f4f4f4;
+    color: white;
     padding: 7px;
-    border-radius: 30px;
+    border-radius: 20px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    width: 200px;
+    justify-content: space-evenly;
+    width: auto;
+    font-size: 15px;
 }
+
+.userTab:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+
 .transaction{
    
 }
@@ -389,7 +394,9 @@ nav a:hover {
 
 }
 .sellLogo{
-
+    width: 20%;
+    height: 20%;
+    align-self: center;
 }
 #searcher{
     margin-left: 270px;

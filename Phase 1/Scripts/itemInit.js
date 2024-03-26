@@ -92,8 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (user.type == "Customer") {
                 if (user.money >= total) {
                     //user.transactions.push(phone);
-                    document.writeln("purschase successful")
-                    console.log("debnuj")
+                    window.open("./purchase.html", "_self");
                 }
                 else {
 

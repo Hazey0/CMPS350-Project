@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
             logoutButton.innerHTML = "Logout";
             logoutButton.classList.add("logoutButton");
             const usernam = document.createElement("p");
-            usernam.innerHTML = user.username;
+            usernam.innerHTML = `: ${user.username}`;
             usernam.classList.add("username");
             logoutButton.addEventListener("click", () => {
                 logout();
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function showUserTab() {
         if(user!==null){
-        const userContainer = document.querySelector("#user");
+        const userContainer = document.querySelector("#userInfo");
         closeUserTab();
         const userTab = document.createElement("div");
         userTab.classList.add("userTab");
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
             transactionLogo.addEventListener("click",(event)=>{
                 window.open("./transactions.html","_self");
             })
-            transactionLogo.src="../Media/Icons/transLogo.svg";
+            transactionLogo.src="../Media/Icons/icons8-letter-64.png";
             transaction.innerHTML="Transaction History";
 
             userTab.appendChild(transaction);
@@ -244,26 +244,28 @@ document.addEventListener("DOMContentLoaded", () => {
             sellLogo.addEventListener("click",(event)=>{
                 window.open("./sell.html","_self");
             })
-            sellLogo.src="../Media/Icons/transLogo.svg";
+            sellLogo.src="../Media/Icons/icons8-letter-64.png";
             sell.innerHTML="Sell Item";
 
             userTab.appendChild(sell);
             userTab.appendChild(sellLogo);
-            userContainer.addEventListener("click",(event)=>{
-                const u=document.querySelector(".username")
-                const ui=document.querySelector(".userImage")
-                u.style.display="none";
-                userContainer.replaceChildren();
-                userContainer.appendChild(ui);
-                userContainer.appendChild(u);
-                userContainer.appendChild(userTab);
-            })
+
+            userContainer.appendChild(userTab)
+            // userContainer.addEventListener("click",(event)=>{
+            //     const u=document.querySelector(".username")
+            //     const ui=document.querySelector(".userImage")
+            //     u.style.display="none";
+            //     userContainer.replaceChildren();
+            //     userContainer.appendChild(ui);
+            //     userContainer.appendChild(u);
+            //     userContainer.appendChild(userTab);
+            // })
         }
-        userTab.addEventListener("mouseleave",(event)=>{
-            const u=document.querySelector(".username")
-            u.style.display="";
-            userContainer.querySelector(".userTab").remove();
-        })
+        // userTab.addEventListener("mouseleave",(event)=>{
+        //     const u=document.querySelector(".username")
+        //     u.style.display="";
+        //     userContainer.querySelector(".userTab").remove();
+        // })
         }
     }
     function closeUserTab() {

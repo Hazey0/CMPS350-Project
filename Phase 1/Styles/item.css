@@ -42,6 +42,19 @@ body {
 }
 
 
+nav a {
+    padding: 10px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+}
+
 
 .phone {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -58,7 +71,7 @@ body {
 }
 
 .phone p {
-    width: 300px;
+    width: 200px;
 }
 
 .phone img {
