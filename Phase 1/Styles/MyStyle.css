@@ -132,6 +132,7 @@ nav a:hover {
 }
 
 
+
 .featuredPhone:hover {
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -183,10 +184,9 @@ nav a:hover {
 .phone{
     transition: transform 0.3s ease;
     border-radius: 20px;
-    margin-left: 5px;
     margin-bottom: 20px;
-    margin-right: 5px;
     padding: 1.5%;
+    padding-left: 20px;
     background-color:white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     width: 200px;
@@ -199,7 +199,9 @@ nav a:hover {
 
 /*will effect the featured phone*/
 .featuredPhone{
+    padding-left: 20px;
     padding: 10px;
+    border-radius: 20px;
 }
 
 .featuredPhone:hover{
@@ -264,12 +266,13 @@ nav a:hover {
     border: none;
     border-radius: 15px;
 }
+
 .logoutButton:hover {
     background-color: white;
     color: black;
 }
 
- 
+
 #typeContain{
   
     display: flex;
@@ -341,8 +344,9 @@ nav a:hover {
     margin-right: 15px;
     margin-bottom: 7px;
 }
-.details{
 
+.details{
+    margin: 5px;
 
 }
 /*controls the "price year storage year" sort buttons*/

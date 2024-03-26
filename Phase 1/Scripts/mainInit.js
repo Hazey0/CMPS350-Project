@@ -150,7 +150,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const brand = document.createElement("p");
         const name = document.createElement("p");
         const year = document.createElement("p");
-        const price = document.createElement("p");;
+        const price = document.createElement("p");
+        price.classList.add("price");
         const storage = document.createElement("p");
         const img = document.createElement('img');
         /////adding ids to style them in css////
@@ -162,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
         brand.innerHTML = phone.brand;
         name.innerHTML = "Model: " + phone.name;
         year.innerHTML = "Year: " + phone.year;
-        price.innerHTML = "Price: " + phone.price + "QR";
+        price.innerHTML = phone.price + "QR";
         storage.innerHTML = "Storage: " + phone.storage + "GB";
         img.src = phone.img;
         itemLink.addEventListener("click", (event) => {
@@ -176,8 +177,8 @@ document.addEventListener("DOMContentLoaded", () => {
         itemLink.appendChild(img);
         bottom.appendChild(name);
         bottom.appendChild(year);
-        bottom.appendChild(price);
         bottom.appendChild(storage);
+        bottom.appendChild(price);
         phoneBox.appendChild(top);
         phoneBox.appendChild(bottom);
 
