@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
 
-    function init(){
+    //function init(){
         const data = localStorage.getItem("phone");
         const phone = JSON.parse(data);
         console.log(phone+"phone cur");
         renderPhone(phone)
-    }
+    //}
     function renderPhone(phone) {
         const phoneBox = document.querySelector("#item");
         const top = document.createElement("div");
@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
         closeIt.remove();}
 
     }
-    init()
+    //init()
     logged();
     showUserTab();
 
