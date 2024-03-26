@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     featuredPhones.push(phones[1]);
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
+    const r= localStorage.getItem("init");
+    console.log(r);
 
 
     const getPage = (a) => a.split("/").reduce((a, v) => v)
