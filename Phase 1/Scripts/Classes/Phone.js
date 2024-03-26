@@ -70,5 +70,12 @@ phones[0].seller = "mike"; phones[1].seller = "scammer"; phones[2].seller = "mik
 
 phones[0].quantity = 2; phones[1].quantity = 1; phones[2].quantity = 3; phones[3].quantity = 5; phones[4].quantity = 1; phones[5].quantity = 7; phones[6].quantity = 8; phones[7].quantity = 3; phones[8].quantity = 2; phones[9].quantity = 2; phones[10].quantity = 1; phones[11].quantity = 4; phones[12].quantity = 1; phones[13].quantity = 6; phones[14].quantity = 7; phones[15].quantity = 4; phones[16].quantity = 3; phones[17].quantity = 9; phones[18].quantity = 7; phones[19].quantity = 4; phones[20].quantity = 3; phones[21].quantity = 1; phones[22].quantity = 2; phones[23].quantity = 3;
 const phonesJSON = JSON.stringify(phones, null, 2); // Optional: Add indentation for readability
+const e=localStorage.getItem("init");
+const r=JSON.stringify(e);
+const x=1;
+if(r==0 || r==null | r==undefined || r==" "){
+    localStorage.setItem("init",JSON.stringify(x))
+    localStorage.setItem("phones", JSON.stringify(phones));
+}
 
-localStorage.setItem("phones", JSON.stringify(phones));
+
