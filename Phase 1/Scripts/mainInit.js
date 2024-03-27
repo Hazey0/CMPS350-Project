@@ -68,12 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderPhone(phone) {
         const phoneBox = document.createElement("div");
-        phoneBox.addEventListener("mouseover", (event) => {
-            phoneBox.style.backgroundColor = "#ff6c00";
-        })
-        phoneBox.addEventListener("mouseout", (event) => {
-            phoneBox.style.backgroundColor = "";
-        })
         const top = document.createElement("div");
         const bottom = document.createElement("div");
         phoneBox.classList.add("phone");
@@ -615,7 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 const transaction = document.createElement("p");
                 const transactionLogo = document.createElement("img");
-                
+
 
                 transaction.classList.add("transaction");
                 transactionLogo.classList.add("transLogo");
@@ -643,7 +637,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 userContainer.addEventListener("click", (event) => {
                     const u = document.querySelector(".username")
-                    const ui = document.querySelector(".userImage")
                     u.style.display = "none";
                     userContainer.appendChild(userTab);
                 })
@@ -707,7 +700,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 userContainer.addEventListener("click", (event) => {
                     const u = document.querySelector(".username")
-                    const ui = document.querySelector(".userImage")
                     u.style.display = "none";
                     userContainer.appendChild(userTab);
                 })

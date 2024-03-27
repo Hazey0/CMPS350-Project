@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: Lucida Sans Unicode;
   background-color: #f8f8f8;
 }
 
@@ -34,6 +34,7 @@ nav a {
   cursor: pointer;
   text-decoration: none;
   color: white;
+  font-weight: bolder;
 }
 
 nav a:hover {
@@ -64,6 +65,7 @@ main {
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  background-color: white;
 }
 
 h2 {
@@ -152,6 +154,7 @@ button[type="submit"] {
   width: 100%;
   font-size: 16px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+  font-weight: bolder;
 }
 
 button[type="submit"]:hover {
@@ -161,7 +164,6 @@ button[type="submit"]:hover {
 
 /* Footer styles */
 footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
   background-color: #333;

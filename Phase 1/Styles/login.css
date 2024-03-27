@@ -58,6 +58,17 @@ nav a:hover {
     }
 }
 
+#loginButton{
+    transition: background-color 0.3s ease-in-out;
+    background-color: white;
+}
+
+#loginButton:hover{
+    background-color: #be7815;
+    color: white;
+    border: solid 1px black;
+}
+
 #form {
     width: 300px;
     margin: 20vh auto 0 auto;

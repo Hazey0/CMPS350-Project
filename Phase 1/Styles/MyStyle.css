@@ -4,9 +4,9 @@
 }
 
 .MAIN {
-    background-color: white;
-    padding-left: 150px;
-    padding-right: 150px;
+    background-color: rgb(238, 238, 238);
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 body {
@@ -62,7 +62,7 @@ body {
 }
 
 .searchInput {
-    width: 400px;
+    width: 500px;
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 20px;
@@ -118,6 +118,7 @@ nav a:hover {
 }
 
 #featuredPhones {
+    background-color: #fff;
     display: flex;
     justify-content: space-evenly;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -133,7 +134,9 @@ nav a:hover {
     transition: transform 0.3s ease;
 }
 
-
+.featuredPhone{
+    background-color: #fff;
+}
 
 .featuredPhone:hover {
     border-radius: 20px;
@@ -187,11 +190,12 @@ nav a:hover {
     transition: transform 0.3s ease;
     border-radius: 20px;
     margin-bottom: 20px;
-    padding-left: 1.5%;
-    padding-right: 1.5%;
+    padding-left: 1.2%;
+    padding-right: 1.2%;
     background-color:white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     width: 200px;
+    
 }
 
 .phone:hover {
@@ -250,14 +254,20 @@ nav a:hover {
 /* controls the name that appears on the top after you login*/
 .username{
     font-size: 100%;
+    padding: 10px;
     color: #f4f4f4;
+}
+
+.username:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
 }
 
 .items{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-
 }
 
 .logoutButton {
@@ -271,6 +281,7 @@ nav a:hover {
     background-color: black;
     border: none;
     border-radius: 15px;
+    font-weight: bolder;
 }
 
 .logoutButton:hover {
@@ -337,6 +348,7 @@ nav a:hover {
 .guest{
     color: white;
 }
+
 .loginButton{
     display: flex;
     flex-wrap: nowrap;
@@ -385,6 +397,7 @@ nav a:hover {
 .transDiv{
     display: flex;
     width: auto;
+    margin-right: -100px;
 }
 .transDiv:hover{
     background-color: rgba(255, 255, 255, 0.2);
@@ -442,5 +455,5 @@ nav a:hover {
 }
 
 #searcher{
-    margin-left: 270px;
+    margin-left: 300px;
 }
