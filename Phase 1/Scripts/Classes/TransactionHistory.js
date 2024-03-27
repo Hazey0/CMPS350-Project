@@ -20,12 +20,15 @@ document.addEventListener("DOMContentLoaded", function() {
     userPhones.forEach(phone => {
         const phoneElement = document.createElement('div');
         phoneElement.innerHTML = `
+        <h2 class="SellingTitle">Hi, ${phone.seller},</h2>
         <div class="sellerItem">
         <h3>${phone.brand} ${phone.name}</h3>
         <p>Year: ${phone.year}</p>
         <p>Price: $${phone.price}</p>
         <p>Storage: ${phone.storage}GB</p>
+        <p>Quantity Left: ${phone.quantity}</p>
         <img src="${phone.img}" alt="${phone.name}" style="width: 100px; height: auto;">
+
         </div>
         `;
         container.appendChild(phoneElement);
