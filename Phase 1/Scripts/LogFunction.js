@@ -50,6 +50,10 @@ export function logged() {
         logoutButton.innerHTML = "Logout";
         logoutButton.classList.add("logoutButton");
         const usernam = document.createElement("p");
+
+        const money=document.createElement("p");
+            money.innerHTML="$ "+user.money;
+        money.style.color="white"
         usernam.innerHTML = user.username;
         usernam.classList.add("username");
         logoutButton.addEventListener("click", () => {
@@ -57,6 +61,9 @@ export function logged() {
         })
         nav1.appendChild(userImage);
         nav1.appendChild(usernam);
+        if(user.type=="Customer"){
+          nav1.appendChild(money)
+                        }
         nav2.appendChild(logoutButton);
     }
 }

@@ -62,8 +62,9 @@ export function showUserTab() {
             sellLogo.addEventListener("click", (event) => {
                 window.open("./sell.html", "_self");
             })
-            sellLogo.src = "../Media/Icons/transLogo.svg";
+            sellLogo.src = "../Media/Icons/sell.svg";
             sell.innerHTML = "Sell Item";
+            alert(sellLogo)
             userTab.appendChild(sell);
             userTab.appendChild(sellLogo);
             userContainer.addEventListener("click", (event) => {

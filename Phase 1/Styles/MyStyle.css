@@ -391,12 +391,14 @@ nav a:hover {
 }
 
 .userTab{
-    color: white;
+    color:black;
     padding: 7px;
     display: flex;
     height: 80px;
     font-size: 14px;
     gap: 10px;
+    background-color: #ddd;
+    border-radius: 30px;
 }
 
 .transDiv{
