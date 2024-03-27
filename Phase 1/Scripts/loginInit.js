@@ -33,7 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
         mainLink.addEventListener("click",(event)=>{setPrevPath()})
        
         const loginButton = document.querySelector("#loginButton");
-
+        loginButton.addEventListener("mouseover",(event)=>{
+            loginButton.style.backgroundColor="#ff6c00";
+            loginButton.style.color="white";
+        })
+        loginButton.addEventListener("mouseout",(event)=>{
+            loginButton.style.backgroundColor="white";
+            loginButton.style.color="grey";
+            loginButton.animate()
+        })
         loginButton.addEventListener("click", (event) => {
             const pass = document.querySelector("#password").value;
             const username = document.querySelector("#username").value;

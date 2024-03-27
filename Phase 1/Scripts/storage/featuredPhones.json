@@ -1,0 +1,22 @@
+[
+    {
+      "brand": "Samsung",
+      "name": "Galaxy S23",
+      "year": 2023,
+      "price": 1650,
+      "storage": 256,
+      "img": "../Media/images/s23.jpg",
+      "seller": "mike",
+      "quantity": 2
+    },
+    {
+      "brand": "Apple",
+      "name": "IPhone 14",
+      "year": 2023,
+      "price": 2300,
+      "storage": 128,
+      "img": "../Media/images/iPhone14.jpg",
+      "seller": "scammer",
+      "quantity": 1
+    }
+]

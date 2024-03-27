@@ -1,0 +1,42 @@
+[
+    {
+        "username": "ok",
+        "password": 974,
+        "type": "Customer",
+        "listedPhones": [],
+        "money": 10000,
+        "transactions": []
+    },
+    {
+        "username": "mike",
+        "password": 911,
+        "type": "Seller",
+        "listedPhones": [],
+        "money": 0,
+        "transactions": []
+    },
+    {
+        "username": "ksdjcvbv",
+        "password": 8423,
+        "type": "Customer",
+        "listedPhones": [],
+        "money": 0,
+        "transactions": []
+    },
+    {
+        "username": "scammer",
+        "password": 8793,
+        "type": "Seller",
+        "listedPhones": [],
+        "money": 0,
+        "transactions": []
+    },
+    {
+        "username": "lsds",
+        "password": 873,
+        "type": "Admin",
+        "listedPhones": [],
+        "money": 0,
+        "transactions": []
+    }
+]
