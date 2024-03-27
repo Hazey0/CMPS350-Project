@@ -271,6 +271,7 @@ nav a:hover {
 }
 
 .logoutButton {
+    transition: background-color 0.3s ease;
     padding: 10px 10px;
     font-size: 15px;
     cursor: pointer;
@@ -354,10 +355,14 @@ nav a:hover {
     flex-wrap: nowrap;
     flex-direction: row;;
 }
+
 .login{
+    transition: background-color 0.3s ease-in-out;
     order: -1;
     font-weight: bolder;
+    border-radius: 10px;
 }
+
 /*controls the username and logo that appears next to the search bar*/
 .user{
     display: flex;
