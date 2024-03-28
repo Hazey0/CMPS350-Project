@@ -3,7 +3,7 @@ import { logged } from "./LogFunction.js";
 import { renderFeaturedPhones, renderPhones } from "./renderPhones.js";
 import { showUserTab } from "./userTabFunction.js";
 import { renderSort } from "./sortFunction.js";
-import {yourPath,mainPath,prevPath} from "./paths.js"
+import {yourPath,mainPath} from "./paths.js"
 import { searchPhone } from "./searchFunction.js";
 
 document.addEventListener("DOMContentLoaded", () => {

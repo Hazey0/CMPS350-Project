@@ -10,7 +10,6 @@ export function searchPhone() {
 
 
     const searchResult = searchAlgo();
-    localStorage.setItem("searchedPhones",JSON.stringify(searchResult))
     
 
 
@@ -41,7 +40,7 @@ export function searchPhone() {
 
 
     searchDiv.appendChild(cancelSearch);
-};
+}
 function notEmpty(li){
     return li.length!==0;
 }

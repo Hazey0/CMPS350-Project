@@ -1,4 +1,5 @@
 import { mainPath,yourPath } from "./paths.js";
+
 export function renderPhones() {
     if (mainPath == yourPath) {
         const container = document.querySelector("#items");
@@ -11,14 +12,9 @@ const phonesd=localStorage.getItem("phones")
 const phonesf=localStorage.getItem("featuredPhones")
 const featuredPhones=JSON.parse(phonesf);
 console.log(featuredPhones)
+
 export function renderPhone(phone) {
     const phoneBox = document.createElement("div");
-    phoneBox.addEventListener("mouseover", (event) => {
-        phoneBox.style.backgroundColor = "#ff6c00";
-    })
-    phoneBox.addEventListener("mouseout", (event) => {
-        phoneBox.style.backgroundColor = "";
-    })
     const top = document.createElement("div");
     const bottom = document.createElement("div");
     phoneBox.classList.add("phone");
@@ -75,12 +71,11 @@ export function renderPhone(phone) {
 
 
 
-};
+}
 export function renderFeaturedPhones() {
     if (mainPath == yourPath) {
         const container = document.querySelector("#featuredPhones");
         container.replaceChildren();
-        console.log(featuredPhones)
         featuredPhones.forEach((phone) => container.appendChild(renderFeaturedPhone(phone)));
     }
 }
@@ -109,7 +104,7 @@ function renderFeaturedPhone(phone) {
     brand.innerHTML = phone.brand;
     name.innerHTML = "Model: " + phone.name;
     year.innerHTML = "Year: " + phone.year;
-    price.innerHTML = phone.price + "QR";
+    price.innerHTML = `<strong>${phone.price}</strong>` + "QR";
     storage.innerHTML = "Storage: " + phone.storage + "GB";
     img.src = phone.img;
     itemLink.addEventListener("click", (event) => {
@@ -130,8 +125,4 @@ function renderFeaturedPhone(phone) {
 
     return phoneBox;
 
-
-
-
-
-};
+}

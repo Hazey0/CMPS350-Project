@@ -1,4 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
+import { logged } from "./LogFunction.js";
+import { showUserTab } from "./userTabFunction.js";
+
+document.addEventListener("DOMContentLoaded", ()=> {
     // Check if user is logged in
     const userData = localStorage.getItem('users'); // Assuming user data is stored under 'user' key
     const user = JSON.parse(userData);
@@ -19,16 +22,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const container = document.getElementById('phonesContainer'); // Ensure you have a div with this id in your HTML
     userPhones.forEach(phone => {
         const phoneElement = document.createElement('div');
+        phoneElement.classList.add("eachPhone");
         phoneElement.innerHTML = `
-        <h2 class="SellingTitle">Hi, ${phone.seller},</h2>
         <div class="sellerItem">
-        <h3>${phone.brand} ${phone.name}</h3>
+        <h4>${phone.brand} ${phone.name}</h4>
+        <img src="${phone.img}" alt="${phone.name}" class="phoneImg">
         <p>Year: ${phone.year}</p>
-        <p>Price: $${phone.price}</p>
         <p>Storage: ${phone.storage}GB</p>
         <p>Quantity Left: ${phone.quantity}</p>
-        <img src="${phone.img}" alt="${phone.name}" style="width: 100px; height: auto;">
-
+        <p class="price"><strong>${phone.price}</strong>QR</p>
         </div>
         `;
         container.appendChild(phoneElement);
@@ -37,4 +39,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if(userPhones.length === 0) {
         container.innerHTML = '<p>No phones found for this seller.</p>';
     }
+
+    logged();
+    showUserTab();
+
 });

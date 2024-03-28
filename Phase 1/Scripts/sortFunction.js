@@ -1,8 +1,13 @@
 import { mainPath,yourPath } from "./paths.js";
-import { renderPhone,renderPhones } from "./renderPhones.js";
+import { renderPhone } from "./renderPhones.js";
+
+const phonesData = localStorage.getItem("phones");
+const phones = JSON.parse(phonesData);
+
 const data=localStorage.getItem("searchedPhones");
 let searchedPhones=JSON.parse(data);
 console.log(searchedPhones);
+
 function letterss(word) {
     const list = []
 
@@ -175,10 +180,14 @@ export function renderSort() {
 
     }
 }
+
+
 function replaceSortType() {
     const ic = document.querySelector("#typeContain");
     ic.replaceChildren();
 }
+
+
 function showSortType(node, type) {
     const typeContain = document.querySelector("#typeContain");
     const asc = document.createElement("button");
@@ -186,7 +195,7 @@ function showSortType(node, type) {
     const sortType = document.createElement("div");
     sortType.classList.add("sortType")
     asc.innerHTML = "ascending"
-    dsc.innerHTML = "dscending"
+    dsc.innerHTML = "descending"
     asc.value = "asc";
     dsc.value = "dsc";
     asc.addEventListener('click', (event) => { searchedPhones.length > 0 ? (replaceSortType(), sort(type, asc.value, searchedPhones)) : (replaceSortType(), sort(type, asc.value, phones)) })

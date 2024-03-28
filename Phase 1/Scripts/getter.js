@@ -1,3 +1,6 @@
+
+async function starter(){
+
 const data=localStorage.getItem("phones");
 const phones=JSON.parse(data);
 console.log(phones);
@@ -15,8 +18,7 @@ const featuredPhones=JSON.parse(dataf);
 console.log(featuredPhones);
 
 if(featuredPhones==null){
- 
- fetch('../Scripts/storage/featuredPhones.json').then((res)=> res.json()).then((json)=>{
+fetch('../Scripts/storage/featuredPhones.json').then((res)=> res.json()).then((json)=>{
     localStorage.setItem("featuredPhones",JSON.stringify(json));
  
  
@@ -29,11 +31,12 @@ if(featuredPhones==null){
  const users=JSON.parse(datau);
  console.log(users);
 if(users==null){
- fetch('../Scripts/storage/users.json').then((res)=> res.json()).then((json)=>{
+fetch('../Scripts/storage/users.json').then((res)=> res.json()).then((json)=>{
     localStorage.setItem("users",JSON.stringify(json));
  
  
  })
 
 }
- 
+}
+starter();

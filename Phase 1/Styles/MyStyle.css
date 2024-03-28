@@ -380,6 +380,8 @@ nav a:hover {
     margin: 5px;
 }
 /*controls the "price year storage year" sort buttons*/
+
+
 .sortContainer{
     display: flex;
     justify-content: space-evenly;
@@ -391,14 +393,12 @@ nav a:hover {
 }
 
 .userTab{
-    color:black;
+    color: white;
     padding: 7px;
     display: flex;
     height: 80px;
     font-size: 14px;
     gap: 10px;
-    background-color: #ddd;
-    border-radius: 30px;
 }
 
 .transDiv{
