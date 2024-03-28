@@ -14,6 +14,9 @@ const featuredPhones=JSON.parse(phonesf);
 //console.log(featuredPhones)
 
 export function renderPhone(phone) {
+    const wholeLink = document.createElement("a");
+    wholeLink.classList.add("phoneLink");
+    wholeLink.href = "./item.html";
     const phoneBox = document.createElement("div");
     const top = document.createElement("div");
     const bottom = document.createElement("div");
@@ -45,13 +48,14 @@ export function renderPhone(phone) {
     price.innerHTML = `<strong>${phone.price}</strong>` + "QR";
     storage.innerHTML = "Storage: " + phone.storage + "GB";
     img.src = phone.img;
-    img.addEventListener("click", (event) => {
+    wholeLink.addEventListener("click", (event) => {
         console.log(phone);
         localStorage.setItem("phone", JSON.stringify(phone));
         localStorage.setItem("prevPath", (JSON.stringify(mainPath)))
         window.open("./item.html","_self");
 
     })
+    
     ////////////// attaching elements///////////
     itemLink.appendChild(img);
     top.appendChild(itemLink);
@@ -63,9 +67,9 @@ export function renderPhone(phone) {
     bottom.appendChild(price);
     phoneBox.appendChild(top);
     phoneBox.appendChild(bottom);
+    wholeLink.appendChild(phoneBox);
 
-
-    return phoneBox;
+    return wholeLink;
 
 
 
@@ -81,6 +85,9 @@ export function renderFeaturedPhones() {
 }
 
 function renderFeaturedPhone(phone) {
+    const wholeLink = document.createElement("a");
+    wholeLink.classList.add("phoneLink");
+    wholeLink.href = "./item.html";
     const phoneBox = document.createElement("div");
     const top = document.createElement("div");
     const bottom = document.createElement("div");
@@ -111,6 +118,10 @@ function renderFeaturedPhone(phone) {
         localStorage.setItem("phone", JSON.stringify(phone));
 
     });
+    wholeLink.addEventListener("click", (event) => {
+        localStorage.setItem("phone", JSON.stringify(phone));
+
+    });
     ///////// attaching elements///////////
     itemLink.appendChild(img);
     top.appendChild(itemLink);
@@ -122,7 +133,8 @@ function renderFeaturedPhone(phone) {
     bottom.appendChild(price);
     phoneBox.appendChild(top);
     phoneBox.appendChild(bottom);
+    wholeLink.appendChild(phoneBox);
 
-    return phoneBox;
+    return wholeLink;
 
 }
