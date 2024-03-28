@@ -18,9 +18,11 @@ export function renderPhone(phone) {
     wholeLink.classList.add("phoneLink");
     wholeLink.href = "./item.html";
     const phoneBox = document.createElement("div");
-    const top = document.createElement("div");
-    const bottom = document.createElement("div");
     phoneBox.classList.add("phone");
+    const top = document.createElement("div");
+    top.classList.add("top");
+    const bottom = document.createElement("div");
+    bottom.classList.add("bottom")
     ////elements of the phone///
     const brand = document.createElement("p");
     const name = document.createElement("p");
@@ -67,9 +69,9 @@ export function renderPhone(phone) {
     bottom.appendChild(name);
     bottom.appendChild(year);
     bottom.appendChild(storage);
-    bottom.appendChild(price);
     phoneBox.appendChild(top);
     phoneBox.appendChild(bottom);
+    phoneBox.appendChild(price);
     wholeLink.appendChild(phoneBox);
 
     return wholeLink;

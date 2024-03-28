@@ -5,8 +5,8 @@
 
 .MAIN {
     background-color: rgb(238, 238, 238);
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 20vh;
+    padding-right: 20vh;
 }
 
 body {
@@ -49,7 +49,7 @@ body {
 .searchItem {
     width: 100%;
     display: flex;
-    max-width: 500px;
+    max-width: 80vh;
     position: relative;
 
     .sButton {
@@ -63,7 +63,7 @@ body {
 }
 
 .searchInput {
-    width: 500px;
+    width: 70vh;
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 20px;
@@ -90,7 +90,7 @@ nav a:hover {
 
 /* Latest Addition */
 .banner {
-
+    margin-top: 15vh;
     .LatestTitle {
         color: white;
         padding: 10px;
@@ -172,15 +172,6 @@ nav a:hover {
     font-size: 0.8rem;
 }
 
-@media (max-width: 768px) {
-    .featuredPhones {
-        grid-template-columns: 1fr;
-    }
-
-    .searchInput, nav a {
-        font-size: 0.9rem;
-    }
-}
 
 .footerStuff{
     margin-top: 100px;
@@ -218,6 +209,7 @@ nav a:hover {
     transition: transform 0.3s ease;
     border-radius: 20px;
     margin-bottom: 20px;
+    margin-right: 1vh;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 1%;
@@ -276,9 +268,10 @@ nav a:hover {
 }
 
 .items{
+    margin-left: 2%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: left;
 }
 
 .logoutButton {
@@ -480,6 +473,176 @@ nav a:hover {
 }
 
 #searcher{
-    margin-left: 300px;
+    margin-left: 20vh;
 }
 
+
+
+
+
+@media (max-width: 800px) {
+
+
+
+    .MAIN{
+        padding-top: 2rem;
+        padding-left: 5vh;
+        padding-right: 5vh;
+    }
+
+    .nav1{
+        width: 100%;
+        height: 17%;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: 4rem 3rem;
+        padding: 0;
+        justify-content: center;
+        align-content: center;
+
+        .logo{
+
+            a:hover{
+                background-color: black;
+            }
+
+            img{
+                width: 5rem;
+                padding: 0;
+                padding-top: 1rem;
+                margin: 0;
+            }
+        }
+
+        .searchInput{
+            width: auto;
+            padding: 0.5vh;
+            margin-left: -20vh;
+            font-size: 12px;
+        }
+
+        #searcher{
+            width: fit-content;
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            img{
+                width: 3vh;
+            }
+        }
+
+        .cancelSearch{
+            margin-top: -0.3rem;
+        }
+
+        .logoutButton, .login{
+            margin-left: 12rem;
+            padding: 2%;
+            font-size: 13px;
+        }
+
+        .user, .guest{
+            padding-left: 10%;
+            font-size: 13px;
+    
+        }
+
+    }
+
+    .banner{
+
+        img {
+            display: none;
+        }
+ 
+    }
+
+    .featuredTitle{
+        font-size: 20px;
+    }
+
+    .featuredPhone{
+        width: 11rem;
+        margin-left: 3vh;
+        img{
+            width: 11rem;
+        }
+        P{
+            font-size: 12px;
+            padding: 0;
+            margin: 1%;
+        }
+        .phoneBrand{
+            padding-bottom: 3%;
+        }
+        .price{
+            strong{
+                font-size: 20px;
+            }
+            padding-top: 2%;
+            font-size: 14px;
+        }
+    }
+
+    .featuredPhones {
+        display: flex;
+        flex-direction: column;
+        width: 16rem;
+        margin-left: 50px;
+    }
+
+    .searchInput, nav a {
+        font-size: 0.9rem;
+    }
+
+
+    .itemsheader{
+        font-size: 12px;
+        img{
+            width: 12px;
+        }
+    }
+
+    #typeContain{
+        button{
+            font-size: 7px;
+            padding: 1vh;
+        }
+    }
+
+    .phone{
+        padding: 0.5rem;
+        width: 110px;
+        height: 205px;
+        img{
+            width: 6rem;
+            height: 6rem;
+        }
+        p{
+            font-size: 10px;
+            padding: 0;
+            margin: 1%;
+        }
+        .phoneBrand{
+            padding-bottom: 3%;
+        }
+        .price{
+            strong{
+                font-size: 12px;
+            }
+            padding-top: 2%;
+            padding-bottom: 3%;
+            font-size: 10px;
+        }
+        .phoneDetails{
+            margin-top: 0.5rem;
+            p{
+                font-size: 8px;
+            }
+        }
+    }
+
+    .items{
+        margin-left: 8%;
+    }
+}
