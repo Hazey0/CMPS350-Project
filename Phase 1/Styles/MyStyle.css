@@ -13,6 +13,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: rgb(238, 238, 238);
 }
 
 /* Navigation */
@@ -222,7 +223,7 @@ nav a:hover {
     padding-top: 1%;
     background-color:white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    width: 200px;
+    width: 210px;
 }
 
 .phone:hover {
@@ -241,7 +242,10 @@ nav a:hover {
     font-family: Georgia, 'Times New Roman', Times, serif;
     display: block;
     padding: 1.1%;
-    
+
+    .name, .year, .storage{
+        font-size: 14px;
+    }
 }
 
 /* will effect the area that contains the phones under the featured phones*/
@@ -376,10 +380,17 @@ nav a:hover {
     flex-direction: row;
     flex-wrap: nowrap;
     font-weight: bolder;
+
+    .username::before{
+        content: ": ";
+    }
+
+    .guest::before{
+        content: ": ";
+    }
 }
 /* used to put a gap between the user logo and the user name that appears next to the search bar*/
 .userImage{
-    margin-right: 15px;
     margin-bottom: 7px;
 }
 

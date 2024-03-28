@@ -24,10 +24,13 @@ export function renderPhone(phone) {
     ////elements of the phone///
     const brand = document.createElement("p");
     const name = document.createElement("p");
+    name.classList.add("name");
     const year = document.createElement("p");
+    year.classList.add("year");
     const price = document.createElement("p");
     price.classList.add("price");
     const storage = document.createElement("p");
+    storage.classList.add("storage");
     const img = document.createElement('img');
     const itemLink = document.createElement("a");
     /////adding ids to style them in css////
