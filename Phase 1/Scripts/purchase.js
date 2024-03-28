@@ -73,8 +73,11 @@ document.addEventListener("DOMContentLoaded", async() => {
         transaction.seller=seller;
         transaction.quantity=document.querySelector("#quantity").value
         console.log(transaction)
+        user.transactions.push(transaction)
         editMoney();
         editQuantity();
+        updateUser(transaction,seller)
+        updateUser(transaction,user.username)
 
         localStorage.removeItem("phones")
         localStorage.setItem("phones",JSON.stringify(phones))
@@ -176,7 +179,13 @@ document.addEventListener("DOMContentLoaded", async() => {
         console.log(users[f]);
 
     }
-
+    function updateUser(tran,usr){
+        const f=users.findIndex((u)=> usr==u.username );
+       const t=users[f].transactions
+       t.push(tran);
+       users[f].transactions=t;
+        localStorage.setItem("users",JSON.stringify(users))
+    }
 
 
     

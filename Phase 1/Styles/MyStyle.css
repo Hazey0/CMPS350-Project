@@ -475,7 +475,7 @@ nav a:hover {
 #searcher{
     margin-left: 20vh;
 }
-<<<<<<< Updated upstream
+
 
 
 
@@ -694,8 +694,20 @@ nav a:hover {
 
 
 }
-=======
 #balance{
     color: #ddd;
 }
->>>>>>> Stashed changes
+.transBox{
+    display: flex;
+    justify-content: start;
+}
+.transTop{
+justify-self: start;
+}
+.transBottom{
+    display: flex;
+    justify-self: end;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 30px;
+}
