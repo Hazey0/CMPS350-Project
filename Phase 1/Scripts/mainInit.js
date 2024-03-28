@@ -6,13 +6,20 @@ import { renderSort } from "./sortFunction.js";
 import {yourPath,mainPath} from "./paths.js"
 import { searchPhone } from "./searchFunction.js";
 
+
 document.addEventListener("DOMContentLoaded", () => {
+    const userData = localStorage.getItem("user");
+    const user = JSON.parse(userData);
+
+    const userDatas = localStorage.getItem("users");
+    const users = JSON.parse(userDatas);
+    console.log(users)
 
     const phonesd=localStorage.getItem("phones")
     const phones=JSON.parse(phonesd);
+
    const phonesf=localStorage.getItem("featuredPhones")
    const featuredPhones=JSON.parse(phonesf);
-   //console.log(featuredPhones)
 
 
 

@@ -475,6 +475,7 @@ nav a:hover {
 #searcher{
     margin-left: 20vh;
 }
+<<<<<<< Updated upstream
 
 
 
@@ -693,3 +694,8 @@ nav a:hover {
 
 
 }
+=======
+#balance{
+    color: #ddd;
+}
+>>>>>>> Stashed changes

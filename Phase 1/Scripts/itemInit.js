@@ -3,8 +3,8 @@ import { logged } from "./LogFunction.js";
 document.addEventListener("DOMContentLoaded", () => {
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
-
-
+    const phonesd=localStorage.getItem("phones")
+    const phones=JSON.parse(phonesd);
     const getPage = (a) => a.split("/").reduce((a, v) => v)
     const yourPath = getPage(window.location.pathname);
     const mainPath = "item.html";
@@ -39,7 +39,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const storage = document.createElement("p");
         const img = document.createElement('img');
         const buyButton = document.createElement("button");
+        const removeButton=document.createElement("button");
         buyButton.classList.add("buyButton");
+        removeButton.classList.add("buyButton");
+        removeButton.addEventListener("click",(event)=>{
+            const delet=phones.findIndex((p)=> p.model==phone.model && p.brand==phone.brand && p.storage==phone.storage &&  phone.seller==p.seller &&   phone.price==p.price);
+            console.log(phones[delet])
+            phones.splice(delet,1);
+            localStorage.setItem("phones",JSON.stringify(phones))
+            window.open("main.html","_self");
+        })
         const seller = document.createElement("p")
         const total = document.createElement("p");
         const quantityv=document.createElement("p");
@@ -48,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         total.innerHTML = phone.price;
         total.classList.add("total");
         seller.innerHTML = "Seller: " + phone.seller;
+        removeButton.innerHTML="Remove Phone"
         buyButton.innerHTML = "Buy Now!"
         buyButton.addEventListener('click', (event) => {
             purchase();
@@ -69,7 +79,22 @@ document.addEventListener("DOMContentLoaded", () => {
         bottom.appendChild(quantityv);
 
         bottom.appendChild(seller);
-        bottom.appendChild(buyButton);
+        
+        if (user != null) {
+            if(user.type=="Seller"){
+                if(user.username==phone.seller){
+                bottom.appendChild(removeButton)}
+                else{
+                    bottom.appendChild(buyButton)
+                }
+            }
+            else{
+            bottom.appendChild(buyButton);}
+        }
+        else{
+            bottom.appendChild(buyButton);
+        }
+       
         phoneBox.appendChild(top);
         phoneBox.appendChild(bottom);
 

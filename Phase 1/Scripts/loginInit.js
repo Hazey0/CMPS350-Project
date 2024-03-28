@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const usersData = localStorage.getItem("users");
-    const users = JSON.parse(usersData);
-    console.log(users);
+
+  
 
     const getPage = (a) => a.split("/").reduce((a, v) => v)
     const yourPath = getPage(window.location.pathname);
@@ -28,6 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function log() {
+        const checkUser = (use, pass) => users.filter((v) => v.password == pass && v.username == use);
+        const usersData = localStorage.getItem("users");
+        const users = JSON.parse(usersData);
         
         const mainLink=document.querySelector(".mainLink")
         mainLink.addEventListener("click",(event)=>{setPrevPath()})
@@ -66,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const checkUser = (use, pass) => users.filter((v) => v.password == pass && v.username == use);
+   
 
     log();
 });

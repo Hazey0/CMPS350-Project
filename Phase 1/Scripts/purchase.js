@@ -12,11 +12,15 @@ document.addEventListener("DOMContentLoaded", async() => {
     const datau = localStorage.getItem("users");
     const users = JSON.parse(datau)
     console.log(phone)
+    
 
     const phonesData = localStorage.getItem("phones");
     const phones = JSON.parse(phonesData);
     document.querySelector("#quantity").addEventListener("click",(event)=>{
-        init();
+        const quantity= document.querySelector("#quantity").value
+        const total=document.querySelector("#total")
+        const subTotal=quantity*phone.price;
+        total.innerHTML=subTotal
     })
     phones
     function init(){
@@ -26,10 +30,11 @@ document.addEventListener("DOMContentLoaded", async() => {
         const total=document.querySelector("#total")
         const subTotal=quantity*phone.price;
         total.innerHTML=subTotal
+
         document.querySelector("#submit").addEventListener("click",(event)=>{
             if(checkInputs()){
             if(user.money>=getTotal()){
-                alert("purchase")
+              
                 purchase();
             }
             else{
@@ -61,12 +66,25 @@ document.addEventListener("DOMContentLoaded", async() => {
         const seller= phone.seller;
         const total=getTotal();
         const purchasedPhone=phone;
+        transaction.phone=purchasedPhone
         transaction.address=address;
-        transaction.seller=phone.seller;
-        transaction.user=username;
+        transaction.buyer=username;
+        transaction.total=total;
+        transaction.seller=seller;
+        transaction.quantity=document.querySelector("#quantity").value
         console.log(transaction)
+        editMoney();
         editQuantity();
-        alert("Phone purchase Successfully")
+
+        localStorage.removeItem("phones")
+        localStorage.setItem("phones",JSON.stringify(phones))
+        console.log(users[0])
+        console.log(users[1])
+        console.log(users[2])
+        console.log(users[3])
+        
+        alert("Phone purchased Successfully")
+        logged();
         window.open("main.html","_self")
 
 
@@ -90,17 +108,20 @@ document.addEventListener("DOMContentLoaded", async() => {
     }
     function editQuantity(){
         const quan= document.querySelector("#quantity").value
-        const newQ=phone.quantity-quan;;
+        const newQ=phone.quantity-quan;
         if(newQ<1){
-            const delet=phones.findIndex(phone);
+            const delet=phones.findIndex((p)=> p.model==phone.model && p.brand==phone.brand && p.storage==phone.storage &&  phone.seller==p.seller &&   phone.price==p.price);
+            console.log(phones[delet])
             phones.splice(delet,1);
             
             
         }
         else{
-            phones.map((e)=>e==phone ? phone.quantity=newQ: false )
+            const getPhone=phones.findIndex((p)=> p.model==phone.model && p.brand==phone.brand && p.storage==phone.storage &&  phone.seller==p.seller &&   phone.price==p.price);
+            console.log(phones[getPhone]);
+                phones[getPhone].quantity=newQ;
         }
-        localStorage.setItem("phones",JSON.stringify(phones))
+
         
     }
     function checkInputs(){
@@ -122,20 +143,39 @@ document.addEventListener("DOMContentLoaded", async() => {
 
     }
     function editMoney(){
-        const t=getTotal();
-        const newMoney= user.money-getTotal
+        //const t=Number(getTotal());
+        const newMoney= user.money-getTotal()
         let mon=newMoney;
         if(newMoney<=0){
              mon=0;
         }
-        users.find((u)=> u==user? u:false ).map((f)=> f.money=mon)
+        const f=users.findIndex((u)=> user.username=u.username );
         localStorage.setItem("users",JSON.stringify(users));
+        users[f].money=mon
+        user.money=mon;
+        moneySeller();
+        console.log(users)
+        localStorage.removeItem("users");
+       
+        
+        
+        localStorage.setItem("users",JSON.stringify(users))
+        
+        localStorage.setItem("user",JSON.stringify(user))
+        alert(" done")
 
         
     }
 
 
+    function moneySeller(){
+        const seller=phone.seller;
+        const mon=getTotal();
+        const f=users.findIndex((u)=> seller==u.username );
+        users[f].money=mon
+        console.log(users[f]);
 
+    }
 
 
 

@@ -1,6 +1,6 @@
 
 async function starter(){
-
+//localStorage.removeItem("phones");
 const data=localStorage.getItem("phones");
 const phones=JSON.parse(data);
 //console.log(phones);

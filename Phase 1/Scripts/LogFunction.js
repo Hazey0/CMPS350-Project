@@ -14,7 +14,7 @@ export function logged() {
         const loginButton = document.createElement("a");
         loginButton.classList.add("login");
         loginButton.innerHTML = "Login";
-        loginButton.href = "login.html";
+        
         const guest = document.createElement("p");
         guest.innerHTML = "Guest"
         guest.classList.add("guest");
@@ -25,10 +25,15 @@ export function logged() {
         nav1.appendChild(guest);
         console.log(guest);
         nav2.addEventListener("click", (event) => {
+            localStorage.setItem("users",JSON.stringify(users))
             localStorage.setItem("prevPath", (JSON.stringify(mainPath)))
         })
-
+        loginButton.addEventListener("click",(event)=>{
+            localStorage.setItem("users",JSON.stringify(users))
+            window.open("login.html","_self")
+        })
         nav2.appendChild(loginButton);
+        
         //if(nav.hasChildNodes==false){
         //nav.replaceChildren();
         //
@@ -52,18 +57,36 @@ export function logged() {
         logoutButton.innerHTML = "Logout";
         logoutButton.classList.add("logoutButton");
         const usernam = document.createElement("p");
+        const balance = document.createElement("p");
+        balance.classList.add("#balance");
+        balance.id="balance"
+        balance.innerHTML=user.money
         usernam.innerHTML = ` ${user.username}`;
         usernam.classList.add("username");
         logoutButton.addEventListener("click", () => {
+            localStorage.setItem("users",JSON.stringify(users))
+            localStorage.setItem("user",JSON.stringify(user))
             logout();
         })
         nav1.appendChild(userImage);
         nav1.appendChild(usernam);
+        nav1.appendChild(balance)
         nav2.appendChild(logoutButton);
     }
 }
 function logout() {
-    localStorage.removeItem("user");
+    localStorage.setItem("users",JSON.stringify(users))
+    updateUser();
+   
+    alert("check")
     window.open("./" + mainPath, "_self");
 
+}
+function updateUser(){
+
+    const ind=users.findIndex((u)=> u.username==user.username)
+    users[ind]=user;
+    localStorage.setItem("users",JSON.stringify(users))
+    localStorage.removeItem("user");
+    
 }
