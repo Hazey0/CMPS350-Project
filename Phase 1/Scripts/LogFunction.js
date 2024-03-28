@@ -52,7 +52,7 @@ export function logged() {
         logoutButton.innerHTML = "Logout";
         logoutButton.classList.add("logoutButton");
         const usernam = document.createElement("p");
-        usernam.innerHTML = `${user.username}`;
+        usernam.innerHTML = ` ${user.username}`;
         usernam.classList.add("username");
         logoutButton.addEventListener("click", () => {
             logout();

@@ -40,8 +40,7 @@
     <main>
         <h2>Your Cart</h2>
         <div class="cart-item">
-            <img  alt="Phone Image">
-            <div class="item-details">
+            <div class="item-details" id="phoneDetails">
             </div>
             <div class="quantity-selector">
                 <label for="quantity">Quantity:</label>
@@ -51,7 +50,7 @@
         </div>
 
         <h2>Shipping Address</h2>
-        <form class="mainform" action="/place-order" method="post">
+        <section class="mainform"  method="post">
             <div class="form-group">
                 <label for="name">Full Name:</label>
                 <input type="text" name="name" id="name" required>
@@ -82,8 +81,8 @@
                <p class="total">Total:</p>
                <p id="total" name="total"></p>
             </div>
-            <button type="submit">Place Order</button>
-        </form>
+            <button  id="submit" >Place Order</button>
+        </section>
     </main>
 
     <footer>
