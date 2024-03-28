@@ -40,18 +40,12 @@
     <main>
         <h2>Your Cart</h2>
         <div class="cart-item">
-            <img src="../Media/Images/iPhone14.jpg" alt="Phone Image">
+            <img  alt="Phone Image">
             <div class="item-details">
             </div>
             <div class="quantity-selector">
                 <label for="quantity">Quantity:</label>
-                <select name="quantity" id="quantity">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+                <input type="number" name="quantity" id="quantity" min=1 value=1>
             </div>
             <span class="subtotal"></span>
         </div>
@@ -81,10 +75,12 @@
             <div class="form-group">
                 <label for="country">Country:</label>
                 <select name="country" id="country">
-                    <option value="US">United States</option>
-                    <option value="CA">Canada</option>
-                    <option value="GB">United Kingdom</option>
+
                 </select>
+            </div>
+            <div>
+               <p class="total">Total:</p>
+               <p id="total" name="total"></p>
             </div>
             <button type="submit">Place Order</button>
         </form>

@@ -1,3 +1,5 @@
+import { showUserTab } from "./userTabFunction.js";
+import { logged } from "./LogFunction.js";
 document.addEventListener("DOMContentLoaded", () => {
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
@@ -25,16 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const top = document.createElement("div");
         const bottom = document.createElement("div");
         bottom.classList.add("phoneDetails")
-        const quantitySelect = document.querySelector("#quantity");
-        quantitySelect.max=phone.quantity;
-        quantitySelect.addEventListener("click", (event) => {
-            updatePrice();
-        })
 
-        quantitySelect
         phoneBox.classList.add("phone");
         ////elements of the phone///
-        const select=document.querySelector("#quantity");
+        
         const brand = document.createElement("p");
         brand.classList.add("brand");
         const name = document.createElement("p");
@@ -71,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bottom.appendChild(price);
         bottom.appendChild(storage);
         bottom.appendChild(quantityv);
-        bottom.appendChild(select);
+
         bottom.appendChild(seller);
         bottom.appendChild(buyButton);
         phoneBox.appendChild(top);
@@ -86,18 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     };
     function purchase() {
-        const total = phone.price * document.querySelector("#quantity").value;
-        console.log(total);
+     
         if (user != null) {
             if (user.type == "Customer") {
-                if (user.money >= total) {
+                localStorage.setItem("phone",JSON.stringify(phone))
                     //user.transactions.push(phone);
                     window.open("./purchase.html", "_self");
-                }
-                else {
-
-                    window.alert("insuffienct balance")
-                }
+                
             }
             else {
                 window.alert("you are not a customer")
@@ -120,191 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
         total.innerHTML = phone.price * selected;
     }
 
-    function logged() {
-        console.log(user)
-        if (user == null) {
-            
-            const nav2 = document.querySelector("#loginButton");
-            const nav1 = document.querySelector("#user");
-            nav2.replaceChildren();
-            nav1.replaceChildren();
-            const loginButton = document.createElement("a");
-            loginButton.classList.add("login");
-            loginButton.innerHTML = "Login";
-            loginButton.href = "login.html";
-            const guest = document.createElement("p");
-            guest.innerHTML = "Guest"
-            guest.classList.add("guest");
-            guest.style.color="white";
-            const userImage = document.createElement("img");
-            userImage.src = "../Media/icons/user.svg";
-            userImage.classList.add("userImage");
-            nav1.appendChild(userImage);
-            nav1.appendChild(guest);
-            nav2.addEventListener("click",(event)=>{
-                localStorage.setItem("prevPath",(JSON.stringify(mainPath)))
-            })
-
-            nav2.appendChild(loginButton);
-            //if(nav.hasChildNodes==false){
-            //nav.replaceChildren();
-            //
-            //const loginButton= document.createElement("button");
-            //loginButton.innerHTML="Login";
-            //loginButton.addEventListener("click",()=>{
-            // open("./login.html");
-            //})
-
-        }
-
-
-        else {
-            const nav2 = document.querySelector("#loginButton")
-            const nav1 = document.querySelector("#user");
-            nav1.replaceChildren();
-            const userImage = document.createElement("img");
-            userImage.src = "../Media/icons/user.svg";
-            userImage.classList.add("userImage");
-            nav2.replaceChildren();
-            const logoutButton = document.createElement("button");
-            logoutButton.innerHTML = "Logout";
-            logoutButton.classList.add("logoutButton");
-            const usernam = document.createElement("p");
-            usernam.innerHTML = user.username;
-            usernam.classList.add("username");
-            logoutButton.addEventListener("click", () => {
-                logout();
-            })
-            nav1.appendChild(userImage);
-            nav1.appendChild(usernam);
-            nav2.appendChild(logoutButton);
-        }
-    }
-    function logout() {
-        localStorage.removeItem("user");
-        window.open("./"+mainPath,"_self");
-
-
-    }
-
-    function showUserTab() {
-        if (user !== null) {
-            const userContainer = document.querySelector("#user");
-            closeUserTab();
-            const userTab = document.createElement("div");
-            userTab.classList.add("userTab");
-
-            if (user.type == "Customer") {
-
-                const trans = document.createElement("div");
-                trans.classList.add("transDiv");
-                
-                const transaction = document.createElement("p");
-                const transactionLogo = document.createElement("img");
-                
-
-                transaction.classList.add("transaction");
-                transactionLogo.classList.add("transLogo");
-
-                userTab.style.cursor = "pointer";
-                userTab.addEventListener("click", (event) => {
-                    window.open("./transactions.html", "_self");
-                })
-
-                transactionLogo.src = "../Media/Icons/icons8-letter-64.png";
-                transaction.innerHTML = "Transactions";
-
-                trans.appendChild(transaction);
-                trans.appendChild(transactionLogo);
-                userTab.appendChild(trans);
-
-                userContainer.addEventListener("click", (event) => {
-                    const u = document.querySelector(".username")
-                    const ui = document.querySelector(".userImage")
-                    u.style.display = "none";
-                    userContainer.appendChild(userTab);
-                })
-
-            }
-
-            else if (user.type == "Seller") {
-                const sellDiv = document.createElement("div");
-                sellDiv.classList.add("sellDiv");
-                const saleDiv = document.createElement("div");
-                saleDiv.classList.add("saleDiv");
-
-                const sell = document.createElement("p");
-                const sellLogo = document.createElement("img");
-                sell.classList.add("sell");
-                sellLogo.classList.add("sellLogo");
-
-                const sale = document.createElement("p");
-                const saleLogo = document.createElement("img");
-                sale.classList.add("sale");
-                saleLogo.classList.add("saleLogo");
-
-                sell.style.cursor = "pointer";
-                sellLogo.style.cursor = "pointer";
-                sale.style.cursor = "pointer";
-                saleLogo.style.cursor = "pointer";
-
-                sell.addEventListener("click", (event) => {
-                    window.open("./sell.html", "_self");
-                })
-                sellLogo.addEventListener("click", (event) => {
-                    window.open("./sell.html", "_self");
-                })
-                sellDiv.addEventListener("click", () =>{
-                    window.open("./sell.html", "_self");
-                })
-
-                sale.addEventListener("click", (event) => {
-                    window.open("./transactions.html", "_self");
-                })
-                saleLogo.addEventListener("click", (event) => {
-                    window.open("./transactions.html", "_self");
-                })
-                saleDiv.addEventListener("click", (event) => {
-                    window.open("./transactions.html", "_self");
-                })
-
-
-                sellLogo.src = "../Media/Icons/sell.png";
-                saleLogo.src = "../Media/Icons/sale.png"
-                sell.innerHTML = "Sell Item";
-                sale.innerHTML = "My Sales";
-
-                sellDiv.appendChild(sell);
-                sellDiv.appendChild(sellLogo);
-                userTab.appendChild(sellDiv);
-
-                saleDiv.appendChild(sale);
-                saleDiv.appendChild(saleLogo);
-                userTab.appendChild(saleDiv);
-
-                userContainer.addEventListener("click", (event) => {
-                    const u = document.querySelector(".username")
-                    const ui = document.querySelector(".userImage")
-                    u.style.display = "none";
-                    userContainer.appendChild(userTab);
-                })
-            }
-            
-            userTab.addEventListener("mouseleave", (event) => {
-                const u = document.querySelector(".username")
-                u.style.display = "";
-                userContainer.querySelector(".userTab").remove();
-            })
-        }
-    }
-    function closeUserTab() {
-        const closeIt=document.querySelector(".userTab");
-        console.log(closeIt);
-        if(closeIt!=null){
-            closeIt.replaceChildren();
-        closeIt.remove();}
-
-    }
     //init()
     logged();
     showUserTab();
