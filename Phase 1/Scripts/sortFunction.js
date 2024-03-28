@@ -198,8 +198,8 @@ function showSortType(node, type) {
     dsc.innerHTML = "descending"
     asc.value = "asc";
     dsc.value = "dsc";
-    asc.addEventListener('click', (event) => { searchedPhones.length > 0 ? (replaceSortType(), sort(type, asc.value, searchedPhones)) : (replaceSortType(), sort(type, asc.value, phones)) })
-    dsc.addEventListener('click', (event) => { searchedPhones.length > 0 ? (replaceSortType(), sort(type, dsc.value, searchedPhones)) : (replaceSortType(), sort(type, dsc.value, phones)) })
+    asc.addEventListener('click', (event) => { searchedPhones !=null ? (replaceSortType(), sort(type, asc.value, searchedPhones)) : (replaceSortType(), sort(type, asc.value, phones)) })
+    dsc.addEventListener('click', (event) => { searchedPhones !=null  ? (replaceSortType(), sort(type, dsc.value, searchedPhones)) : (replaceSortType(), sort(type, dsc.value, phones)) })
     typeContain.appendChild(asc);
     typeContain.appendChild(dsc);
     node.appendChild(typeContain);

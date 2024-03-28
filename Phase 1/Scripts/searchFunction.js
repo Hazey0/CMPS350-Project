@@ -1,6 +1,8 @@
 import { renderPhone,renderPhones } from "./renderPhones.js";
-
-let searchedPhones=[]
+const data=localStorage.getItem("phones");
+const phones=JSON.parse(data);
+const datas=localStorage.getItem("searchedPhones");
+let searchedPhones=JSON.parse(datas);
 export function searchPhone() {
     if (document.querySelector(".cancelSearch") != null) {
         document.querySelector(".cancelSearch").remove();
