@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", async() => {
     const user = JSON.parse(userData);
     const data = localStorage.getItem("phone");
     const phone = JSON.parse(data);
+    const datau = localStorage.getItem("users");
+    const users = JSON.parse(datau)
     console.log(phone)
 
     const phonesData = localStorage.getItem("phones");
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", async() => {
     document.querySelector("#quantity").addEventListener("click",(event)=>{
         init();
     })
+    phones
     function init(){
         const quan=document.querySelector("#quantity")
         quan.setAttribute("max",phone.quantity)
@@ -23,13 +26,15 @@ document.addEventListener("DOMContentLoaded", async() => {
         const total=document.querySelector("#total")
         const subTotal=quantity*phone.price;
         total.innerHTML=subTotal
-        document.addEventListener("submit",(event)=>{
+        document.querySelector("#submit").addEventListener("click",(event)=>{
+            if(checkInputs()){
             if(user.money>=getTotal()){
+                alert("purchase")
                 purchase();
             }
             else{
                 alert("not enough money")
-            }
+            }}
         });
 
     }
@@ -95,6 +100,37 @@ document.addEventListener("DOMContentLoaded", async() => {
         else{
             phones.map((e)=>e==phone ? phone.quantity=newQ: false )
         }
+        localStorage.setItem("phones",JSON.stringify(phones))
+        
+    }
+    function checkInputs(){
+
+        const name=document.querySelector("#name").value+" "+document.querySelector("#address").value;
+        const address=document.querySelector("#address").value
+        const city=document.querySelector("#city").value
+        const state=document.querySelector("#state").value
+        const zip=document.querySelector("#zip").value
+        const country=document.querySelector("#country").value;
+        if(name!="" && address!="" && city!="" && state!="" && zip!="" && country!=""){
+            return true
+        }
+        else{
+           alert("field missing")
+           return false
+        }
+
+
+    }
+    function editMoney(){
+        const t=getTotal();
+        const newMoney= user.money-getTotal
+        let mon=newMoney;
+        if(newMoney<=0){
+             mon=0;
+        }
+        users.find((u)=> u==user? u:false ).map((f)=> f.money=mon)
+        localStorage.setItem("users",JSON.stringify(users));
+
         
     }
 
