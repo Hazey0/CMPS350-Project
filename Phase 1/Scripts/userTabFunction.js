@@ -10,6 +10,7 @@ export function showUserTab() {
         const userTab = document.createElement("div");
         userTab.classList.add("userTab");
 
+        const username = document.querySelector(".username")
         if (user.type == "Customer") {
 
             const trans = document.createElement("div");
@@ -43,7 +44,7 @@ export function showUserTab() {
             trans.appendChild(transactionLogo);
             userTab.appendChild(trans);
 
-            userContainer.addEventListener("click", (event) => {
+            username.addEventListener("click", (event) => {
                 const u = document.querySelector(".username")
                 u.style.display = "none";
                 userContainer.appendChild(userTab);

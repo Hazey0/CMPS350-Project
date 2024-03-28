@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(submitTab);
         const submitButton=document.querySelector("#submitButton");
         console.log(submitButton)
-        submitTab.addEventListener("click",(event)=>{
+        submitButton.addEventListener("click",(event)=>{
            
             if(checkInputs()){
                 submitButton.style.display="none";

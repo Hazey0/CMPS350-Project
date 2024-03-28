@@ -492,11 +492,11 @@ nav a:hover {
 
     .nav1{
         width: 100%;
-        height: 17%;
+        height: 14%;
         display: grid;
-        grid-template-columns: auto auto;
-        grid-template-rows: 4rem 3rem;
-        padding: 0;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 4rem 40%;
+        padding: 0px;
         justify-content: center;
         align-content: center;
 
@@ -515,14 +515,14 @@ nav a:hover {
         }
 
         .searchInput{
-            width: auto;
+            width: 70%;
             padding: 0.5vh;
-            margin-left: -20vh;
             font-size: 12px;
         }
 
         #searcher{
-            width: fit-content;
+            justify-self: end;
+            width: 100%;
             padding-top: 1rem;
             display: flex;
             flex-direction: column;
@@ -535,6 +535,11 @@ nav a:hover {
             margin-top: -0.3rem;
         }
 
+        #loginButton{
+            justify-self: end;
+            margin-right: 15%;
+        }
+
         .logoutButton, .login{
             margin-left: 12rem;
             padding: 2%;
@@ -544,7 +549,38 @@ nav a:hover {
         .user, .guest{
             padding-left: 10%;
             font-size: 13px;
-    
+            width: 600px;
+        }
+
+        .userTab{
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .username:hover{
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .sellDiv, .saleDiv{
+            height: 50%;
+            p{
+                font-size: 10px;
+            }
+        }
+
+        .saleLogo, .sellLogo{
+            padding: 0;
+        }
+
+        .transDiv{
+            height: 50%;
+
+            .transaction{
+                font-size: 12px;
+            }
         }
 
     }
@@ -552,20 +588,28 @@ nav a:hover {
     .banner{
 
         img {
-            display: none;
+            height: 10%;
         }
  
     }
 
     .featuredTitle{
         font-size: 20px;
+        width: 100%;
+    }
+
+    #featuredPhone{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .featuredPhone{
-        width: 11rem;
-        margin-left: 3vh;
+        width: 80%;
+        height: 90%;
         img{
-            width: 11rem;
+            width:100%;
+            height: 200px;
         }
         P{
             font-size: 12px;
@@ -577,18 +621,18 @@ nav a:hover {
         }
         .price{
             strong{
-                font-size: 20px;
+                font-size: 15px;
             }
             padding-top: 2%;
-            font-size: 14px;
+            font-size: 10px;
         }
     }
 
-    .featuredPhones {
+    .featuredPhones{
         display: flex;
-        flex-direction: column;
-        width: 16rem;
-        margin-left: 50px;
+        flex-direction: row;
+        justify-content: center;
+        width: 80%;
     }
 
     .searchInput, nav a {
@@ -643,6 +687,9 @@ nav a:hover {
     }
 
     .items{
-        margin-left: 8%;
+        display: flex;
+        justify-content: center;
     }
+
+
 }
