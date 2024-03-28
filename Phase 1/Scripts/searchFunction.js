@@ -1,8 +1,7 @@
 import { renderPhone,renderPhones } from "./renderPhones.js";
 const data=localStorage.getItem("phones");
 const phones=JSON.parse(data);
-const datas=localStorage.getItem("searchedPhones");
-let searchedPhones=JSON.parse(datas);
+let searchedPhones=[]
 export function searchPhone() {
     if (document.querySelector(".cancelSearch") != null) {
         document.querySelector(".cancelSearch").remove();
@@ -18,16 +17,22 @@ export function searchPhone() {
 
     const container = document.querySelector("#items");
     container.replaceChildren();
-    searchedPhones.push(...searchResult);
+    console.log(searchResult);
+    searchedPhones=searchResult.map((e)=>e)
     console.log(searchedPhones);
+    localStorage.setItem("searchedPhones",JSON.stringify(searchedPhones))
     searchResult.forEach((phone) => container.appendChild(renderPhone(phone)));
     const searchDiv = document.querySelector("#searchDiv");
     const cancelSearch = document.createElement("img");
     cancelSearch.src = "../Media/icons/circlex.svg";
     cancelSearch.classList.add("cancelSearch");
     cancelSearch.style.cursor = "pointer"
-    cancelSearch.addEventListener("click", (event) => {
+    cancelSearch.addEventListener("click", (event) => 
+    {
+        localStorage.removeItem("searchedPhones")
+        const searchRequest = document.querySelector("#searchBar").value=""
         renderPhones();
+        searchedPhones=[]
         cancelSearch.remove();
 
     })

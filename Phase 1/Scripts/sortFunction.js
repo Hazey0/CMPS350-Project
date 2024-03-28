@@ -4,9 +4,8 @@ import { renderPhone } from "./renderPhones.js";
 const phonesData = localStorage.getItem("phones");
 const phones = JSON.parse(phonesData);
 
-const data=localStorage.getItem("searchedPhones");
-let searchedPhones=JSON.parse(data);
-console.log(searchedPhones);
+
+
 
 function letterss(word) {
     const list = []
@@ -78,6 +77,8 @@ function wordInt(word) {
 
 
 function sort(t, dir, phonies) {
+    console.log(" inside sort function");
+    console.log(phonies)
     const type = t.toString();
     if (type == "price") {
         if (dir == "asc") {
@@ -114,12 +115,13 @@ function sort(t, dir, phonies) {
         }
 
     }
-    searchedPhones = phonies;
+    //searchedPhones = phonies;
 }
 function renderAfterSort(phonz) {
     const container = document.querySelector("#items");
     container.replaceChildren();
     phonz.forEach((phone) => container.appendChild(renderPhone(phone)));
+    //localStorage.removeItem("searchedPhones");
 }
 export function renderSort() {
     if (mainPath == yourPath) {
@@ -189,6 +191,8 @@ function replaceSortType() {
 
 
 function showSortType(node, type) {
+    const data=localStorage.getItem("searchedPhones");
+let searchedPhones=JSON.parse(data);
     const typeContain = document.querySelector("#typeContain");
     const asc = document.createElement("button");
     const dsc = document.createElement("button");

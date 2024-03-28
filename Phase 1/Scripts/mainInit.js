@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const phones=JSON.parse(phonesd);
    const phonesf=localStorage.getItem("featuredPhones")
    const featuredPhones=JSON.parse(phonesf);
-   console.log(featuredPhones)
+   //console.log(featuredPhones)
 
 
 
@@ -49,7 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 searchImg.src = "../Media/Icons/search.svg"
             })
             searchButton.addEventListener("click", (event) => {
+                const searchRequest = document.querySelector("#searchBar").value;
+                if(searchRequest!=""){
+                    localStorage.removeItem("searchedPhones")
                 searchPhone();
+                }
             })
         }
     }

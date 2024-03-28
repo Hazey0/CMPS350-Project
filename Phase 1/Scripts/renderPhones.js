@@ -11,7 +11,7 @@ const phonesd=localStorage.getItem("phones")
  const phones=JSON.parse(phonesd);
 const phonesf=localStorage.getItem("featuredPhones")
 const featuredPhones=JSON.parse(phonesf);
-console.log(featuredPhones)
+//console.log(featuredPhones)
 
 export function renderPhone(phone) {
     const phoneBox = document.createElement("div");
