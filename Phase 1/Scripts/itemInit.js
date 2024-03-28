@@ -104,12 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     //renderPhone();
-    function updatePrice() {
-        const quantity = document.querySelector("#quantity");
-        const selected = quantity.value;
-        const total = document.querySelector(".total");
-        total.innerHTML = phone.price * selected;
-    }
+
 
     //init()
     logged();
