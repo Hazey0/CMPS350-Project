@@ -144,6 +144,10 @@ form.mainform {
   border-radius: 4px;
 }
 
+#country{
+  width: 100%;
+}
+
 /* Button styles */
 button#submit {
   background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
@@ -173,3 +177,19 @@ footer {
   text-align: center;
 }
 
+
+@media (max-width: 768px){
+  main{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .phone{
+    width: 10rem;
+    height: 18rem;
+  }
+
+  #country{
+    width: 100%;
+  }
+}
