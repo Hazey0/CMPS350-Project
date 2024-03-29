@@ -89,6 +89,20 @@ export function showUserTab() {
             sale.style.cursor = "pointer";
             saleLogo.style.cursor = "pointer";
 
+            const userDetails = document.createElement("div");
+            userDetails.classList.add("usrDetails");
+            const details = document.createElement("p");
+            const detailsLogo = document.createElement("img");
+            details.classList.add("details");
+            detailsLogo.classList.add("detailsLogo")
+
+            userDetails.style.cursor = "pointer";
+            userDetails.addEventListener("click", () =>{
+                window.open("./userDetails.html", "_self")
+            })
+            details.innerHTML = "Details";
+            detailsLogo.src = "../Media/Icons/icons8-view-details-32.png"
+
             sell.addEventListener("click", (event) => {
                 window.open("./sell.html", "_self");
             })
@@ -123,6 +137,10 @@ export function showUserTab() {
             saleDiv.appendChild(saleLogo);
             userTab.appendChild(saleDiv);
 
+            userDetails.appendChild(details);
+            userDetails.appendChild(detailsLogo);
+            userTab.appendChild(userDetails);
+
             userContainer.addEventListener("click", (event) => {
                 const u = document.querySelector(".username")
                 const v = document.querySelector(".userImage")
@@ -131,8 +149,37 @@ export function showUserTab() {
                 userContainer.appendChild(userTab);
             })
         }
+
         else if(user.type=="Admin"){
             document.querySelector("#balance").style.display="none"
+
+            const userDetails = document.createElement("div");
+            userDetails.classList.add("usrDetails");
+            const details = document.createElement("p");
+            const detailsLogo = document.createElement("img");
+            details.classList.add("details");
+            detailsLogo.classList.add("detailsLogo")
+
+            userDetails.style.cursor = "pointer";
+            userDetails.addEventListener("click", () =>{
+                window.open("./userDetails.html", "_self")
+            })
+            details.innerHTML = "Details";
+            detailsLogo.src = "../Media/Icons/icons8-view-details-32.png"
+
+            userDetails.appendChild(details);
+            userDetails.appendChild(detailsLogo);
+            userTab.appendChild(userDetails);
+
+            userContainer.addEventListener("click", (event) => {
+                const u = document.querySelector(".username")
+                const v = document.querySelector(".userImage")
+                u.style.display = "none";
+                v.style.display = "none";
+                userContainer.appendChild(userTab);
+            })
+
+
             document.querySelector(".userImage").addEventListener("click",()=>{
                 //rests users and phones
                 localStorage.removeItem("phones")
@@ -142,6 +189,8 @@ export function showUserTab() {
                 starter()
             })
         }
+
+
         if(user.type == "Customer"){
             userTab.addEventListener("mouseleave", (event) => {
                 const u = document.querySelector(".username")
