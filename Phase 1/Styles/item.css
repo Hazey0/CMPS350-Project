@@ -241,6 +241,7 @@ nav a:hover {
     padding: 10px;
     border-radius: 10px;
     height: auto;
+    width: 8rem;
 }
 .sellDiv:hover{
     background-color: rgba(255, 255, 255, 0.2);
@@ -355,11 +356,11 @@ nav a:hover {
     }
 
     .phone{
-        padding: 0px 20px;
+        padding: 0px 10%;
         display: block;
         outline-color: black;
         outline-width: 10px;
-        margin-top: 20px;
+        margin-top: 10%;
         width: 250px;
         img{
             width: 100%;
@@ -367,7 +368,7 @@ nav a:hover {
 
         .buyButton{
             margin-bottom: 20px;
-            margin-left: 5rem;
+            margin-left: 5em;
         }
         .editQuanButton{
             margin-bottom: 20px;
