@@ -305,7 +305,6 @@ nav a:hover {
         }
     
         .logoutButton, .login{
-            margin-left: 12rem;
             padding: 2%;
             font-size: 13px;
         }

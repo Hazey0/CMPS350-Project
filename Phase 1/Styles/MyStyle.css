@@ -417,13 +417,13 @@ nav a:hover {
 .transDiv{
     display: flex;
     width: auto;
+    padding: 0px 10px
 }
 
 .transDiv:hover{
     background-color: rgba(255, 255, 255, 0.2);
     cursor: pointer;
     border-radius: 10px;
-    padding: 0px 10px
 }
 .transaction{
     align-self: center;
@@ -477,7 +477,7 @@ nav a:hover {
 .usrDetails{
     display: flex;
     border-radius: 10px;
-    padding: 3px;
+    padding: 8px;
     
 }
 
@@ -544,7 +544,8 @@ nav a:hover {
         }
 
         .searchInput{
-            width: 70%;
+            width: 20rem;
+            margin-left: 0px;
             padding: 0.5vh;
             font-size: 12px;
         }
@@ -611,6 +612,15 @@ nav a:hover {
                 font-size: 12px;
             }
         }
+
+        .usrDetails{
+            font-size: 12px;
+        }
+
+        .detailsLogo{
+            width: 30%;
+        }
+        
 
     }
 
