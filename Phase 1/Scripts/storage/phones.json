@@ -16,7 +16,7 @@
     "price": 2300,
     "storage": 128,
     "img": "../Media/images/iPhone14.jpg",
-    "seller": "scammer",
+    "seller": "tom",
     "quantity": 1
   },
   {
@@ -36,7 +36,7 @@
     "price": 650,
     "storage": 128,
     "img": "../Media/images/pixel5.jpg",
-    "seller": "scammer",
+    "seller": "tom",
     "quantity": 5
   },
   {
@@ -46,7 +46,7 @@
     "price": 5300,
     "storage": 512,
     "img": "../Media/images/s24U.jpg",
-    "seller": "mike",
+    "seller": "tom",
     "quantity": 1
   },
   {
@@ -56,7 +56,7 @@
     "price": 500,
     "storage": 64,
     "img": "../Media/images/nokia.jpg",
-    "seller": "scammer",
+    "seller": "tom",
     "quantity": 7
   },
   {
@@ -66,7 +66,7 @@
     "price": 1050,
     "storage": 256,
     "img": "../Media/images/mi10.jpg",
-    "seller": "scammer",
+    "seller": "tom",
     "quantity": 8
   },
   {
@@ -76,7 +76,7 @@
     "price": 1000,
     "storage": 256,
     "img": "../Media/images/s21plus.jpg",
-    "seller": "scammer",
+    "seller": "tom",
     "quantity": 3
   },
   {
@@ -86,7 +86,7 @@
     "price": 1899,
     "storage": 128,
     "img": "../Media/images/pixel7.jpg",
-    "seller": "scammer",
+    "seller": "tom",
     "quantity": 2
   },
   {
@@ -156,7 +156,7 @@
     "price": 1420,
     "storage": 128,
     "img": "../Media/images/honor.PNG",
-    "seller": "scammer",
+    "seller": "tom",
     "quantity": 4
   },
   {
@@ -166,7 +166,7 @@
     "price": 2849,
     "storage": 256,
     "img": "../Media/images/Axon.jpg",
-    "seller": "scammer",
+    "seller": "tom",
     "quantity": 3
   },
   {
@@ -176,7 +176,7 @@
     "price": 4499,
     "storage": 1028,
     "img": "../Media/images/iphone14.jpg",
-    "seller": "scammer",
+    "seller": "tom",
     "quantity": 9
   },
   {
@@ -186,7 +186,7 @@
     "price": 3499,
     "storage": 256,
     "img": "../Media/images/pixel7.jpg",
-    "seller": "scammer",
+    "seller": "tom",
     "quantity": 7
   },
   {
