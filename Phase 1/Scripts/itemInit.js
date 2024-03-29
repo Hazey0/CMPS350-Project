@@ -1,6 +1,6 @@
 import { showUserTab } from "./userTabFunction.js";
 import { logged } from "./LogFunction.js";
-import {addFeatured, renderFeaturedPhones, renderPhone} from "./renderPhones.js";
+import { addFeatured, renderFeaturedPhones, renderPhone } from "./renderPhones.js";
 document.addEventListener("DOMContentLoaded", () => {
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
@@ -54,6 +54,14 @@ document.addEventListener("DOMContentLoaded", () => {
         removeButton.addEventListener("click", (event) => {
             const delet = phones.findIndex((p) => p.model == phone.model && p.brand == phone.brand && p.storage == phone.storage && phone.seller == p.seller && phone.price == p.price);
             console.log(phones[delet])
+
+
+            const dta=JSON.parse(localStorage.getItem("featuredPhones"))
+
+            dta.filter((e)=>e!=phone.id)
+            localStorage.setItem("featuredPhones",JSON.stringify(dta))
+
+
             phones.splice(delet, 1);
             localStorage.setItem("phones", JSON.stringify(phones))
             window.open("main.html", "_self");
@@ -64,10 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
         quantityv.id = "quantity"
         ///////////////assing values to each element////////////////////
         editQuanButton.innerHTML = "Edit Quantity"
-        if(checkStock()){
-        quantityv.innerHTML = "Quantity: " + phone.quantity;}
-        else{
-            quantityv.innerHTML = "Quantity: "+0;
+        if (checkStock()) {
+            quantityv.innerHTML = "Quantity: " + phone.quantity;
+        }
+        else {
+            quantityv.innerHTML = "Quantity: " + 0;
         }
         total.innerHTML = phone.price;
         total.classList.add("total");
@@ -92,28 +101,28 @@ document.addEventListener("DOMContentLoaded", () => {
         bottom.appendChild(quantityv);
 
         bottom.appendChild(seller);
-        
-        if(checkStock()){
-    
+
+        if (checkStock()) {
+
             if (user != null) {
                 if (user.type == "Seller" || user.type == "Admin") {
-                    if (user.username == phone.seller ) {
-                        
+                    if (user.username == phone.seller) {
+
                         bottom.appendChild(editQuanButton)
                     }
-                    else if( user.type == "Admin"){
+                    else if (user.type == "Admin") {
                         bottom.appendChild(removeButton)
-                        const setFeatureButton=document.createElement("button")
+                        const setFeatureButton = document.createElement("button")
                         setFeatureButton.classList.add("buyButton");
-                        setFeatureButton.innerHTML="Set as Featured Phone";
-                        setFeatureButton.addEventListener("click",()=>{
-                            const dta=JSON.parse(localStorage.getItem("featuredPhones"))
-                            dta.push(phone)
-                           
-                           localStorage.setItem("featuredPhones",JSON.stringify(dta))
+                        setFeatureButton.innerHTML = "Set as Featured Phone";
+                        setFeatureButton.addEventListener("click", () => {
+                            //const dta=JSON.parse(localStorage.getItem("featuredPhones"))
+                            //dta.push(phone.id)
+
+                            //localStorage.setItem("featuredPhones",JSON.stringify(dta))
                             addFeatured(phone.id)
-                           window.open("main.html","_self")
-                           
+                            window.open("main.html", "_self")
+
                         })
                         bottom.appendChild(setFeatureButton)
                     }
@@ -143,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
             buyButton.innerHTML = "Out of Stock"
             bottom.appendChild(buyButton);
         }
-    
+
         phoneBox.appendChild(top);
         phoneBox.appendChild(bottom);
         //phoneBox.append(buttons);
@@ -211,14 +220,14 @@ document.addEventListener("DOMContentLoaded", () => {
         phones[index].quantity = v;
         localStorage.setItem("phones", JSON.stringify(phones))
     }
- 
-    function checkStock() { 
+
+    function checkStock() {
 
         const stock = phones.findIndex((p) => p.model == phone.model && p.brand == phone.brand && p.storage == phone.storage && phone.seller == p.seller && phone.price == p.price);
-        if(stock!=-1){
+        if (stock != -1) {
             return true
         }
-        else{
+        else {
             return false;
         }
 

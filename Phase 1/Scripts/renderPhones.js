@@ -81,22 +81,27 @@ export function renderPhone(phone) {
 }
 
 export function renderFeaturedPhones() {
+    //document.querySelector("#featuredPhones").appendChild(renderFeaturedPhone(phones[4]));
+    
     const featuredData = localStorage.getItem("featuredPhones")
     let featuredPhones = JSON.parse(featuredData);
+  
+   
 
     if(featuredPhones!=null){
-        
-        featuredPhones.filter((e)=>checkStock(e))
+       featuredPhones= featuredPhones.map((s)=> checkPhone(s) ? s:null )
+       featuredPhones=featuredPhones.filter((s)=> s!=null)
         if (mainPath == yourPath &&featuredPhones.length>=1) {
             const container = document.querySelector("#featuredPhones");
             container.replaceChildren();
-            //featuredPhones.push(addFeatured("qnZ6GmFx"))
-    
-            featuredPhones.forEach((phone) => container.appendChild(renderFeaturedPhone(phone)));
+            console.log(featuredPhones)
+            if(featuredPhones.length>=1 && featuredPhones[0]!=null ){
+            featuredPhones.forEach((id) => container.appendChild(renderFeaturedPhone(getPhone(id))));}
         }
     }
     else{
         featuredPhones=[];
+        localStorage.setItem("featuredPhones",JSON.stringify(featuredPhones))
     }
 
 }
@@ -106,9 +111,10 @@ export function renderFeaturedPhones() {
 export function addFeatured(id) {
     const featuredData = localStorage.getItem("featuredPhones")
     let featuredPhones = JSON.parse(featuredData);
-    //featuredPhones.push( phones.reduce((a, v) => v.id == id ? v : a))
+    alert(id)
+    featuredPhones.push(id);
     localStorage.setItem("featuredPhones",JSON.stringify(featuredPhones))
-    //return phones[4];
+
 
 }
 function renderFeaturedPhone(phone) {
@@ -172,7 +178,23 @@ function checkStock(ph) {
         return true
     }
     else{
+     
         return false;
     }
 
+}
+function checkPhone(id) { 
+
+    const stock = phones.findIndex((p) => p.id==id && p.quantity>0);
+    if(stock!=-1){
+        return true
+    }
+    else{
+        return false;
+    }
+
+}
+function getPhone(id){
+
+    return phones.reduce((a,v)=> v.id==id? v:a,false)
 }

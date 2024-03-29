@@ -16,17 +16,7 @@ fetch('../Scripts/storage/phones.json').then((res)=> res.json()).then((json)=>{
 }
 
 
-const dataf=localStorage.getItem("featuredPhones");
-const featuredPhones=JSON.parse(dataf);
-console.log(featuredPhones);
-//localStorage.removeItem("featuredPhones")
-if(featuredPhones==null){
-fetch('../Scripts/storage/featuredPhones.json').then((res)=> res.json()).then((json)=>{
-    localStorage.setItem("featuredPhones",JSON.stringify(json));
- 
- 
- })
-}
+
  //used to reset users
 //localStorage.removeItem("users");
  
