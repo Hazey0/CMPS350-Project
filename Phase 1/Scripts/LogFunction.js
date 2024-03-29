@@ -69,6 +69,7 @@ export function logged() {
         usernam.innerHTML = ` ${user.username}`;
         usernam.classList.add("username");
         logoutButton.addEventListener("click", () => {
+          
             localStorage.setItem("users",JSON.stringify(users))
             localStorage.setItem("user",JSON.stringify(user))
             logout();
@@ -83,7 +84,6 @@ function logout() {
     localStorage.setItem("users",JSON.stringify(users))
     updateUser();
    
-    alert("check")
     window.open("./" + mainPath, "_self");
 
 }

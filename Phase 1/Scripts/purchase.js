@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         
     }
     function purchase() {
+        const quantity= document.querySelector("#quantity").value
         const dat = new Date();
         const d=dat.getFullYear() + "/" + dat.getMonth() + "/" + dat.getDate() + "  " + dat.getHours() + "h :" + dat.getMinutes()+"m"
         const transaction = {
@@ -65,8 +66,10 @@ document.addEventListener("DOMContentLoaded", async() => {
         document.querySelector("#zip").value+" "+document.querySelector("#country").value;
         const seller= phone.seller;
         const total=getTotal();
+        editQuantity();
         const purchasedPhone=phone;
         transaction.phone=purchasedPhone
+     
         transaction.address=address;
         transaction.buyer=username;
         transaction.total=total;
@@ -75,10 +78,9 @@ document.addEventListener("DOMContentLoaded", async() => {
         console.log(transaction)
         user.transactions.push(transaction)
         editMoney();
-        editQuantity();
+        
         updateUser(transaction,seller)
         updateUser(transaction,user.username)
-
         localStorage.removeItem("phones")
         localStorage.setItem("phones",JSON.stringify(phones))
         console.log(users[0])
@@ -124,6 +126,8 @@ document.addEventListener("DOMContentLoaded", async() => {
             const getPhone=phones.findIndex((p)=> p.model==phone.model && p.brand==phone.brand && p.storage==phone.storage &&  phone.seller==p.seller &&   phone.price==p.price);
             console.log(phones[getPhone]);
                 phones[getPhone].quantity=newQ;
+                phone.quantity=newQ;
+
         }
 
         

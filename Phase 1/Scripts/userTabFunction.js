@@ -1,3 +1,5 @@
+import { starter } from "./getter.js";
+
 const data=localStorage.getItem("users");
 const users=JSON.parse(data);
 const datau=localStorage.getItem("user");
@@ -120,7 +122,9 @@ export function showUserTab() {
                 //rests users and phones
                 localStorage.removeItem("phones")
                 localStorage.removeItem("users")
+                localStorage.removeItem("featuredPhones")
                 alert("Phones and users reloaded successfully")
+                starter()
             })
         }
         userTab.addEventListener("mouseleave", (event) => {

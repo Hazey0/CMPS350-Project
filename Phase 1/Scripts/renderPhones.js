@@ -1,4 +1,4 @@
-import { mainPath,yourPath } from "./paths.js";
+import { mainPath, yourPath } from "./paths.js";
 
 export function renderPhones() {
     if (mainPath == yourPath) {
@@ -7,10 +7,8 @@ export function renderPhones() {
         phones.forEach((phone) => container.appendChild(renderPhone(phone)));
     }
 }
-const phonesd=localStorage.getItem("phones")
- const phones=JSON.parse(phonesd);
-const phonesf=localStorage.getItem("featuredPhones")
-const featuredPhones=JSON.parse(phonesf);
+const phonesd = localStorage.getItem("phones")
+const phones = JSON.parse(phonesd);
 //console.log(featuredPhones)
 
 export function renderPhone(phone) {
@@ -46,7 +44,7 @@ export function renderPhone(phone) {
     storage.classList.add("details");
 
     ///////////////assing values to each element////////////////////
-    
+
     brand.innerHTML = phone.brand;
     name.innerHTML = "Model: " + phone.name;
     year.innerHTML = "Year: " + phone.year;
@@ -57,10 +55,10 @@ export function renderPhone(phone) {
         console.log(phone);
         localStorage.setItem("phone", JSON.stringify(phone));
         localStorage.setItem("prevPath", (JSON.stringify(mainPath)))
-        window.open("./item.html","_self");
+        window.open("./item.html", "_self");
 
     })
-    
+
     ////////////// attaching elements///////////
     itemLink.appendChild(img);
     top.appendChild(itemLink);
@@ -81,14 +79,38 @@ export function renderPhone(phone) {
 
 
 }
+
 export function renderFeaturedPhones() {
-    if (mainPath == yourPath) {
-        const container = document.querySelector("#featuredPhones");
-        container.replaceChildren();
-        featuredPhones.forEach((phone) => container.appendChild(renderFeaturedPhone(phone)));
+    const featuredData = localStorage.getItem("featuredPhones")
+    let featuredPhones = JSON.parse(featuredData);
+
+    if(featuredPhones!=null){
+        
+        featuredPhones.filter((e)=>checkStock(e))
+        if (mainPath == yourPath &&featuredPhones.length>=1) {
+            const container = document.querySelector("#featuredPhones");
+            container.replaceChildren();
+            //featuredPhones.push(addFeatured("qnZ6GmFx"))
+    
+            featuredPhones.forEach((phone) => container.appendChild(renderFeaturedPhone(phone)));
+        }
     }
+    else{
+        featuredPhones=[];
+    }
+
 }
 
+
+
+export function addFeatured(id) {
+    const featuredData = localStorage.getItem("featuredPhones")
+    let featuredPhones = JSON.parse(featuredData);
+    //featuredPhones.push( phones.reduce((a, v) => v.id == id ? v : a))
+    localStorage.setItem("featuredPhones",JSON.stringify(featuredPhones))
+    //return phones[4];
+
+}
 function renderFeaturedPhone(phone) {
     const wholeLink = document.createElement("a");
     wholeLink.classList.add("phoneLink");
@@ -141,5 +163,16 @@ function renderFeaturedPhone(phone) {
     wholeLink.appendChild(phoneBox);
 
     return wholeLink;
+
+}
+function checkStock(ph) { 
+
+    const stock = phones.findIndex((p) => p.id==ph.id);
+    if(stock!=-1){
+        return true
+    }
+    else{
+        return false;
+    }
 
 }

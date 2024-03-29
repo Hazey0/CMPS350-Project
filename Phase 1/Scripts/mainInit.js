@@ -3,11 +3,12 @@ import { logged } from "./LogFunction.js";
 import { renderFeaturedPhones, renderPhones } from "./renderPhones.js";
 import { showUserTab } from "./userTabFunction.js";
 import { renderSort } from "./sortFunction.js";
-import {yourPath,mainPath} from "./paths.js"
+import { yourPath, mainPath } from "./paths.js"
 import { searchPhone } from "./searchFunction.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
+
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
 
@@ -15,28 +16,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const users = JSON.parse(userDatas);
     console.log(users)
 
-    const phonesd=localStorage.getItem("phones")
-    const phones=JSON.parse(phonesd);
+    const phonesd = localStorage.getItem("phones")
+    const phones = JSON.parse(phonesd);
     console.log(phones)
 
-   const phonesf=localStorage.getItem("featuredPhones")
-   const featuredPhones=JSON.parse(phonesf);
 
 
-
-
-    function popem(a){
-        for(var x=0; x < a; x++){
+    function popem(a) {
+        for (var x = 0; x < a; x++) {
             phones.pop();
         }
         localStorage.removeItem("phones")
-        localStorage.setItem("phones",JSON.stringify(phones));
+        localStorage.setItem("phones", JSON.stringify(phones));
     }
     ///////used to manually delete phones///
     popem();
 
 
-    
+
     let searchedPhones = [];
 
 
@@ -45,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderFunctions() {
 
         //localStorage.removeItem("phone");
-        
+
         if (mainPath == yourPath) {
             const searchButton = document.querySelector("#searchButton");
             const searchImg = document.querySelector(".searchImage");
@@ -58,16 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             searchButton.addEventListener("click", (event) => {
                 const searchRequest = document.querySelector("#searchBar").value;
-                if(searchRequest!=""){
+                if (searchRequest != "") {
                     localStorage.removeItem("searchedPhones")
-                searchPhone();
+                    searchPhone();
                 }
             })
         }
     }
 
-
- 
 
 
 

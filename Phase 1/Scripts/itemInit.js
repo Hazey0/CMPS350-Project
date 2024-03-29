@@ -1,5 +1,6 @@
 import { showUserTab } from "./userTabFunction.js";
 import { logged } from "./LogFunction.js";
+import {addFeatured, renderFeaturedPhones, renderPhone} from "./renderPhones.js";
 document.addEventListener("DOMContentLoaded", () => {
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
@@ -102,6 +103,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     else if( user.type == "Admin"){
                         bottom.appendChild(removeButton)
+                        const setFeatureButton=document.createElement("button")
+                        setFeatureButton.classList.add("buyButton");
+                        setFeatureButton.innerHTML="Set as Featured Phone";
+                        setFeatureButton.addEventListener("click",()=>{
+                            const dta=JSON.parse(localStorage.getItem("featuredPhones"))
+                            dta.push(phone)
+                           
+                           localStorage.setItem("featuredPhones",JSON.stringify(dta))
+                            addFeatured(phone.id)
+                           window.open("main.html","_self")
+                           
+                        })
+                        bottom.appendChild(setFeatureButton)
                     }
                     else {
                         bottom.appendChild(buyButton)
