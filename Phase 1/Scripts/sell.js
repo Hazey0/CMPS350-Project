@@ -1,3 +1,4 @@
+import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js'
 import { logged } from "./LogFunction.js";
 import { showUserTab } from "./userTabFunction.js";
 
@@ -95,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         newPhone.img=getImg(img);
         newPhone.quantity=quantity;
         newPhone.seller=user.username;
+        newPhone.id=nanoid(8);
         phones.push(newPhone);
         localStorage.removeItem("phones");
         localStorage.setItem("phones",JSON.stringify(phones));

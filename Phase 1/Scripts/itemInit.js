@@ -1,6 +1,6 @@
 import { showUserTab } from "./userTabFunction.js";
 import { logged } from "./LogFunction.js";
-import { addFeatured, renderFeaturedPhones, renderPhone } from "./renderPhones.js";
+import { addFeatured, checkFeatured, renderFeaturedPhones, renderPhone,removeFromFeatured } from "./renderPhones.js";
 document.addEventListener("DOMContentLoaded", () => {
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
@@ -126,7 +126,21 @@ document.addEventListener("DOMContentLoaded", () => {
                             window.open("main.html", "_self")
 
                         })
-                        bottom.appendChild(setFeatureButton)
+                        if(checkFeatured(phone)==false){
+                        bottom.appendChild(setFeatureButton)}
+                        else{
+                            const removeFromFeat=document.createElement("button");
+                            removeFromFeat.classList.add("buyButton");
+                            removeFromFeat.innerHTML="Remove Featured";
+                            removeFromFeat.addEventListener("click",(evet)=>{
+
+                                removeFromFeatured(phone);
+                            })
+                            bottom.appendChild(removeFromFeat)
+
+
+
+                        }
                     }
                     else {
                         bottom.appendChild(buyButton)

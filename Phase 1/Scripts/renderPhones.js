@@ -215,3 +215,23 @@ function getPhone(id) {
 
     return phones.reduce((a, v) => v.id == id ? v : a, false)
 }
+export function checkFeatured(ph){
+    const featuredData = localStorage.getItem("featuredPhones")
+    let featuredPhones = JSON.parse(featuredData);
+    const e=featuredPhones.findIndex((r)=>r==ph.id);
+    if(e==-1){
+        return false
+    }
+    else{
+        return true
+    }
+
+}
+export function removeFromFeatured(ph){
+    const featuredData = localStorage.getItem("featuredPhones")
+    let featuredPhones = JSON.parse(featuredData);
+    featuredPhones=featuredPhones.filter((phone)=> phone!=ph.id)
+    localStorage.setItem("featuredPhones",JSON.stringify(featuredPhones))
+    renderFeaturedPhones();
+    window.open("main.html","_self")
+}
