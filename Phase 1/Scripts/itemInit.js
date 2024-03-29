@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bottom.appendChild(quantityv);
 
         bottom.appendChild(seller);
-        
+        if(phone.quantity!=0){
         if (user != null) {
             if(user.type=="Seller"){
                 if(user.username==phone.seller){
@@ -105,6 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         else{
             bottom.appendChild(buyButton);
+        }}
+        else{
+            buyButton.innerHTML="Out of Stock"
         }
         phoneBox.appendChild(top);
         phoneBox.appendChild(bottom);

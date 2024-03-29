@@ -352,5 +352,10 @@ nav a:hover {
     .phoneDetails{
         padding-top: 10px;
     }
-
+    .balance{
+        color: #fff;
+    }
+    #balance{
+        color: #fff;
+    }
 }

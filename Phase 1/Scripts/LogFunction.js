@@ -61,6 +61,7 @@ export function logged() {
         balance.classList.add("#balance");
         balance.id="balance"
         balance.innerHTML=user.money
+        balance.style.color="white"
         usernam.innerHTML = ` ${user.username}`;
         usernam.classList.add("username");
         logoutButton.addEventListener("click", () => {
