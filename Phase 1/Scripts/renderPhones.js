@@ -1,3 +1,4 @@
+
 import { mainPath, yourPath } from "./paths.js";
 
 export function renderPhones() {
@@ -81,27 +82,42 @@ export function renderPhone(phone) {
 }
 
 export function renderFeaturedPhones() {
-    //document.querySelector("#featuredPhones").appendChild(renderFeaturedPhone(phones[4]));
-    
+
     const featuredData = localStorage.getItem("featuredPhones")
     let featuredPhones = JSON.parse(featuredData);
-  
-   
 
-    if(featuredPhones!=null){
-       featuredPhones= featuredPhones.map((s)=> checkPhone(s) ? s:null )
-       featuredPhones=featuredPhones.filter((s)=> s!=null)
-        if (mainPath == yourPath &&featuredPhones.length>=1) {
+
+
+    if (featuredPhones != null && featuredPhones.length>=1 && featuredPhones!=undefined) {
+      
+        featuredPhones = featuredPhones.map((s) => checkPhone(s) ? s : "")
+        featuredPhones = featuredPhones.filter((s) => s != null)
+        featuredPhones=featuredPhones.filter((s)=>checkPhone(s))
+        if (mainPath == yourPath && featuredPhones.length >= 1) {
             const container = document.querySelector("#featuredPhones");
             container.replaceChildren();
             console.log(featuredPhones)
-            if(featuredPhones.length>=1 && featuredPhones[0]!=null ){
-            featuredPhones.forEach((id) => container.appendChild(renderFeaturedPhone(getPhone(id))));}
+            if (featuredPhones.length >= 1 && featuredPhones[0] != null) {
+
+                featuredPhones.forEach((id) => container.appendChild(renderFeaturedPhone(getPhone(id))));
+                
+
+
+            }
         }
+        localStorage.setItem("featuredPhones", JSON.stringify(featuredPhones))
     }
-    else{
-        featuredPhones=[];
-        localStorage.setItem("featuredPhones",JSON.stringify(featuredPhones))
+    else {
+       
+        const container = document.querySelector("#featuredPhones");
+        featuredPhones = [];
+        const rand = Math.floor(Math.random() * phones.length)
+        const randPhone = phones[rand];
+        featuredPhones.push(randPhone.id)
+        localStorage.setItem("featuredPhones", JSON.stringify(featuredPhones))
+         container.appendChild(renderFeaturedPhone(getPhone(randPhone.id)));
+        
+
     }
 
 }
@@ -111,9 +127,9 @@ export function renderFeaturedPhones() {
 export function addFeatured(id) {
     const featuredData = localStorage.getItem("featuredPhones")
     let featuredPhones = JSON.parse(featuredData);
-    alert(id)
+    
     featuredPhones.push(id);
-    localStorage.setItem("featuredPhones",JSON.stringify(featuredPhones))
+    localStorage.setItem("featuredPhones", JSON.stringify(featuredPhones))
 
 
 }
@@ -171,31 +187,31 @@ function renderFeaturedPhone(phone) {
     return wholeLink;
 
 }
-function checkStock(ph) { 
+function checkStock(ph) {
 
-    const stock = phones.findIndex((p) => p.id==ph.id);
-    if(stock!=-1){
+    const stock = phones.findIndex((p) => p.id == ph.id);
+    if (stock != -1) {
         return true
     }
-    else{
-     
+    else {
+
         return false;
     }
 
 }
-function checkPhone(id) { 
-    
+function checkPhone(id) {
 
-    const stock = phones.findIndex((p) => p.id==id && p.quantity>0);
-    if(stock!=-1){
+
+    const stock = phones.findIndex((p) => p.id == id && p.quantity > 0);
+    if (stock != -1) {
         return true
     }
-    else{
+    else {
         return false;
     }
 
 }
-function getPhone(id){
+function getPhone(id) {
 
-    return phones.reduce((a,v)=> v.id==id? v:a,false)
+    return phones.reduce((a, v) => v.id == id ? v : a, false)
 }
