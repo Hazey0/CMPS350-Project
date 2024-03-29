@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async() => {
     }
     function purchase() {
         const dat = new Date();
-        const d=dat.getFullYear() + " " + dat.getMonth() + " " + dat.getDate() + "  " + dat.getHours() + " " + dat.getMinutes()
+        const d=dat.getFullYear() + "/" + dat.getMonth() + "/" + dat.getDate() + "  " + dat.getHours() + "h :" + dat.getMinutes()+"m"
         const transaction = {
             date:d
         }
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         
         alert("Phone purchased Successfully")
         logged();
-        window.open("main.html","_self")
+        window.open("transactions.html","_self")
 
 
 

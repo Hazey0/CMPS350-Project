@@ -26,9 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const phoneBox = document.querySelector("#item");
         const top = document.createElement("div");
         const bottom = document.createElement("div");
+        //const buttons=document.createElement("div")
         bottom.classList.add("phoneDetails")
 
         phoneBox.classList.add("phone");
+       // buttons.classList.add("buttons")
         ////elements of the phone///
         
         const brand = document.createElement("p");
@@ -40,7 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const img = document.createElement('img');
         const buyButton = document.createElement("button");
         const removeButton=document.createElement("button");
+        const editQuanButton=document.createElement("button");
         buyButton.classList.add("buyButton");
+        editQuanButton.classList.add("editQuanButton")
+        editQuanButton.addEventListener("click",()=>{
+            editQuan();
+
+        })
         removeButton.classList.add("buyButton");
         removeButton.addEventListener("click",(event)=>{
             const delet=phones.findIndex((p)=> p.model==phone.model && p.brand==phone.brand && p.storage==phone.storage &&  phone.seller==p.seller &&   phone.price==p.price);
@@ -52,7 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const seller = document.createElement("p")
         const total = document.createElement("p");
         const quantityv=document.createElement("p");
+        quantityv.id="quantity"
         ///////////////assing values to each element////////////////////
+        editQuanButton.innerHTML="Edit Quantity"
         quantityv.innerHTML="Quantity: "+phone.quantity;
         total.innerHTML = phone.price;
         total.classList.add("total");
@@ -83,9 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (user != null) {
             if(user.type=="Seller"){
                 if(user.username==phone.seller){
-                bottom.appendChild(removeButton)}
+                bottom.appendChild(removeButton)
+                bottom.appendChild(editQuanButton)}
                 else{
                     bottom.appendChild(buyButton)
+                  
                 }
             }
             else{
@@ -94,9 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
         else{
             bottom.appendChild(buyButton);
         }
-       
         phoneBox.appendChild(top);
         phoneBox.appendChild(bottom);
+        //phoneBox.append(buttons);
 
 
 
@@ -126,12 +138,42 @@ document.addEventListener("DOMContentLoaded", () => {
             },1000)
         }
     }
+    function editQuan(){
+        const select=document.createElement("input");
+        const sub=document.createElement("button");
+        document.querySelector(".editQuanButton").replaceWith(select,sub);
 
+        sub.innerHTML="Submit"
+        select.setAttribute("type","number")
+        select.setAttribute("min",1);
+        select.setAttribute("setp",1)
+        select.setAttribute("value",1)
 
-    //renderPhone();
+        sub.addEventListener("click",()=>{
+            phone.quantity="Quantity"+select.value;
+            document.querySelector("#quantity").innerHTML="Quantity: "+select.value;
+            const editQuanButton=document.createElement("button");
+            editQuanButton.classList.add("editQuanButton")
+            editQuanButton.innerHTML="Edit Quantity"
+            select.remove()
+            sub.remove()
+            updatePhone(select.value)
+            document.querySelector(".phoneDetails").appendChild(editQuanButton)
+            editQuanButton.addEventListener("click",()=>{
+                editQuan();
+    
+            })
 
+        })
 
-    //init()
+    }
+
+    function updatePhone(v){
+        const index=phones.findIndex((p)=> p.model==phone.model && p.brand==phone.brand && p.storage==phone.storage &&  phone.seller==p.seller &&   phone.price==p.price);
+        phones[index].quantity=v;
+        localStorage.setItem("phones",JSON.stringify(phones))
+    }
+
     logged();
     showUserTab();
 

@@ -697,17 +697,24 @@ nav a:hover {
 #balance{
     color: #ddd;
 }
+#salesContainer{
 .transBox{
     display: flex;
     justify-content: start;
+   margin-bottom: 50px;
 }
 .transTop{
 justify-self: start;
 }
 .transBottom{
-    display: flex;
-    justify-self: end;
-    flex-direction: column;
+    width: 900px;
+    height: 350px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-row: auto auto auto;
+    justify-content: space-around;
     background-color: white;
     border-radius: 30px;
+    padding: 1.5%;
+}
 }

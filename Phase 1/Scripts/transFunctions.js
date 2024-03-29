@@ -80,8 +80,11 @@ function getTransaction(tran) {
     const date = document.createElement("p");
     const buyer = document.createElement("p");
     const price=document.createElement("p");
+    const seller=document.createElement("p")
 
+    seller.classList.add("seller")
     name.classList.add("name")
+    price.classList.add("price")
     city.classList.add("city")
     country.classList.add("country")
     state.classList.add("state")
@@ -90,6 +93,7 @@ function getTransaction(tran) {
     total.classList.add("total")
     date.classList.add("date")
     buyer.classList.add("buyer")
+    seller.innerHTML="Seller: "+tran.seller
     name.innerHTML ="Full Name: "+ adList[0]
     city.innerHTML = "City: "+adList[2]
     country.innerHTML ="Country: "+ adList[5]
@@ -103,8 +107,9 @@ function getTransaction(tran) {
     price.innerHTML="Phone's Price: "+tran.phone.price+"QR"
     
     top.appendChild(phoneBox)
-    top.appendChild(buyer)
-    top.appendChild(date)
+    bottom.appendChild(buyer)
+    bottom.appendChild(seller)
+    bottom.appendChild(date)
     top.classList.add("transTop")
     bottom.classList.add("transBottom")
     bottom.appendChild(name)
@@ -113,6 +118,7 @@ function getTransaction(tran) {
     bottom.appendChild(state)
     bottom.appendChild(address)
     bottom.appendChild(zip)
+    bottom.appendChild(price)
     bottom.appendChild(quantity)
     bottom.appendChild(total)
     const tarnsBox = document.createElement("div");
