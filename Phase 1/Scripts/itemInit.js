@@ -56,16 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(phones[delet])
 
 
-            const dta=JSON.parse(localStorage.getItem("featuredPhones"))
+            const dta = JSON.parse(localStorage.getItem("featuredPhones"))
 
-            dta.filter((e)=>e!=phone.id)
-            localStorage.setItem("featuredPhones",JSON.stringify(dta))
+            dta.filter((e) => e != phone.id)
+            localStorage.setItem("featuredPhones", JSON.stringify(dta))
 
 
             phones.splice(delet, 1);
             localStorage.setItem("phones", JSON.stringify(phones))
+           
             window.open("main.html", "_self");
         })
+
         const seller = document.createElement("p")
         const total = document.createElement("p");
         const quantityv = document.createElement("p");
@@ -218,13 +220,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function updatePhone(v) {
         const index = phones.findIndex((p) => p.model == phone.model && p.brand == phone.brand && p.storage == phone.storage && phone.seller == p.seller && phone.price == p.price);
         phones[index].quantity = v;
-   
+
         localStorage.setItem("phones", JSON.stringify(phones))
     }
 
     function checkStock() {
         console.log(phones);
-   
+
         const stock = phones.findIndex((p) => p.model == phone.model && p.brand == phone.brand && p.storage == phone.storage && phone.seller == p.seller && phone.price == p.price);
         if (stock != -1) {
             return true
