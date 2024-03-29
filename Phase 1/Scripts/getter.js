@@ -5,7 +5,7 @@ export async function starter(){
 
 const data=localStorage.getItem("phones");
 const phones=JSON.parse(data);
-//console.log(phones);
+console.log(phones);
 if(phones==null){
 fetch('../Scripts/storage/phones.json').then((res)=> res.json()).then((json)=>{
     localStorage.setItem("phones",JSON.stringify(json));

@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function checkStock() {
-
+        alert(phones)
         const stock = phones.findIndex((p) => p.model == phone.model && p.brand == phone.brand && p.storage == phone.storage && phone.seller == p.seller && phone.price == p.price);
         if (stock != -1) {
             return true
