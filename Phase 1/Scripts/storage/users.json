@@ -1,42 +1,50 @@
 [
     {
-        "username": "ok",
+        "username": "ahmad",
         "password": 974,
         "type": "Customer",
-        "listedPhones": [],
         "money": 100000,
-        "transactions": []
+        "transactions": [],
+        "surname":"Ahmad Omar",
+        "shippingAddress":"Qatar Doha Al Rayyan Zone 55 street 1037 Home 5"
+
     },
     {
         "username": "mike",
         "password": 911,
         "type": "Seller",
-        "listedPhones": [],
-        "money": 0,
-        "transactions": []
+        "transactions": [],
+        "companyName":"Pocco",
+        "bankAccount":"QIIB72634982300000069823"
     },
     {
-        "username": "ksdjcvbv",
-        "password": 8423,
+        "username": "mack",
+        "password": 111,
         "type": "Customer",
-        "listedPhones": [],
-        "money": 0,
+        "money": 2500,
         "transactions": []
+        
     },
     {
-        "username": "scammer",
+        "username": "tom",
         "password": 8793,
         "type": "Seller",
-        "listedPhones": [],
-        "money": 0,
-        "transactions": []
+        "transactions": [],
+        "companyName":"ooredoo",
+        "bankAccount":"QIB234482300000069823"
     },
     {
-        "username": "lsds",
-        "password": 873,
-        "type": "Admin",
-        "listedPhones": [],
-        "money": 0,
-        "transactions": []
+        "username": "jim",
+        "password": 8793,
+        "type": "Seller",
+        "transactions": [],
+        "companyName":"Qualcomm",
+        "bankAccount":"QNB72356982300000069823"
+    },
+    {
+        "username": "Admin",
+        "password": 123,
+        "type": "Admin"
+    
     }
 ]
