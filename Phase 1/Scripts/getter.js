@@ -1,6 +1,6 @@
 import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js'
 export async function starter(){
-//used to reset phones
+//used to reset phones/////////////////////////////////
 //localStorage.removeItem("phones");
 
 const data=localStorage.getItem("phones");
@@ -17,7 +17,7 @@ fetch('../Scripts/storage/phones.json').then((res)=> res.json()).then((json)=>{
 
 
 
- //used to reset users
+ //used to reset users/////////////////////////////////////////////
 //localStorage.removeItem("users");
  
  const datau=localStorage.getItem("users");

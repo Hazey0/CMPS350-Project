@@ -31,8 +31,8 @@ export function loadSeller() {
                 </div>
                 `;
             phoneElement.addEventListener("click", (event) => {
-                localStorage.setItem("phones", JSON.stringify(phone))
-                window.open("./item.html", "_self")
+                localStorage.setItem("phone", JSON.stringify(phone))
+                window.open("item.html", "_self")
             })
             container.appendChild(phoneElement);
         });
