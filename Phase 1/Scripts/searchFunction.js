@@ -18,10 +18,11 @@ export function searchPhone() {
     const container = document.querySelector("#items");
     container.replaceChildren();
     console.log(searchResult);
+    if(searchResult!=undefined){
     searchedPhones=searchResult.map((e)=>e)
     console.log(searchedPhones);
     localStorage.setItem("searchedPhones",JSON.stringify(searchedPhones))
-    searchResult.forEach((phone) => container.appendChild(renderPhone(phone)));
+    searchResult.forEach((phone) => container.appendChild(renderPhone(phone)));}
     const searchDiv = document.querySelector("#searchDiv");
     const cancelSearch = document.createElement("img");
     cancelSearch.src = "../Media/icons/circlex.svg";
