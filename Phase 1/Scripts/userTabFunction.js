@@ -17,39 +17,52 @@ export function showUserTab() {
 
             const trans = document.createElement("div");
             trans.classList.add("transDiv");
-            
             const transaction = document.createElement("p");
             const transactionLogo = document.createElement("img");
-
-
             transaction.classList.add("transaction");
             transactionLogo.classList.add("transLogo");
 
-            userTab.style.cursor = "pointer";
-            userTab.addEventListener("click", (event) => {
-                window.open("./transactions.html", "_self");
-            })
 
-            transaction.style.cursor = "pointer";
-            transaction.addEventListener("click", (event) => {
-                window.open("./transactions.html", "_self");
-            })
+            const userDetails = document.createElement("div");
+            userDetails.classList.add("usrDetails");
+            const details = document.createElement("p");
+            const detailsLogo = document.createElement("img");
+            details.classList.add("details");
+            detailsLogo.classList.add("detailsLogo")
 
-            transactionLogo.style.cursor = "pointer";
-            transactionLogo.addEventListener("click", (event) => {
+
+            trans.style.cursor = "pointer";
+            trans.addEventListener("click", (event) => {
                 window.open("./transactions.html", "_self");
             })
             transactionLogo.src = "../Media/Icons/icons8-letter-64.png";
             transaction.innerHTML = "Transactions";
 
+
+            userDetails.style.cursor = "pointer";
+            userDetails.addEventListener("click", () =>{
+                window.open("./userDetails.html", "_self")
+            })
+            details.innerHTML = "Details";
+            detailsLogo.src = "../Media/Icons/icons8-view-details-32.png"
+
             trans.appendChild(transaction);
             trans.appendChild(transactionLogo);
             userTab.appendChild(trans);
 
+            userDetails.appendChild(details);
+            userDetails.appendChild(detailsLogo);
+            userTab.appendChild(userDetails);
+
             username.addEventListener("click", (event) => {
                 const u = document.querySelector(".username")
+                const v = document.querySelector(".userImage")
+                const w = document.getElementById("balance")
                 u.style.display = "none";
-                userContainer.appendChild(userTab);
+                v.style.display = "none";
+                w.style.display = "none";
+                const firstChild = userContainer.firstChild;
+                userContainer.insertBefore(userTab, firstChild);
             })
 
         }
@@ -112,7 +125,9 @@ export function showUserTab() {
 
             userContainer.addEventListener("click", (event) => {
                 const u = document.querySelector(".username")
+                const v = document.querySelector(".userImage")
                 u.style.display = "none";
+                v.style.display = "none";
                 userContainer.appendChild(userTab);
             })
         }
@@ -127,11 +142,26 @@ export function showUserTab() {
                 starter()
             })
         }
-        userTab.addEventListener("mouseleave", (event) => {
-            const u = document.querySelector(".username")
-            u.style.display = "";
-            userContainer.querySelector(".userTab").remove();
-        })
+        if(user.type == "Customer"){
+            userTab.addEventListener("mouseleave", (event) => {
+                const u = document.querySelector(".username")
+                const v = document.querySelector(".userImage")
+                const w = document.getElementById("balance")
+                u.style.display = "";
+                v.style.display = "";
+                w.style.display = "";
+                userContainer.querySelector(".userTab").remove();
+            })
+        }
+        else {
+            userTab.addEventListener("mouseleave", (event) => {
+                const u = document.querySelector(".username")
+                const v = document.querySelector(".userImage")
+                u.style.display = "";
+                v.style.display = "";
+                userContainer.querySelector(".userTab").remove();
+            })
+        }
     }
 }
 
@@ -142,5 +172,4 @@ function closeUserTab() {
         closeIt.replaceChildren();
         closeIt.remove();
     }
-
 }

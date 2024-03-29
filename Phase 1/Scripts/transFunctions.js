@@ -2,8 +2,10 @@
 import { renderPhone } from "./renderPhones.js";
 const userData = localStorage.getItem('user'); // Assuming user data is stored under 'user' key
 const user = JSON.parse(userData);
+
 export function loadSeller() {
     const listedPhonesButton = document.querySelector("#listedPhonesButton");
+
     listedPhonesButton.addEventListener("click", (event) => {
         document.querySelector("#listedPhonesContainer").replaceChildren()
         document.querySelector("#salesContainer").replaceChildren();
@@ -19,18 +21,18 @@ export function loadSeller() {
             const phoneElement = document.createElement('div');
             phoneElement.classList.add("eachPhone");
             phoneElement.innerHTML = `
-    <div class="sellerItem">
-    <h4>${phone.brand} ${phone.name}</h4>
-    <img src="${phone.img}" alt="${phone.name}" class="phoneImg">
-    <p>Year: ${phone.year}</p>
-    <p>Storage: ${phone.storage}GB</p>
-    <p>Quantity Left: ${phone.quantity}</p>
-    <p class="price"><strong>${phone.price}</strong>QR</p>
-    </div>
-    `;
+                <div class="sellerItem">
+                <h4>${phone.brand} ${phone.name}</h4>
+                <img src="${phone.img}" alt="${phone.name}" class="phoneImg">
+                <p>Year: ${phone.year}</p>
+                <p>Storage: ${phone.storage}GB</p>
+                <p>Quantity Left: ${phone.quantity}</p>
+                <p class="price"><strong>${phone.price}</strong>QR</p>
+                </div>
+                `;
             phoneElement.addEventListener("click", (event) => {
                 localStorage.setItem("phones", JSON.stringify(phone))
-                window.open("item.html", "_self")
+                window.open("./item.html", "_self")
             })
             container.appendChild(phoneElement);
         });
@@ -84,7 +86,7 @@ function getTransaction(tran) {
 
     seller.classList.add("seller")
     name.classList.add("name")
-    price.classList.add("price")
+    price.classList.add("Pricee")
     city.classList.add("city")
     country.classList.add("country")
     state.classList.add("state")
@@ -93,18 +95,18 @@ function getTransaction(tran) {
     total.classList.add("total")
     date.classList.add("date")
     buyer.classList.add("buyer")
-    seller.innerHTML="Seller: "+tran.seller
-    name.innerHTML ="Full Name: "+ adList[0]
-    city.innerHTML = "City: "+adList[2]
-    country.innerHTML ="Country: "+ adList[5]
-    state.innerHTML ="State: "+ adList[3]
-    zip.innerHTML = "Zip: "+adList[4]
-    address.innerHTML ="Address: " +adList[1]
-    quantity.innerHTML = "Quantity: "+tran.quantity
-    total.innerHTML ="Total: "+ tran.total+"QR"
-    date.innerHTML ="Transaction Date: "+ tran.date
-    buyer.innerHTML ="Buyer's Name: "+ tran.buyer;
-    price.innerHTML="Phone's Price: "+tran.phone.price+"QR"
+    seller.innerHTML="<strong>Seller: </strong>"+tran.seller
+    name.innerHTML ="<strong>Full Name: </strong>"+ adList[0]
+    city.innerHTML = "<strong>City: </strong>"+adList[2]
+    country.innerHTML ="<strong>Country: </strong>"+ adList[5]
+    state.innerHTML ="<strong>State: </strong>"+ adList[3]
+    zip.innerHTML = "<strong>Zip: </strong>"+adList[4]
+    address.innerHTML ="<strong>Address: </strong>" +adList[1]
+    quantity.innerHTML = "<strong>Quantity: </strong>"+tran.quantity
+    total.innerHTML ="<strong>Total: </strong>"+ tran.total+"QR"
+    date.innerHTML ="<strong>Transaction Date: </strong>"+ tran.date
+    buyer.innerHTML ="<strong>Buyer's Name: </strong>"+ tran.buyer;
+    price.innerHTML="<strong>Phone's Price: </strong>"+tran.phone.price+"QR"
     
     top.appendChild(phoneBox)
     bottom.appendChild(buyer)

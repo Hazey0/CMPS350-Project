@@ -100,6 +100,26 @@ nav a:hover {
     justify-content: center;
 }
 
+
+#listedPhonesContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.transBottom{
+    gap: 0px 90px;
+    justify-content: left;
+}
+
+.Pricee{
+    font-size: 13px;
+    font-weight: lighter;
+    strong{
+        font-size: 15px;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .sellingArea {

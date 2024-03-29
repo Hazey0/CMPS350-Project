@@ -1,5 +1,5 @@
 import { logged } from "./LogFunction.js";
-import {getCountries } from "./countries.js";
+import { getCountries } from "./countries.js";
 import { renderPhone } from "./renderPhones.js";
 import { showUserTab } from "./userTabFunction.js";
 

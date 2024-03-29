@@ -3,7 +3,7 @@ const users=JSON.parse(data);
 const datau=localStorage.getItem("user");
 const user=JSON.parse(datau);
 
-import { mainPath,yourPath,prevPath } from "./paths.js";
+import { mainPath } from "./paths.js";
 
 export function logged() {
     if (user == null) {
@@ -52,10 +52,6 @@ export function logged() {
         const userImage = document.createElement("img");
         userImage.src = "../Media/icons/user.svg";
         userImage.classList.add("userImage");
-        ///////delete the line under when you finish implementing the button for user details////
-        userImage.addEventListener("click",()=>{
-            window.open("userDetails.html","_self")
-        })
         nav2.replaceChildren();
         const logoutButton = document.createElement("button");
         logoutButton.innerHTML = "Logout";

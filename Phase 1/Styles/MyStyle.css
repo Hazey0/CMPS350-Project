@@ -63,10 +63,11 @@ body {
 }
 
 .searchInput {
-    width: 70vh;
+    width: 30rem;
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 20px;
+    margin-left: 10rem;
 }
 
 nav a {
@@ -407,6 +408,7 @@ nav a:hover {
     color: white;
     padding: 7px;
     display: flex;
+    width: auto;
     height: 80px;
     font-size: 14px;
     gap: 10px;
@@ -415,8 +417,8 @@ nav a:hover {
 .transDiv{
     display: flex;
     width: auto;
-    margin-right: -100px;
 }
+
 .transDiv:hover{
     background-color: rgba(255, 255, 255, 0.2);
     cursor: pointer;
@@ -472,12 +474,38 @@ nav a:hover {
     align-self: center;
 }
 
+.usrDetails{
+    display: flex;
+    border-radius: 10px;
+    padding: 3px;
+    
+}
+
+.usrDetails:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.details{
+    align-self: center;
+}
+
+.detailsLogo{
+    align-self: center;
+}
+
 #searcher{
     margin-left: 20vh;
 }
 
 
+#balance{
+    align-self: center;
+}
 
+#balance::before{
+    content: "$: ";
+}
 
 
 

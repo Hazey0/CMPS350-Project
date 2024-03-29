@@ -29,14 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     }
- 
-
-
-
-
-   
-
-
     logged();
     showUserTab();
     

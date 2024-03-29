@@ -87,14 +87,38 @@ nav a:hover {
 
     .username {
         color: white;
+        padding: 10px;
+        border-radius: 5px;
     }
 
     .username::before{
         content: ": ";
     }
+
+    .username:hover{
+        background-color: rgb(37, 37, 37);
+        cursor: pointer;
+    }
 }
 
+.usrDetails{
+    display: flex;
+    border-radius: 10px;
+    padding: 5px;
+}
 
+.usrDetails:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.details{
+    align-self: center;
+}
+
+.detailsLogo{
+    align-self: center;
+}
 
 .logoutButton {
     padding: 10px 10px;
@@ -121,6 +145,13 @@ nav a:hover {
     padding-top: 40px;
 }
 
+#balance{
+    align-self: center;
+}
+
+#balance::before{
+    content: "$: ";
+}
 
 .buyButton {
   background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
