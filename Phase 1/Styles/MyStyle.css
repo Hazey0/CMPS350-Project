@@ -355,10 +355,8 @@ nav a:hover {
     color: white;
 }
 
-.loginButton{
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;;
+#loginButton{
+    justify-self: end;
 }
 
 .login{
@@ -567,17 +565,15 @@ nav a:hover {
         }
 
         #loginButton{
-            justify-self: end;
-            margin-right: 15%;
+            margin-right: 20%;
         }
 
         .logoutButton, .login{
-            margin-left: 12rem;
             padding: 2%;
             font-size: 13px;
         }
 
-        .user, .guest{
+        .user{
             padding-left: 10%;
             font-size: 13px;
             width: 600px;
@@ -597,8 +593,9 @@ nav a:hover {
 
         .sellDiv, .saleDiv{
             height: 50%;
+            width: 90%;
             p{
-                font-size: 10px;
+                font-size: 11px;
             }
         }
 
@@ -615,6 +612,7 @@ nav a:hover {
         }
 
         .usrDetails{
+            width: 100%;
             font-size: 12px;
         }
 

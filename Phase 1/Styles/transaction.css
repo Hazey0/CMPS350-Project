@@ -68,11 +68,17 @@ nav a:hover {
     transition: transform 0.3s ease;
     border-radius: 20px;
     margin-bottom: 20px;
-    padding-left: 1.2%;
-    padding-right: 1.2%;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color:white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    
+}
+
+.eachPhone:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 
 .heading{
@@ -155,5 +161,21 @@ nav a:hover {
 @media (max-width: 768px) {
     .sellingArea {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        margin: 0;
+
+        p{
+            font-size: 10px;
+        }
+
+        .transBottom{
+            gap: 10px;
+        }
+
+        .Pricee{
+            strong{
+                font: 1em sans-serif;ont-size: 10px;
+            }
+        }
     }
+
 }
