@@ -77,8 +77,9 @@ export function logged() {
     }
 }
 function logout() {
-    localStorage.setItem("users",JSON.stringify(users))
     updateUser();
+    
+    
    
     window.open("./" + mainPath, "_self");
 
