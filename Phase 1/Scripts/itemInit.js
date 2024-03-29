@@ -91,8 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
         bottom.appendChild(seller);
         if(phone.quantity!=0){
         if (user != null) {
-            if(user.type=="Seller"){
-                if(user.username==phone.seller){
+            if(user.type=="Seller" || user.type=="admin"){
+                if(user.username==phone.seller || user.type=="admin"){
                 bottom.appendChild(removeButton)
                 bottom.appendChild(editQuanButton)}
                 else{

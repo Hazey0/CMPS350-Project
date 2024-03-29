@@ -1,5 +1,6 @@
 
 async function starter(){
+//used to reset phones
 //localStorage.removeItem("phones");
 
 const data=localStorage.getItem("phones");
@@ -25,8 +26,8 @@ fetch('../Scripts/storage/featuredPhones.json').then((res)=> res.json()).then((j
  
  })
 }
- 
-//localStorage.removeItem("users");
+ //used to reset users
+localStorage.removeItem("users");
  
  const datau=localStorage.getItem("users");
  const users=JSON.parse(datau);

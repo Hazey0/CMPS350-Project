@@ -156,7 +156,6 @@ document.addEventListener("DOMContentLoaded", async() => {
         localStorage.setItem("users",JSON.stringify(users));
         users[f].money=mon
         user.money=mon;
-        moneySeller();
         console.log(users)
         localStorage.removeItem("users");
        
@@ -170,15 +169,6 @@ document.addEventListener("DOMContentLoaded", async() => {
         
     }
 
-
-    function moneySeller(){
-        const seller=phone.seller;
-        const mon=getTotal();
-        const f=users.findIndex((u)=> seller==u.username );
-        users[f].money=mon
-        console.log(users[f]);
-
-    }
     function updateUser(tran,usr){
         const f=users.findIndex((u)=> usr==u.username );
        const t=users[f].transactions

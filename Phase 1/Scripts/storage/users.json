@@ -5,8 +5,8 @@
         "type": "Customer",
         "money": 100000,
         "transactions": [],
-        "surname":"Ahmad Omar",
-        "shippingAddress":"Qatar Doha Al Rayyan Zone 55 street 1037 Home 5"
+        "surname":"AL-Thani",
+        "address":"Qatar Doha Al Rayyan Zone 55 street 1037 Home 5"
 
     },
     {
@@ -18,11 +18,13 @@
         "bankAccount":"QIIB72634982300000069823"
     },
     {
-        "username": "mack",
-        "password": 111,
+        "username": "walter",
+        "password": 420,
         "type": "Customer",
         "money": 2500,
-        "transactions": []
+        "transactions": [],
+        "surname":"White",
+        "address":"USA 308 Negra Arroyo Lane, Albuquerque, New Mexico 87104 "
         
     },
     {
