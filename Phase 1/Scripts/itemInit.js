@@ -91,13 +91,17 @@ document.addEventListener("DOMContentLoaded", () => {
         bottom.appendChild(quantityv);
 
         bottom.appendChild(seller);
+        
         if(checkStock()){
     
             if (user != null) {
-                if (user.type == "Seller" || user.type == "admin") {
-                    if (user.username == phone.seller || user.type == "admin") {
-                        bottom.appendChild(removeButton)
+                if (user.type == "Seller" || user.type == "Admin") {
+                    if (user.username == phone.seller ) {
+                        
                         bottom.appendChild(editQuanButton)
+                    }
+                    else if( user.type == "Admin"){
+                        bottom.appendChild(removeButton)
                     }
                     else {
                         bottom.appendChild(buyButton)

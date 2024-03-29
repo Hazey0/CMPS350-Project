@@ -53,6 +53,7 @@ export function showUserTab() {
         }
 
         else if (user.type == "Seller") {
+            document.querySelector("#balance").style.display="none"
             const sellDiv = document.createElement("div");
             sellDiv.classList.add("sellDiv");
             const saleDiv = document.createElement("div");
@@ -111,6 +112,15 @@ export function showUserTab() {
                 const u = document.querySelector(".username")
                 u.style.display = "none";
                 userContainer.appendChild(userTab);
+            })
+        }
+        else if(user.type=="Admin"){
+            document.querySelector("#balance").style.display="none"
+            document.querySelector(".userImage").addEventListener("click",()=>{
+                //rests users and phones
+                localStorage.removeItem("phones")
+                localStorage.removeItem("users")
+                alert("Phones and users reloaded successfully")
             })
         }
         userTab.addEventListener("mouseleave", (event) => {
