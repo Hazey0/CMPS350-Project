@@ -9,14 +9,14 @@ document.addEventListener("DOMContentLoaded",()=>{
 function loadUserDetails(){
 
 
-    if(user.type=="seller"){
+    if(user.type=="Seller"){
         loadSellerDetails(user);
     }
     else if(user.type=="Customer"){
         loadCustomerDetails(user)
 
     }
-    else if(user.type=="admin"){
+    else if(user.type=="Admin"){
         loadAdminDetails(user)
     }
 }

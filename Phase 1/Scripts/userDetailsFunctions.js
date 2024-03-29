@@ -53,7 +53,7 @@ export function loadSellerDetails( usr) {
     password.classList.add("password");
     companyName.classList.add("companyName");
     bankAccount.classList.add("bankAccount")
-
+    username.id="username"
 
 
 
@@ -84,7 +84,7 @@ export function loadAdminDetails( usr) {
 
     username.classList.add("username");
     password.classList.add("password");
-
+    username.id="username"
 
 
 

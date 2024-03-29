@@ -87,8 +87,9 @@ document.addEventListener("DOMContentLoaded", async() => {
         console.log(users[3])
         
         alert("Phone purchased Successfully")
-        logged();
         window.open("transactions.html","_self")
+        logged();
+       
 
 
 
@@ -164,7 +165,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         localStorage.setItem("users",JSON.stringify(users))
         
         localStorage.setItem("user",JSON.stringify(user))
-        alert(" done")
+        //alert(" done")
 
         
     }

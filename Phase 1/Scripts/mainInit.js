@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const phonesd=localStorage.getItem("phones")
     const phones=JSON.parse(phonesd);
+    console.log(phones)
 
    const phonesf=localStorage.getItem("featuredPhones")
    const featuredPhones=JSON.parse(phonesf);

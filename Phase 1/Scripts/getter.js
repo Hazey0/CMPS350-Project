@@ -27,7 +27,7 @@ fetch('../Scripts/storage/featuredPhones.json').then((res)=> res.json()).then((j
  })
 }
  //used to reset users
-localStorage.removeItem("users");
+//localStorage.removeItem("users");
  
  const datau=localStorage.getItem("users");
  const users=JSON.parse(datau);
