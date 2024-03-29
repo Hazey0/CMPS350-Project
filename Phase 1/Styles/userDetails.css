@@ -55,4 +55,13 @@
   }
 
 
+@media (max-width: 768px) {
+
+  #userDetails{
+    margin: 20rem 1rem;
+  }
+
+}
+
+
   
