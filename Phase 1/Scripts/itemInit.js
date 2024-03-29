@@ -218,11 +218,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function updatePhone(v) {
         const index = phones.findIndex((p) => p.model == phone.model && p.brand == phone.brand && p.storage == phone.storage && phone.seller == p.seller && phone.price == p.price);
         phones[index].quantity = v;
+        alert(phones)
         localStorage.setItem("phones", JSON.stringify(phones))
     }
 
     function checkStock() {
-
+        console.log(phones);
+        alert(phones)
         const stock = phones.findIndex((p) => p.model == phone.model && p.brand == phone.brand && p.storage == phone.storage && phone.seller == p.seller && phone.price == p.price);
         if (stock != -1) {
             return true

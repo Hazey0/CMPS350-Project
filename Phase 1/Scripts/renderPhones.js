@@ -184,6 +184,7 @@ function checkStock(ph) {
 
 }
 function checkPhone(id) { 
+    
 
     const stock = phones.findIndex((p) => p.id==id && p.quantity>0);
     if(stock!=-1){
