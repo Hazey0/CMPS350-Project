@@ -1,5 +1,6 @@
 
 import { mainPath, yourPath } from "./paths.js";
+import { resetSearch } from "./searchFunction.js";
 
 export function renderPhones() {
     if (mainPath == yourPath) {
@@ -56,6 +57,7 @@ export function renderPhone(phone) {
         console.log(phone);
         localStorage.setItem("phone", JSON.stringify(phone));
         localStorage.setItem("prevPath", (JSON.stringify(mainPath)))
+        resetSearch()
         window.open("./item.html", "_self");
 
     })
@@ -164,10 +166,13 @@ function renderFeaturedPhone(phone) {
     storage.innerHTML = "Storage: " + phone.storage + "GB";
     img.src = phone.img;
     itemLink.addEventListener("click", (event) => {
+        resetSearch()
+        
         localStorage.setItem("phone", JSON.stringify(phone));
 
     });
     wholeLink.addEventListener("click", (event) => {
+        resetSearch()
         localStorage.setItem("phone", JSON.stringify(phone));
 
     });

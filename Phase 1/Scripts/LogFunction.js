@@ -30,6 +30,7 @@ export function logged() {
         })
         loginButton.addEventListener("click",(event)=>{
             localStorage.setItem("users",JSON.stringify(users))
+            resetSearch()
             window.open("login.html","_self")
         })
         nav2.appendChild(loginButton);
@@ -79,7 +80,7 @@ export function logged() {
 function logout() {
     updateUser();
     
-    
+    resetSearch()
    
     window.open("./" + mainPath, "_self");
 
