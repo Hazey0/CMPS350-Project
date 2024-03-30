@@ -61,13 +61,14 @@ export function loadSellerDetails( usr) {
     password.innerHTML = "<strong>Password: </strong>" + usr.password;
     companyName.innerHTML="<strong>Company: </strong>"+usr.companyName;
     bankAccount.innerHTML="<strong>Bank Account: </strong>"+usr.bankAccount;
-    listedPhonesAmount.innerHTML=sellerCurrentListedAmount(usr.username)
+    listedPhonesAmount.innerHTML="Lised Phones: "+sellerCurrentListedAmount(usr.username)
 
 
     container.appendChild(companyName)
     container.appendChild(username)
     container.appendChild(password)
     container.appendChild(bankAccount);
+    container.appendChild(listedPhonesAmount)
 
 }
 
@@ -102,6 +103,6 @@ export function loadAdminDetails( usr) {
 
 function sellerCurrentListedAmount(username) {
 
-    const amount = phones.reduce((a, v) => v.seller == username ? 1 : a, 0);
+    const amount = phones.reduce((a, v) => v.seller == username ? 1+a : a, 0);
     return amount
 }

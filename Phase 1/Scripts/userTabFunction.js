@@ -1,4 +1,5 @@
 import { starter } from "./getter.js";
+import { resetSearch } from "./searchFunction.js";
 
 const data=localStorage.getItem("users");
 const users=JSON.parse(data);
@@ -33,6 +34,7 @@ export function showUserTab() {
 
             trans.style.cursor = "pointer";
             trans.addEventListener("click", (event) => {
+                resetSearch()
                 window.open("./transactions.html", "_self");
             })
             transactionLogo.src = "../Media/Icons/icons8-letter-64.png";
@@ -41,6 +43,7 @@ export function showUserTab() {
 
             userDetails.style.cursor = "pointer";
             userDetails.addEventListener("click", () =>{
+                resetSearch()
                 window.open("./userDetails.html", "_self")
             })
             details.innerHTML = "Details";
@@ -107,19 +110,24 @@ export function showUserTab() {
                 window.open("./sell.html", "_self");
             })
             sellLogo.addEventListener("click", (event) => {
+                resetSearch()
                 window.open("./sell.html", "_self");
             })
             sellDiv.addEventListener("click", () =>{
+                resetSearch()
                 window.open("./sell.html", "_self");
             })
 
             sale.addEventListener("click", (event) => {
+                resetSearch()
                 window.open("./transactions.html", "_self");
             })
             saleLogo.addEventListener("click", (event) => {
+                resetSearch()
                 window.open("./transactions.html", "_self");
             })
             saleDiv.addEventListener("click", (event) => {
+                resetSearch()
                 window.open("./transactions.html", "_self");
             })
 
@@ -162,6 +170,7 @@ export function showUserTab() {
 
             userDetails.style.cursor = "pointer";
             userDetails.addEventListener("click", () =>{
+                resetSearch()
                 window.open("./userDetails.html", "_self")
             })
             details.innerHTML = "Details";
@@ -184,6 +193,7 @@ export function showUserTab() {
                 //rests users and phones
                 localStorage.removeItem("phones")
                 localStorage.removeItem("users")
+                localStorage.removeItem("user")
                 localStorage.removeItem("featuredPhones")
                 alert("Phones and users reloaded successfully")
                 starter()

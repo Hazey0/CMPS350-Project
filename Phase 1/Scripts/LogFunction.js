@@ -1,9 +1,11 @@
+import { mainPath } from "./paths.js";
+import { resetSearch } from "./searchFunction.js";
 const data=localStorage.getItem("users");
 const users=JSON.parse(data);
 const datau=localStorage.getItem("user");
 const user=JSON.parse(datau);
 
-import { mainPath } from "./paths.js";
+
 
 export function logged() {
     if (user == null) {
@@ -30,6 +32,7 @@ export function logged() {
         })
         loginButton.addEventListener("click",(event)=>{
             localStorage.setItem("users",JSON.stringify(users))
+            resetSearch()
             window.open("login.html","_self")
         })
         nav2.appendChild(loginButton);
@@ -77,8 +80,9 @@ export function logged() {
     }
 }
 function logout() {
-    localStorage.setItem("users",JSON.stringify(users))
     updateUser();
+    
+    resetSearch()
    
     window.open("./" + mainPath, "_self");
 

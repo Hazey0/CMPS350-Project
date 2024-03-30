@@ -67,7 +67,7 @@ export function loadCustomer() {
 
 
 function getTransaction(tran) {
-    const adList = getAddress(tran.address);
+    const adList = tran.address
     const top = document.createElement("div");
     const bottom = document.createElement("div");
     const phoneBox = renderPhone(tran.phone);
@@ -83,7 +83,7 @@ function getTransaction(tran) {
     const buyer = document.createElement("p");
     const price=document.createElement("p");
     const seller=document.createElement("p")
-
+    console.log(tran.address);
     seller.classList.add("seller")
     name.classList.add("name")
     price.classList.add("Pricee")
@@ -95,13 +95,15 @@ function getTransaction(tran) {
     total.classList.add("total")
     date.classList.add("date")
     buyer.classList.add("buyer")
+    //alert("")
+    console.log(tran.address)
     seller.innerHTML="<strong>Seller: </strong>"+tran.seller
-    name.innerHTML ="<strong>Full Name: </strong>"+ adList[0]
-    city.innerHTML = "<strong>City: </strong>"+adList[2]
-    country.innerHTML ="<strong>Country: </strong>"+ adList[5]
-    state.innerHTML ="<strong>State: </strong>"+ adList[3]
-    zip.innerHTML = "<strong>Zip: </strong>"+adList[4]
-    address.innerHTML ="<strong>Address: </strong>" +adList[1]
+    name.innerHTML ="<strong>Full Name: </strong>"+ adList.name
+    city.innerHTML = "<strong>City: </strong>"+adList.city
+    country.innerHTML ="<strong>Country: </strong>"+ adList.country
+    state.innerHTML ="<strong>State: </strong>"+ adList.state
+    zip.innerHTML = "<strong>Zip: </strong>"+adList.zip
+    address.innerHTML ="<strong>Address: </strong>" +adList.ad
     quantity.innerHTML = "<strong>Quantity: </strong>"+tran.quantity
     total.innerHTML ="<strong>Total: </strong>"+ tran.total+"QR"
     date.innerHTML ="<strong>Transaction Date: </strong>"+ tran.date
@@ -129,7 +131,4 @@ function getTransaction(tran) {
     tarnsBox.appendChild(bottom)
     tarnsBox.classList.add("transBox")
     return tarnsBox
-}
-function getAddress(ad) {
-    return ad.split(" ")
 }

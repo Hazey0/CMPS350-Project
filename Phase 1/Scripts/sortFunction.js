@@ -136,6 +136,11 @@ export function renderSort() {
         const yearImg = document.createElement("img");
         const priceImg = document.createElement("img");
         const storageImg = document.createElement("img");
+        name.style.cursor="pointer"
+        price.style.cursor="pointer"
+        year.style.cursor="pointer"
+        name.style.cursor="pointer"
+        storage.style.cursor="pointer"
         nameImg.style.cursor = "pointer";
         yearImg.style.cursor = "pointer";
         priceImg.style.cursor = "pointer";

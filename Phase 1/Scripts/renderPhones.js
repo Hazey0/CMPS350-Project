@@ -1,5 +1,6 @@
 
 import { mainPath, yourPath } from "./paths.js";
+import { resetSearch } from "./searchFunction.js";
 
 export function renderPhones() {
     if (mainPath == yourPath) {
@@ -56,6 +57,7 @@ export function renderPhone(phone) {
         console.log(phone);
         localStorage.setItem("phone", JSON.stringify(phone));
         localStorage.setItem("prevPath", (JSON.stringify(mainPath)))
+        resetSearch()
         window.open("./item.html", "_self");
 
     })
@@ -164,10 +166,13 @@ function renderFeaturedPhone(phone) {
     storage.innerHTML = "Storage: " + phone.storage + "GB";
     img.src = phone.img;
     itemLink.addEventListener("click", (event) => {
+        resetSearch()
+        
         localStorage.setItem("phone", JSON.stringify(phone));
 
     });
     wholeLink.addEventListener("click", (event) => {
+        resetSearch()
         localStorage.setItem("phone", JSON.stringify(phone));
 
     });
@@ -214,4 +219,24 @@ function checkPhone(id) {
 function getPhone(id) {
 
     return phones.reduce((a, v) => v.id == id ? v : a, false)
+}
+export function checkFeatured(ph){
+    const featuredData = localStorage.getItem("featuredPhones")
+    let featuredPhones = JSON.parse(featuredData);
+    const e=featuredPhones.findIndex((r)=>r==ph.id);
+    if(e==-1){
+        return false
+    }
+    else{
+        return true
+    }
+
+}
+export function removeFromFeatured(ph){
+    const featuredData = localStorage.getItem("featuredPhones")
+    let featuredPhones = JSON.parse(featuredData);
+    featuredPhones=featuredPhones.filter((phone)=> phone!=ph.id)
+    localStorage.setItem("featuredPhones",JSON.stringify(featuredPhones))
+    renderFeaturedPhones();
+    window.open("main.html","_self")
 }
