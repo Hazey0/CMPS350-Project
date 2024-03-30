@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         
     }
     function purchase() {
+       console.log(document.querySelector("#country").value); 
         const quantity= document.querySelector("#quantity").value
         const dat = new Date();
         const d=dat.getFullYear() + "/" + dat.getMonth() + "/" + dat.getDate() + "  " + dat.getHours() + "h :" + dat.getMinutes()+"m"
@@ -61,9 +62,14 @@ document.addEventListener("DOMContentLoaded", async() => {
             date:d
         }
         const username=user.username;
-        const address=document.querySelector("#name").value+" "+document.querySelector("#address").value+" "+
-        document.querySelector("#city").value+" "+document.querySelector("#state").value+
-        document.querySelector("#zip").value+" "+document.querySelector("#country").value;
+        const address={}
+         address.name=document.querySelector("#name").value
+         address.ad=document.querySelector("#address").value
+         address.country=document.querySelector("#country").value
+        address.city=document.querySelector("#city").value
+        address.state=document.querySelector("#state").value
+        address.zip=document.querySelector("#zip").value
+        
         const seller= phone.seller;
         const total=getTotal();
         editQuantity();
@@ -83,11 +89,6 @@ document.addEventListener("DOMContentLoaded", async() => {
         updateUser(transaction,user.username)
         localStorage.removeItem("phones")
         localStorage.setItem("phones",JSON.stringify(phones))
-        console.log(users[0])
-        console.log(users[1])
-        console.log(users[2])
-        console.log(users[3])
-        
         alert("Phone purchased Successfully")
         window.open("transactions.html","_self")
         logged();
