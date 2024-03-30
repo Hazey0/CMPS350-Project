@@ -141,7 +141,7 @@ export function showUserTab() {
             userDetails.appendChild(detailsLogo);
             userTab.appendChild(userDetails);
 
-            userContainer.addEventListener("click", (event) => {
+            username.addEventListener("click", (event) => {
                 const u = document.querySelector(".username")
                 const v = document.querySelector(".userImage")
                 u.style.display = "none";
@@ -171,7 +171,7 @@ export function showUserTab() {
             userDetails.appendChild(detailsLogo);
             userTab.appendChild(userDetails);
 
-            userContainer.addEventListener("click", (event) => {
+            username.addEventListener("click", (event) => {
                 const u = document.querySelector(".username")
                 const v = document.querySelector(".userImage")
                 u.style.display = "none";
