@@ -59,9 +59,13 @@ export function loadSeller() {
 
 export function loadCustomer() {
     const userTransactions = user.transactions;
+    if(userTransactions.length>=1){
     console.log(userTransactions)
     const salesContainer = document.querySelector("#salesContainer")
-    userTransactions.forEach((t) => salesContainer.appendChild(getTransaction(t)));
+    userTransactions.forEach((t) => salesContainer.appendChild(getTransaction(t)));}
+    else{
+        alert("No Previous Purchases")
+    }
 }
 
 
