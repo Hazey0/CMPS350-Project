@@ -1,9 +1,11 @@
+import { mainPath } from "./paths.js";
+import { resetSearch } from "./searchFunction.js";
 const data=localStorage.getItem("users");
 const users=JSON.parse(data);
 const datau=localStorage.getItem("user");
 const user=JSON.parse(datau);
 
-import { mainPath } from "./paths.js";
+
 
 export function logged() {
     if (user == null) {
