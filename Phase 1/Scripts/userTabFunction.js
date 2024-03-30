@@ -193,6 +193,7 @@ export function showUserTab() {
                 //rests users and phones
                 localStorage.removeItem("phones")
                 localStorage.removeItem("users")
+                localStorage.removeItem("user")
                 localStorage.removeItem("featuredPhones")
                 alert("Phones and users reloaded successfully")
                 starter()
