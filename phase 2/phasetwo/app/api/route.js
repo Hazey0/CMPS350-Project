@@ -1,21 +1,18 @@
-import { addPhones } from "@/repos/phones"
+import { addPhones, getPhones } from "@/repos/phones";
 
 export async function GET() {
+  const res = await getPhones();
 
-    return new Response( )
-        
-    
-    }
-export async function POST(request) {
-    const d= await request.json()
-
-    return new Response(await addPhones(d),{status:200}  )
-        
-    
-    }
+  return Response.json(res);
+}
+export async function POST(request, { params }) {
+  const data = await request.json();
+  try {
+    const result = await addPhones(data);
+    // if (!error) {}
+    return Response.json(result);
+  } catch (e) {}
+}
 export async function DELETE() {
-
-    return new Response( )
-        
-    
-    }
+  return new Response();
+}

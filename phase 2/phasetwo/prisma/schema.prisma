@@ -39,12 +39,11 @@ model Phone {
   id          String @unique @default(cuid())
   img         String
   brand       String
-  model       String
   name        String
   price       Int
   storage     Int
   seller      String
-  sellerPhone Seller @relation(fields: [seller], references: [id], onDelete: Cascade)
+  sellerPhone Seller @relation(fields: [seller], references: [username] )
 }
 
 model Transaction {

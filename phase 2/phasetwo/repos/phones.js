@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function getPhones(){
-
+return await prisma.phone.findMany()
 }
 export async function deletePhone(){
 
@@ -11,11 +11,10 @@ export async function updatePhone(){
 
 }
 export async function addPhone(phone){
-
+  console.log("adding phone");
    await prisma.phone.create({
         data:{
             brand:phone.brand,
-            model:phone.model,
             name:phone.name,
             price:phone.price,
             storage:phone.storage,
@@ -24,6 +23,7 @@ export async function addPhone(phone){
             
         }
     })
+    console.log("phone added");
 }
 export async function addPhones(phones){
    await phones.map((phone)=>addPhone(phone))
