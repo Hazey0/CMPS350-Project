@@ -9,15 +9,60 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
-model Seller{
-id String @unique @default(cuid())
-username String @unique
-password String
-phones String[]
 
+model Seller {
+  id           String        @unique @default(cuid())
+  username     String        @unique
+  password     String
+  phones       Phone[]
+  transactions Transaction[]
+  companyName  String
+  bankAccount  String
 }
-model Phone{
-  id String @unique @default(cuid())
-  brand String
-  model
+
+model Customer {
+  id           String        @unique @default(cuid())
+  username     String        @unique
+  password     String
+  transactions Transaction[]
+  surname      String
+  money        Int
+}
+
+model Admin {
+  id       String @unique @default(cuid())
+  username String @unique
+  password String
+}
+
+model Phone {
+  id          String @unique @default(cuid())
+  img         String
+  brand       String
+  model       String
+  name        String
+  price       Int
+  storage     Int
+  seller      String
+  sellerPhone Seller @relation(fields: [seller], references: [id], onDelete: Cascade)
+}
+
+model Transaction {
+  id          String   @unique @default(cuid())
+  buyer       String
+  seller      String
+  phone       String
+  quantity    Int
+  date        DateTime @default(now())
+  total       Int
+  buyerTrans  Customer @relation(fields: [buyer], references: [id])
+  sellerTrans Seller   @relation(fields: [seller], references: [id])
+}
+
+model Stat {
+  id                 String @unique @default(cuid())
+  currentListedPhone Int
+  soldPhones         Int
+  numberOfSellers    Int
+  numberOfCustomers  Int
 }
