@@ -44,6 +44,8 @@ model Phone {
   storage     Int
   seller      String
   sellerPhone Seller @relation(fields: [seller], references: [username] )
+  sold Boolean @default(false)
+  featured Boolean @default(false)
 }
 
 model Transaction {
@@ -64,4 +66,6 @@ model Stat {
   soldPhones         Int
   numberOfSellers    Int
   numberOfCustomers  Int
+  vistedToday Int @default(0)
+  listedToday Int @default(0)
 }

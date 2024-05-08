@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import * as stat from "@/repos/stats"
 const prisma = new PrismaClient();
 
 export async function getPhones(){
@@ -11,6 +12,7 @@ export async function updatePhone(){
 
 }
 export async function addPhone(phone){
+  stat.addPhone()
   console.log("adding phone");
    await prisma.phone.create({
         data:{
