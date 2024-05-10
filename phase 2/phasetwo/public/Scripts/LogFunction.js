@@ -27,11 +27,11 @@ export function logged() {
         nav1.appendChild(guest);
         console.log(guest);
         nav2.addEventListener("click", (event) => {
-            localStorage.setItem("users",JSON.stringify(users))
+
             localStorage.setItem("prevPath", (JSON.stringify(mainPath)))
         })
         loginButton.addEventListener("click",(event)=>{
-            localStorage.setItem("users",JSON.stringify(users))
+
             resetSearch()
             window.open("login.html","_self")
         })
@@ -69,7 +69,7 @@ export function logged() {
         usernam.classList.add("username");
         logoutButton.addEventListener("click", () => {
           
-            localStorage.setItem("users",JSON.stringify(users))
+
             localStorage.setItem("user",JSON.stringify(user))
             logout();
         })
@@ -91,7 +91,7 @@ function updateUser(){
 
     const ind=users.findIndex((u)=> u.username==user.username)
     users[ind]=user;
-    localStorage.setItem("users",JSON.stringify(users))
+
     localStorage.removeItem("user");
     
 }

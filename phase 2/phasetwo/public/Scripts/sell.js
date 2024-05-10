@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         newPhone.id=nanoid(8);
         phones.push(newPhone);
         localStorage.removeItem("phones");
-        localStorage.setItem("phones",JSON.stringify(phones));
+        //localStorage.setItem("phones",JSON.stringify(phones));
         console.log(phones)
         localStorage.setItem("phone",JSON.stringify(newPhone))
         alert("phone listed successfully")

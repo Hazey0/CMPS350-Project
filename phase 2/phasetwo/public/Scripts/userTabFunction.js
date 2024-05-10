@@ -1,8 +1,7 @@
-import { starter } from "./getter.js";
 import { resetSearch } from "./searchFunction.js";
 
-const data=localStorage.getItem("users");
-const users=JSON.parse(data);
+const data=await fetch("/api/users")
+const users=data.json()
 const datau=localStorage.getItem("user");
 const user=JSON.parse(datau);
 

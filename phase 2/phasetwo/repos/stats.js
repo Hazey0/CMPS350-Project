@@ -78,4 +78,39 @@ export async function resetStats(){
     })
 
 }
+export async function checkDate(){
+    const prevTime=await prisma.stat.findUnique({
+        where:{
+            id:stat
+        },
+        select:{
+            date:true,
+            listedToday:false,
+            numberOfCustomers:false,
+            numberOfSellers:false,
+            soldPhones:false,
+            vistedToday:false,
+            currentListedPhone:false,
+        }
+    })
+
+    const nowTime= new Date(now())
+     if(nowTime.getFullYear()>prevTime.getFullYear() && nowTime.getMonth()> prevTime.getMonth()  && nowTime.getDay()>prevTime.getDay() ){
+
+        resetToday
+
+     }
+}
+async function resetToday(){
+    await prisma.stat.update({
+        where:{
+            id:stat,
+        },
+        data:{
+            vistedToday:0,
+            listedToday:0
+            
+        }
+    })
+}
 

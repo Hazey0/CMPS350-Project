@@ -1,7 +1,7 @@
 [
     {
         "username": "ahmad",
-        "password": 974,
+        "password": "974",
         "type": "Customer",
         "money": 100000,
         "transactions": [],

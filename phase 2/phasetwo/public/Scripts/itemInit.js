@@ -2,10 +2,10 @@ import { showUserTab } from "./userTabFunction.js";
 import { logged } from "./LogFunction.js";
 import { addFeatured, checkFeatured, renderFeaturedPhones, renderPhone,removeFromFeatured } from "./renderPhones.js";
 document.addEventListener("DOMContentLoaded", () => {
+    //to get the logged in user
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
-    const phonesd = localStorage.getItem("phones")
-    const phones = JSON.parse(phonesd);
+    //
     const getPage = (a) => a.split("/").reduce((a, v) => v)
     const yourPath = getPage(window.location.pathname);
     const mainPath = "item.html";
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             phones.splice(delet, 1);
-            localStorage.setItem("phones", JSON.stringify(phones))
+            //localStorage.setItem("phones", JSON.stringify(phones))
            
             window.open("main.html", "_self");
         })
@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const index = phones.findIndex((p) => p.model == phone.model && p.brand == phone.brand && p.storage == phone.storage && phone.seller == p.seller && phone.price == p.price);
         phones[index].quantity = v;
 
-        localStorage.setItem("phones", JSON.stringify(phones))
+        //localStorage.setItem("phones", JSON.stringify(phones))
     }
 
     function checkStock() {

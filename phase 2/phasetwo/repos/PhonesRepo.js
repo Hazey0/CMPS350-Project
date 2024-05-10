@@ -1,6 +1,6 @@
 
 import { PrismaClient } from '@prisma/client';
-import { addPhone } from './stats';
+import *as stats from './stats';
 const prisma = new PrismaClient();
 
 
@@ -10,9 +10,19 @@ class PhonesRepo {
     }
 
     async addPhone(phoneData) {
-        addPhone(phoneData.quantity)
+        stats.addPhone(phoneData.quantity)
         return await prisma.phone.create({
-            data: phoneData
+            data:{
+                img     : phoneData.img     ,
+                brand   : phoneData.brand   ,
+                name    : phoneData.name    ,
+                year    : phoneData.year    ,
+                price   : phoneData.price   ,
+                storage : phoneData.storage ,
+                seller  : phoneData.seller  ,
+                quantity: phoneData.quantity,
+
+            }
         });
     }
 
@@ -44,3 +54,25 @@ class PhonesRepo {
 }
 
 export default new PhonesRepo();
+
+export async function addPhone(phone){
+
+    await prisma.phone.create({
+         data:{
+             brand:phone.brand,
+             year:phone.year,
+             name:phone.name,
+             price:phone.price,
+             storage:phone.storage,
+             seller:phone.seller,
+             img:phone.img,
+             quantity:phone.quantity,
+             
+         }
+     })
+ }
+ export async function addPhones(phones){
+    await phones.map((phone)=>addPhone(phone))
+     
+ }
+

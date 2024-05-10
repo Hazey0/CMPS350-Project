@@ -1,7 +1,7 @@
 [
     {
         "username": "tom",
-        "password": 8793,
+        "password": "8793",
         "type": "Seller",
         "transactions": [],
         "companyName":"ooredoo",
@@ -9,7 +9,7 @@
     },
     {
         "username": "jim",
-        "password": 8793,
+        "password": "8793",
         "type": "Seller",
         "transactions": [],
         "companyName":"Qualcomm",
@@ -17,7 +17,7 @@
     },
     {
         "username": "mike",
-        "password": 911,
+        "password": "911",
         "type": "Seller",
         "transactions": [],
         "companyName":"Pocco",
