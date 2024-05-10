@@ -13,6 +13,7 @@
 .colored{
   background-color: black;
   color: #FF6C00 ;
+  cursor:default;
 }
 .colored:hover{
   background-color: #FF6C00;
