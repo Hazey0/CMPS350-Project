@@ -1,10 +1,10 @@
-
 import { logged } from "./LogFunction.js";
-import { renderFeaturedPhones, renderPhone, renderPhones } from "./renderPhones.js";
+import { renderFeaturedPhones, renderPhone } from "./renderPhones.js";
 import { showUserTab } from "./userTabFunction.js";
 import { renderSort } from "./sortFunction.js";
 import { yourPath, mainPath } from "./paths.js"
 import { searchPhone } from "./searchFunction.js";
+
 
 
 document.addEventListener("DOMContentLoaded",async () => {
@@ -15,19 +15,20 @@ document.addEventListener("DOMContentLoaded",async () => {
     const userDatas = localStorage.getItem("users");
     const users = JSON.parse(userDatas);
     console.log(users)
-
-    await fetch('/api/phones')
+    const phones = PhonesRepo.getAllPhones 
+    await fetch('/api/phones/route.js')
     .then((response) => response.json())
     .then((phones) => {
         phones.map((phone)=>{
 
             renderPhone(phone)
+            
         })
-        
+        console.log(phones)
     })
 
 
-
+    
 
     function popem(a) {
         for (var x = 0; x < a; x++) {

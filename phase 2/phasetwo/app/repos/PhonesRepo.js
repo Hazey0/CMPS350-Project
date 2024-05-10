@@ -1,6 +1,5 @@
-
-import { PrismaClient } from '@prisma/client';
 import *as stats from './stats';
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 
@@ -71,6 +70,7 @@ export async function addPhone(phone){
          }
      })
  }
+
  export async function addPhones(phones){
     await phones.map((phone)=>addPhone(phone))
      

@@ -1,4 +1,4 @@
-import * as stats from "@/repos/stats";
+import * as stats from "@/app/repos/stats";
 
 export async function GET() {
   const res = await stats.getStats();

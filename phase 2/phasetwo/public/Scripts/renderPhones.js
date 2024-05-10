@@ -3,9 +3,16 @@ import { mainPath, yourPath } from "./paths.js";
 import { resetSearch } from "./searchFunction.js";
 
 
-const phonesd = localStorage.getItem("phones")
-const phones = JSON.parse(phonesd);
 //console.log(featuredPhones)
+await fetch('/api/phones')
+.then((response) => response.json())
+.then((phones) => {
+    phones.map((phone)=>{
+
+        renderPhone(phone)
+    })
+    
+})
 
 export function renderPhone(phone) {
     const wholeLink = document.createElement("a");
@@ -70,10 +77,6 @@ export function renderPhone(phone) {
     wholeLink.appendChild(phoneBox);
 
     return wholeLink;
-
-
-
-
 
 }
 
