@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { addPhone } from './stats';
 const prisma = new PrismaClient();
 
 class PhonesRepo {
@@ -7,6 +8,7 @@ class PhonesRepo {
     }
 
     async addPhone(phoneData) {
+        addPhone(phoneData.quantity)
         return await prisma.phone.create({
             data: phoneData
         });

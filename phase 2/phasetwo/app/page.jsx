@@ -10,11 +10,11 @@ async function test(){
   })
 }
 export default async function Home() {
+  
+  await starter();
   test()
-  starter();
-  const stats = await getStats();
   redirect("/Websites/main.html")
 
-  return;
+
   
 }

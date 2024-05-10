@@ -56,3 +56,15 @@ class UsersRepo {
 }
 
 export default new UsersRepo();
+
+
+
+export async function getCustomers(){
+   return await prisma.customer.findMany()
+}
+export async function getSellers(){
+   return await prisma.seller.findMany()
+}
+export async function getAdmins(){
+   return await prisma.admin.findMany()
+}

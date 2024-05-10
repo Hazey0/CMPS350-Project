@@ -2,7 +2,7 @@ import "@/app/globals.css"
 import "@/public/Styles/MyStyle.css"
 export default async function RootLayout({ children }) {
   return (
-    <body>
+    <body >
       <section id="'Navigation">
         <nav>
           <div class="nav1">
@@ -19,11 +19,7 @@ export default async function RootLayout({ children }) {
               </div>
             </div>
             <div class="navItem"></div>
-            <button id="statsButton" class="statsButton">
-              <a class="statsLink" href="./stats.html">
-                Statistics
-              </a>
-            </button>
+
             <div class="user" id="user"></div>
             <div class="navItem" id="loginButton">
               <a class="login" href="../Websites/login.html" id="login">
