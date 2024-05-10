@@ -1,8 +1,10 @@
+import { getStats } from "@/repos/stats"
+
 
 export async function GET() {
 
-    return new Response(  )
-        
+    const res= await getStats()
+    return Response.json(res,{status:200})    
     
     }
 export async function POST() {
