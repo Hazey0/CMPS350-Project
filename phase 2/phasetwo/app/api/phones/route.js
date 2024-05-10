@@ -1,4 +1,4 @@
-import PhonesRepo from "@/app/repo/PhonesRepo";
+import PhonesRepo from "@/repos/PhonesRepo";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);

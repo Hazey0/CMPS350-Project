@@ -1,6 +1,8 @@
+
 import { PrismaClient } from '@prisma/client';
 import { addPhone } from './stats';
 const prisma = new PrismaClient();
+
 
 class PhonesRepo {
     async getAllPhones() {
