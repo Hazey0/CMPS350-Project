@@ -1,9 +1,11 @@
 import { starter } from "@/repos/getter";
 import { getStats } from "@/repos/stats";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
   starter();
   const stats = await getStats();
+  redirect("/Websites/stats.html")
 
   return (
     <body className="ml-5 mt-5">
