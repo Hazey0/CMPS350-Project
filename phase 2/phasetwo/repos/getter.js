@@ -1,4 +1,4 @@
-import { addPhones, getPhones } from './phones'
+import { addPhones, getPhones } from './PhonesRepo'
 import phones from './phones.json' with {type:"json"}
 import prisma from './prisma'
 export async function starter() {
