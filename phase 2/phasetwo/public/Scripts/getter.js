@@ -1,44 +1,24 @@
-import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js'
-export async function starter(){
-//used to reset phones/////////////////////////////////
-//localStorage.removeItem("phones");
+// Function to initialize data by fetching from the API
+export async function starter() {
+    // Fetch phones data from the API
+    fetch('/api/phones')
+        .then(response => response.json())
+        .then(phones => {
+            console.log('Phones loaded:', phones);
+            //optionally cache phones in local storage
+            //localStorage.setItem('phones', JSON.stringify(phones));
+        })
+        .catch(error => console.error('Failed to load phones:', error));
 
-const data=localStorage.getItem("phones");
-const phones=JSON.parse(data);
-console.log(phones);
-if(phones==null){
-fetch('../Scripts/storage/phones.json').then((res)=> res.json()).then((json)=>{
-    localStorage.setItem("phones",JSON.stringify(json));
-    assignID(json);
- 
- 
- })
+    // Fetch user data from the API
+    fetch('/api/users')
+        .then(response => response.json())
+        .then(users => {
+            console.log('Users loaded:', users);
+            // optionally cache users in local storage
+            //localStorage.setItem('users', JSON.stringify(users));
+        })
+        .catch(error => console.error('Failed to load users:', error));
 }
 
-
-
- //used to reset users/////////////////////////////////////////////
-//localStorage.removeItem("users");
- 
- const datau=localStorage.getItem("users");
- const users=JSON.parse(datau);
- //console.log(users);
-if(users==null){
-fetch('../Scripts/storage/users.json').then((res)=> res.json()).then((json)=>{
-    localStorage.setItem("users",JSON.stringify(json));
- 
- 
- })
-
-}
-}
-starter();
-
-function assignID(ph){
-    ph.map((e)=>e.id=nanoid(8))
-   
-    localStorage.setItem("phones",JSON.stringify(ph))
-    
-    
-
-}
+document.addEventListener('DOMContentLoaded', starter);
