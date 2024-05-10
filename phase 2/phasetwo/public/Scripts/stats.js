@@ -7,10 +7,10 @@ getStats()
 
 
 async function getStats(){
-    
-    const res=await fetch("http://localhost:3000/api")
-    const data= await JSON.stringify(res)
-    alert(await JSON.stringify(res))
-    alert(data)
+    const data=[]
+    const res=await fetch("http://localhost:3000").
+    then((d)=>d.json()).then((e)=>{console.log(e);})
+  
+   
     
 }
