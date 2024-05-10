@@ -1,3 +1,5 @@
+import "@/app/globals.css"
+import "@/public/Styles/MyStyle.css"
 export default async function RootLayout({ children }) {
   return (
     <body>
@@ -22,9 +24,9 @@ export default async function RootLayout({ children }) {
                 Statistics
               </a>
             </button>
-            <div class="user" id="user"></div>\
+            <div class="user" id="user"></div>
             <div class="navItem" id="loginButton">
-              <a class="login" href="login.html" id="login">
+              <a class="login" href="../Websites/login.html" id="login">
                 Login
               </a>
             </div>
