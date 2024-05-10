@@ -2,13 +2,7 @@
 import { mainPath, yourPath } from "./paths.js";
 import { resetSearch } from "./searchFunction.js";
 
-export function renderPhones() {
-    if (mainPath == yourPath) {
-        const container = document.querySelector("#items");
-        container.replaceChildren();
-        phones.forEach((phone) => container.appendChild(renderPhone(phone)));
-    }
-}
+
 const phonesd = localStorage.getItem("phones")
 const phones = JSON.parse(phonesd);
 //console.log(featuredPhones)

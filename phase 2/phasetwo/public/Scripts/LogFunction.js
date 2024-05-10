@@ -25,7 +25,7 @@ export function logged() {
         userImage.classList.add("userImage");
         nav1.appendChild(userImage);
         nav1.appendChild(guest);
-        console.log(guest);
+     
         nav2.addEventListener("click", (event) => {
 
             localStorage.setItem("prevPath", (JSON.stringify(mainPath)))

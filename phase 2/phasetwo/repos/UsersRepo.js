@@ -37,7 +37,6 @@ class UsersRepo {
         username: seller.username,
         password: seller.password,
         phones: seller.phones,
-        transactions: seller.transactions,
         companyName: seller.companyName,
         bankAccount: seller.bankAccount,
       },
@@ -48,10 +47,10 @@ class UsersRepo {
         data:{
             username    :customer.username    ,
             password    :customer.password    ,
-            transactions:customer.transactions    ,
             surname     :customer.surname    ,
             money       :customer.money    ,
         }
+        
     })
   }
   async addAdmin(admin){

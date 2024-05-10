@@ -12,7 +12,7 @@
 
     {
         "username": "walter",
-        "password": 420,
+        "password": "420",
         "type": "Customer",
         "money": 2500,
         "transactions": [],

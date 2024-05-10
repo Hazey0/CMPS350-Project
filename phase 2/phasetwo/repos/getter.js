@@ -7,14 +7,11 @@ import adminsData from './storage/admins.json' with {type:"json"}
 import prisma from './prisma'
 import * as stats from './stats'
 export async function starter() {
-    const e=await PhonesRepo.getAllPhones()
-    if(e.length==0){
-    await addPhones(phones)
-    await stats.resetStats()
-    }
+    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
     const customer= await getCustomers()
     const seller= await getSellers()
     const admins= await getAdmins()
+    console.log(customer+seller+admins+"ksjdbcikjhsbdcjkhsbdckjswhbdcjkhsbdcjkhbscjkhbskjhdcbksbdckjhsbcnjhksdbchkjsbdc");
     if(customer.length==0){
        await customersData.map(async (user)=>{ await UsersRepo.addCustomer(user)
         stats.addCustomer()
@@ -29,5 +26,11 @@ export async function starter() {
     if(admins.length==0){
         await adminsData.map(async(user)=>{await UsersRepo.addAdmin(user)})
     }
+    const e=await PhonesRepo.getAllPhones()
+    if(e.length==0){
+    await addPhones(phones)
+    await stats.resetStats()
+    }
+
 }
 

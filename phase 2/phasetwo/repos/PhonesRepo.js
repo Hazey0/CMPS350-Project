@@ -10,7 +10,7 @@ class PhonesRepo {
     }
 
     async addPhone(phoneData) {
-        stats.addPhone(phoneData.quantity)
+       await stats.addPhone(phoneData.quantity)
         return await prisma.phone.create({
             data:{
                 img     : phoneData.img     ,

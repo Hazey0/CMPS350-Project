@@ -14,8 +14,11 @@ model Seller {
   id           String        @unique @default(cuid())
   username     String        @unique
   password     String
-  phones       Phone[] 
-  transactions Transaction[]
+  //phones       Phone[] 
+  //transactions Transaction[]
+  phones String?
+  transaction String?
+  ///////////////////
   companyName  String
   bankAccount  String
 }
@@ -24,7 +27,9 @@ model Customer {
   id           String        @unique @default(cuid())
   username     String        @unique
   password     String
-  transactions Transaction[]
+  //transactions Transaction[]
+  transaction String?
+  /////////////////
   surname      String
   money        Int
 }
@@ -44,8 +49,8 @@ model Phone {
   price       Int
   storage     Int
   seller      String
-  quantity Int
-  sellerPhone Seller @relation(fields: [seller], references: [username],onDelete: Cascade )
+  quantity    Int
+  //sellerPhone Seller @relation(fields: [seller], references: [username],onDelete: Cascade )
   sold Boolean @default(false)
   featured Boolean @default(false)
   
@@ -59,8 +64,8 @@ model Transaction {
   quantity    Int
   date        DateTime @default(now())
   total       Int
-  buyerTrans  Customer @relation(fields: [buyer], references: [username],onDelete: Cascade)
-  sellerTrans Seller   @relation(fields: [seller], references: [username],onDelete: Cascade)
+  //buyerTrans  Customer @relation(fields: [buyer], references: [username],onDelete: Cascade)
+  //sellerTrans Seller   @relation(fields: [seller], references: [username],onDelete: Cascade)
 }
 
 model Stat {

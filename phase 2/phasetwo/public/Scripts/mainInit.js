@@ -1,6 +1,6 @@
 
 import { logged } from "./LogFunction.js";
-import { renderFeaturedPhones, renderPhones } from "./renderPhones.js";
+import { renderFeaturedPhones, renderPhone, renderPhones } from "./renderPhones.js";
 import { showUserTab } from "./userTabFunction.js";
 import { renderSort } from "./sortFunction.js";
 import { yourPath, mainPath } from "./paths.js"
@@ -19,10 +19,11 @@ document.addEventListener("DOMContentLoaded",async () => {
     await fetch('/api/phones')
     .then((response) => response.json())
     .then((phones) => {
-        alert(phones)
-        console.log('Phones data:', phones);
-        renderFeaturedPhones(phones.filter(phone => phone.featured));
-        renderPhones(phones);
+        phones.map((phone)=>{
+
+            renderPhone(phone)
+        })
+        
     })
 
 

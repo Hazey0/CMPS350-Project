@@ -6,10 +6,10 @@ export async function GET() {
 }
 export async function POST(request) {
   const data = await request.json();
-  console.log(data);
+
   try {
     if (data.method == "sold") {
-        console.log("enterd!!!");
+
       await stats.soldPhone(Number(data.quan));
     } else if (data.method == "newPhone") {
       await stats.addPhone(Number(data.quan));
