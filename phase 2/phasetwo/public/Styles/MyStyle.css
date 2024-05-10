@@ -513,6 +513,35 @@ nav a:hover {
 }
 
 
+/*Stats Button*/
+
+.statsButton{
+    width: 100px;
+    transition: background-color 0.3s ease;
+    padding: 10px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: black;
+    border: none;
+    border-radius: 15px;
+    font-weight: bolder;
+
+    .statsLink{
+        background: none;
+    }
+}
+    
+
+.statsButton:hover {
+    background-color: white;
+    color: black;
+}
+
+
 
 @media (max-width: 850px) {
 
