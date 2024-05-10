@@ -8,10 +8,14 @@ async function incrementSold(q){
         method:"POST",
         body: JSON.stringify({method:"sold",quan:q}),
     })
-     alert(res.ok)}
+
+    const data= await res.json()
+    console.log("dats:  "+JSON.stringify(data.method));
+     }
     catch(s){
 
     }
+   
 }
 document.addEventListener("DOMContentLoaded", async() => {
     const countries=await getCountries();
@@ -33,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         total.innerHTML=subTotal
     })
     phones
-    function init(){
+   function init(){
         const quan=document.querySelector("#quantity")
         quan.setAttribute("max",phone.quantity)
         const quantity= document.querySelector("#quantity").value
@@ -41,11 +45,11 @@ document.addEventListener("DOMContentLoaded", async() => {
         const subTotal=quantity*phone.price;
         total.innerHTML=subTotal
 
-        document.querySelector("#submit").addEventListener("click",(event)=>{
+        document.querySelector("#submit").addEventListener("click",async(event)=>{
             if(checkInputs()){
             if(user.money>=getTotal()){
               
-                purchase();
+             await  purchase();
             }
             else{
                 alert("not enough money")
@@ -63,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         });
         
     }
-    function purchase() {
+    async function  purchase() {
        console.log(document.querySelector("#country").value); 
         const quantity= document.querySelector("#quantity").value
         const dat = new Date();
@@ -85,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         editQuantity();
         const purchasedPhone=phone;
         transaction.phone=purchasedPhone
-        const inc=document.querySelector("#quantity").value_
+        const inc=document.querySelector("#quantity").value
         transaction.address=address;
         transaction.buyer=username;
         transaction.total=total;
@@ -99,8 +103,10 @@ document.addEventListener("DOMContentLoaded", async() => {
         updateUser(transaction,user.username)
         localStorage.removeItem("phones")
         localStorage.setItem("phones",JSON.stringify(phones))
+        console.log(inc+"quantity");
+        await incrementSold(inc)
         alert("Phone purchased Successfully")
-        incrementSold(inc)
+        
         window.open("transactions.html","_self")
         logged();
        

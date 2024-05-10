@@ -5,16 +5,10 @@ import { showUserTab } from "./userTabFunction.js";
 import { renderSort } from "./sortFunction.js";
 import { yourPath, mainPath } from "./paths.js"
 import { searchPhone } from "./searchFunction.js";
-async function test(){
-    
-    await fetch('../api/stats',{
-        method:"PUT",
-       
-    })
-}
+
 
 document.addEventListener("DOMContentLoaded", () => {
-    test()
+   
 
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);

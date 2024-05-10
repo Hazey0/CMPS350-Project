@@ -11,7 +11,9 @@ export async function addPhone(quan){
     })
 }
 export async function soldPhone(quan){
-    alert(quan)
+    if(quan==1){
+        console.log("jdhscbusjidchbduhbcjhsdbcjhdsbcjhsbdchjksbdcvjk");
+    }
     await prisma.stat.update({
         where:{
             id:stat
