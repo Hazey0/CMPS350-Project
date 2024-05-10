@@ -15,7 +15,7 @@ export function showUserTab() {
 
         const username = document.querySelector(".username")
         if (user.type == "Customer") {
-
+            
             const trans = document.createElement("div");
             trans.classList.add("transDiv");
             const transaction = document.createElement("p");
