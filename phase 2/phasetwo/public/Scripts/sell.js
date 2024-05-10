@@ -1,6 +1,21 @@
 import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js'
 import { logged } from "./LogFunction.js";
 import { showUserTab } from "./userTabFunction.js";
+async function incrementListedPhones(q){
+    try{ 
+    const res= await fetch('../api/stats',{
+         method:"POST",
+         body: JSON.stringify({method:"newPhone",quan:q}),
+     })
+ 
+     const data= await res.json()
+     console.log("dats:  "+JSON.stringify(data.method));
+      }
+     catch(s){
+ 
+     }
+    
+ }
 
 document.addEventListener("DOMContentLoaded", () => {
     const userData = localStorage.getItem("user");
@@ -95,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         newPhone.storage=storage;
         newPhone.img=getImg(img);
         newPhone.quantity=quantity;
+        incrementListedPhones(quantity)
         newPhone.seller=user.username;
         newPhone.id=nanoid(8);
         phones.push(newPhone);

@@ -12,9 +12,9 @@ export async function POST(request) {
         console.log("enterd!!!");
       await stats.soldPhone(Number(data.quan));
     } else if (data.method == "newPhone") {
-      await stats.addPhone(data.quan);
+      await stats.addPhone(Number(data.quan));
     }
-  ;
+  
   } catch (r) {}
   return Response.json(data,{status:200})
 }
