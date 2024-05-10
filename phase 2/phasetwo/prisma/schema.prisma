@@ -46,6 +46,7 @@ model Phone {
   sellerPhone Seller @relation(fields: [seller], references: [username] )
   sold Boolean @default(false)
   featured Boolean @default(false)
+  quantity Int
 }
 
 model Transaction {

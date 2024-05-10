@@ -2,7 +2,17 @@ import { logged } from "./LogFunction.js";
 import { getCountries } from "./countries.js";
 import { renderPhone } from "./renderPhones.js";
 import { showUserTab } from "./userTabFunction.js";
+async function incrementSold(q){
+   try{ 
+   const res= await fetch('../api/stats',{
+        method:"POST",
+        body: JSON.stringify({method:"sold",quan:q}),
+    })
+     alert(res.ok)}
+    catch(s){
 
+    }
+}
 document.addEventListener("DOMContentLoaded", async() => {
     const countries=await getCountries();
     const userData = localStorage.getItem("user");
@@ -75,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         editQuantity();
         const purchasedPhone=phone;
         transaction.phone=purchasedPhone
-     
+        const inc=document.querySelector("#quantity").value_
         transaction.address=address;
         transaction.buyer=username;
         transaction.total=total;
@@ -84,12 +94,13 @@ document.addEventListener("DOMContentLoaded", async() => {
         console.log(transaction)
         user.transactions.push(transaction)
         editMoney();
-        
+     
         updateUser(transaction,seller)
         updateUser(transaction,user.username)
         localStorage.removeItem("phones")
         localStorage.setItem("phones",JSON.stringify(phones))
         alert("Phone purchased Successfully")
+        incrementSold(inc)
         window.open("transactions.html","_self")
         logged();
        

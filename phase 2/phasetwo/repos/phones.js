@@ -12,7 +12,7 @@ export async function updatePhone(){
 
 }
 export async function addPhone(phone){
-  stat.addPhone()
+  stat.addPhone(phone.quantity)
   console.log("adding phone");
    await prisma.phone.create({
         data:{
@@ -22,6 +22,8 @@ export async function addPhone(phone){
             storage:phone.storage,
             seller:phone.seller,
             img:phone.img,
+            quantity:phone.quantity
+            
             
         }
     })

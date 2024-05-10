@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 export default async function Home() {
   starter();
   const stats = await getStats();
-  redirect("/Websites/stats.html")
+  redirect("/Websites/main.html")
 
   return (
     <body className="ml-5 mt-5">

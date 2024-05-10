@@ -1,23 +1,24 @@
 import prisma from "./prisma";
 const stat="clvy93rz00003d2sr8jss181x"
-export async function addPhone(){
+export async function addPhone(quan){
     await prisma.stat.update({
         where:{
             id:stat
         },
         data:{
-            currentListedPhone:{increment:1},
+            currentListedPhone:{increment:quan},
         }
     })
 }
-export async function soldPhone(){
+export async function soldPhone(quan){
+    alert(quan)
     await prisma.stat.update({
         where:{
             id:stat
         },
         data:{
-            soldPhones:{increment:1},
-            currentListedPhone:{decrement:1}
+            soldPhones:{increment:quan},
+            currentListedPhone:{decrement:quan}
         }
     })
 }
