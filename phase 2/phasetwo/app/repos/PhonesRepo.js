@@ -56,6 +56,7 @@ export default new PhonesRepo();
 
 export async function addPhone(phone){
     stats.addPhone(Number(phone.quantity))
+    console.log(phone);
     await prisma.phone.create({
          data:{
              img:phone.img,

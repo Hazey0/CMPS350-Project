@@ -27,22 +27,11 @@ model Customer {
   username     String  @unique
   password     String
   transactions Transaction[] 
-
   surname      String
   money        Int
   address      String
 }
 
-    // {
-    //     "username": "walter",
-    //     "password": "420",
-    //     "type": "Customer",
-    //     "money": 2500,
-    //     "transaction": null,
-    //     "surname":"White",
-    //     "address":"USA 308 Negra Arroyo Lane, Albuquerque, New Mexico 87104 "
-        
-    // }
 
 model Admin {
   id           String  @id @default(cuid())

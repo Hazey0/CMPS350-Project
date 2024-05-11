@@ -105,6 +105,8 @@ document.addEventListener("DOMContentLoaded", async() => {
         //localStorage.setItem("phones",JSON.stringify(phones))
         console.log(inc+"quantity");
         await incrementSold(inc)
+        
+
         alert("Phone purchased Successfully")
         
         window.open("./transactions.html","_self")
