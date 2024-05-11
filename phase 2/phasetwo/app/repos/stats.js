@@ -1,5 +1,5 @@
 import prisma from "./prisma";
-const stat="clw1x9khu0000tbzdhamfavax"
+const stat="clw21kfv900008m0blc6g9cep"
 export async function addPhone(quan){
     await prisma.stat.update({
         where:{
