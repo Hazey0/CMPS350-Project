@@ -1,6 +1,6 @@
 import { resetSearch } from "./searchFunction.js";
 
-const data=await fetch("/api/users")
+const data=await fetch("http://localhost:3000/api/users")
 const users=await data.json()
 const datau=localStorage.getItem("user");
 const user=JSON.parse(datau);
@@ -13,7 +13,7 @@ export function showUserTab() {
         userTab.classList.add("userTab");
 
         const username = document.querySelector(".username")
-        if (user.type == "Customer") {
+        if (user.type == "customer") {
             
             const trans = document.createElement("div");
             trans.classList.add("transDiv");
@@ -69,7 +69,7 @@ export function showUserTab() {
 
         }
 
-        else if (user.type == "Seller") {
+        else if (user.type == "seller") {
             document.querySelector("#balance").style.display="none"
             const sellDiv = document.createElement("div");
             sellDiv.classList.add("sellDiv");
@@ -157,7 +157,7 @@ export function showUserTab() {
             })
         }
 
-        else if(user.type=="Admin"){
+        else if(user.type=="admin"){
             document.querySelector("#balance").style.display="none"
 
             const userDetails = document.createElement("div");
@@ -200,7 +200,7 @@ export function showUserTab() {
         }
 
 
-        if(user.type == "Customer"){
+        if(user.type == "customer"){
             userTab.addEventListener("mouseleave", (event) => {
                 const u = document.querySelector(".username")
                 const v = document.querySelector(".userImage")

@@ -34,10 +34,10 @@ export async function POST(request) {
 }
 
 export async function PUT(request) {
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get('id');
+    
+
     const updates = await request.json(); 
-    const updatedPhone = await PhonesRepo.updatePhone(id, updates);
+    const updatedPhone = await PhonesRepo.updatePhone(updates.id, updates.data);
     if (!updatedPhone) {
         return new Response(JSON.stringify({ error: "Phone not found or update data invalid" }), { status: 404 });
     }

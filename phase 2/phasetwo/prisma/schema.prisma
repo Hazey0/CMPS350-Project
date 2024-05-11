@@ -29,7 +29,7 @@ model Customer {
   password     String
   transactions Transaction[] 
   surname      String
-  money        Int
+  money        Float
   address      String
   type String @default("customer")
 }
