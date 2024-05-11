@@ -3,7 +3,7 @@ import UsersRepo from '@/app/repos/UsersRepo'
 export async function GET(request) {
 
     const allUsers= await UsersRepo.getAllUsers()
-    return Response.json(allUsers)
+    return Response.json(allUsers,{status:200})
 
 
     

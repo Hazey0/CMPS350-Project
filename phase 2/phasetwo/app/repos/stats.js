@@ -1,26 +1,26 @@
 import prisma from "./prisma";
 const stat="clw13sbm40000ookgnriejald"
 export async function addPhone(quan){
+    console.log("phones quan: "+quan);
     await prisma.stat.update({
         where:{
-            id:stat
+            id:stat,
         },
         data:{
-            currentListedPhone:{increment:quan},
+            currentListedPhone: {increment : quan},
         }
     })
 }
 export async function soldPhone(quan){
-    if(quan==1){
-        console.log("jdhscbusjidchbduhbcjhsdbcjhdsbcjhsbdchjksbdcvjk");
-    }
+   
     await prisma.stat.update({
         where:{
             id:stat
         },
         data:{
+            currentListedPhone:{decrement:quan},
             soldPhones:{increment:quan},
-            currentListedPhone:{decrement:quan}
+            
         }
     })
 }
@@ -97,7 +97,7 @@ export async function checkDate(){
     const nowTime= new Date(now())
      if(nowTime.getFullYear()>prevTime.getFullYear() && nowTime.getMonth()> prevTime.getMonth()  && nowTime.getDay()>prevTime.getDay() ){
 
-        resetToday
+        resetToday()
 
      }
 }

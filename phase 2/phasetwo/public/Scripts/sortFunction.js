@@ -1,4 +1,4 @@
-import { mainPath,yourPath } from "./paths.js";
+//import { mainPath,yourPath } from "./paths.js";
 import { renderPhone } from "./renderPhones.js";
 
 const phonesData = localStorage.getItem("phones");
@@ -124,7 +124,7 @@ function renderAfterSort(phonz) {
     //localStorage.removeItem("searchedPhones");
 }
 export function renderSort() {
-    if (mainPath == yourPath) {
+    //if (mainPath == yourPath) {
         const container = document.querySelector("#itemsheader")
         const ic = document.querySelector("#typeContain");
         const name = document.createElement('a');
@@ -185,7 +185,7 @@ export function renderSort() {
         sortContain.appendChild(storage);
         container.appendChild(sortContain);
 
-    }
+   // }
 }
 
 

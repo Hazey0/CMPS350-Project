@@ -5,9 +5,9 @@ export default async function RootLayout({ children }) {
     <body >
       <section id="'Navigation">
         <nav>
-          <div class="nav1">
-            <div class="navItem" id="logo">
-              <div class="logo">
+          <div className="nav1">
+            <div className="navItem" id="logo">
+              <div className="logo">
                 <a href="../Websites/main.html">
                   <img
                     src="../Media/Icons/phoney.png"
@@ -18,11 +18,11 @@ export default async function RootLayout({ children }) {
                 </a>
               </div>
             </div>
-            <div class="navItem"></div>
+            <div className="navItem"></div>
 
-            <div class="user" id="user"></div>
-            <div class="navItem" id="loginButton">
-              <a class="login" href="../Websites/login.html" id="login">
+            <div className="user" id="user"></div>
+            <div className="navItem" id="loginButton">
+              <a className="login" href="../Websites/login.html" id="login">
                 Login
               </a>
             </div>
