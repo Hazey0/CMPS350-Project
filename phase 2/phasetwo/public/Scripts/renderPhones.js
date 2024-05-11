@@ -19,7 +19,7 @@ const phonesd = await fetch("http://localhost:3000/api/phones")
 export function renderPhones(){
  
   const container = document.querySelector("#items");
-  phones.map((phone=>{phone.sold==false?container.appendChild(renderPhone(phone)):null}))
+  phones.map((phone=>{container.appendChild(renderPhone(phone))}))
 }
 export function renderPhone(phone) {
     const wholeLink = document.createElement("a");
@@ -33,7 +33,7 @@ export function renderPhone(phone) {
     bottom.classList.add("bottom")
     ////elements of the phone///
     const brand = document.createElement("p");
-  const name = document.createElement("p");
+    const name = document.createElement("p");
     name.classList.add("name");
     const year = document.createElement("p");
     year.classList.add("year");
