@@ -1,7 +1,7 @@
 import { resetSearch } from "./searchFunction.js";
 
 const data=await fetch("/api/users")
-const users=data.json()
+const users=await data.json()
 const datau=localStorage.getItem("user");
 const user=JSON.parse(datau);
 

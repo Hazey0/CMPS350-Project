@@ -19,7 +19,7 @@ const phonesd = await fetch("http://localhost:3000/api/phones")
 export function renderPhones(){
  
   const container = document.querySelector("#items");
-  phones.map((phone=>{container.appendChild(renderPhone(phone))}))
+  phones.map((phone=>{phone.sold==false?container.appendChild(renderPhone(phone)):null}))
 }
 export function renderPhone(phone) {
     const wholeLink = document.createElement("a");
