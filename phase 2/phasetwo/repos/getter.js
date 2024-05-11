@@ -13,6 +13,7 @@ export async function starter() {
     const admins= await getAdmins()
     console.log(customer+seller+admins+"ksjdbcikjhsbdcjkhsbdckjswhbdcjkhsbdcjkhbscjkhbskjhdcbksbdckjhsbcnjhksdbchkjsbdc");
     if(customer.length==0){
+        await stats.resetStats()
        await customersData.map(async (user)=>{ await UsersRepo.addCustomer(user)
         stats.addCustomer()
        })
@@ -29,7 +30,7 @@ export async function starter() {
     const e=await PhonesRepo.getAllPhones()
     if(e.length==0){
     await addPhones(phones)
-    await stats.resetStats()
+    
     }
 
 }

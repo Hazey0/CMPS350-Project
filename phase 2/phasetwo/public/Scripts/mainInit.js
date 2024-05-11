@@ -7,37 +7,20 @@ import { yourPath, mainPath } from "./paths.js"
 import { searchPhone } from "./searchFunction.js";
 
 
-document.addEventListener("DOMContentLoaded",async () => {
-
+document.addEventListener("DOMContentLoaded",() => {
     const userData = localStorage.getItem("user");
     const user = JSON.parse(userData);
-
+    console.log("inside main");
     const userDatas = localStorage.getItem("users");
     const users = JSON.parse(userDatas);
     console.log(users)
 
-    await fetch('/api/phones')
-    .then((response) => response.json())
-    .then((phones) => {
-        phones.map((phone)=>{
-
-            renderPhone(phone)
-        })
-        
-    })
+   
 
 
 
 
-    function popem(a) {
-        for (var x = 0; x < a; x++) {
-            phones.pop();
-        }
-        localStorage.removeItem("phones")
-        //localStorage.setItem("phones", JSON.stringify(phones));
-    }
-    ///////used to manually delete phones///
-    popem();
+
 
 
 
@@ -48,7 +31,7 @@ document.addEventListener("DOMContentLoaded",async () => {
 
     function renderFunctions() {
 
-        //localStorage.removeItem("phone");
+        
 
         if (mainPath == yourPath) {
             const searchButton = document.querySelector("#searchButton");
