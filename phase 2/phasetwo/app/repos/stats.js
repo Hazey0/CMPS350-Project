@@ -1,5 +1,5 @@
 import prisma from "./prisma";
-const stat="clw1w1hdk0000hd5zfw2p512a"
+const stat="clw1x9khu0000tbzdhamfavax"
 export async function addPhone(quan){
     console.log("phones quan: "+quan);
     await prisma.stat.update({
