@@ -6,12 +6,14 @@ import customersData from './storage/customers.json' with {type:"json"}
 import adminsData from './storage/admins.json' with {type:"json"}
 import prisma from './prisma'
 import * as stats from './stats'
+
 export async function starter() {
     const customer= await getCustomers()
     const seller= await getSellers()
     const admins= await getAdmins()
-    stats.newGuest()
-  
+    
+    await stats.newGuest()
+
     if(customer.length==0){
         await stats.resetStats()
        await customersData.map(async (user)=>{ await UsersRepo.addCustomer(user)
