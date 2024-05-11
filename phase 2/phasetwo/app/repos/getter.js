@@ -28,13 +28,14 @@ export async function starter() {
     if(admins.length==0){
         adminsData.map(async(user)=>{await UsersRepo.addAdmin(user)})
     }
-    setTimeout(function(){
+    setTimeout(async function(){
+        const e=await PhonesRepo.getAllPhones()
+        if(e.length==0){
+        await addPhones(phones)
+    }
         console.log("Executed after 1 second");
     }, 1000);
-    const e=await PhonesRepo.getAllPhones()
-    if(e.length==0){
-    await addPhones(phones)
-    }
+    
 
 }
 
