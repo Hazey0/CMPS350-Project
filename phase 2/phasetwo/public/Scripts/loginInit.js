@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", async (event) => {
+  event.preventDefault()
   const data = await fetch("/api/users");
   const users =await data.json();
   const datau = localStorage.getItem("user");
@@ -13,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const prevPath = JSON.parse(prevData);
   console.log("current :" + yourPath);
   console.log("previous:" + prevPath);
-
+  document.querySelectorAll("form").disabled=true;
   //let openedWindow;
   //
   //function openWindow() {
@@ -33,8 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   function log() {
     const checkUser = (use, pass) =>
       users.filter((v) => v.password == pass && v.username == use);
-    const usersData = localStorage.getItem("users");
-    const users = JSON.parse(usersData);
+
 
     const mainLink = document.querySelector(".mainLink");
     mainLink.addEventListener("click", (event) => {

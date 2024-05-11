@@ -9,13 +9,13 @@ class UsersRepo {
     const sell = await prisma.customer.findMany();
     const admin = await prisma.customer.findMany();
     cust.map((u) => {
-      allUsers.push;
+      allUsers.push(u);
     });
     sell.map((u) => {
-      allUsers.push;
+      allUsers.push(u);
     });
     admin.map((u) => {
-      allUsers.push;
+      allUsers.push(u);
     });
     console.log(allUsers);
     return allUsers;
