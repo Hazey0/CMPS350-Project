@@ -11,7 +11,6 @@ const phonesd = await fetch("http://localhost:3000/api/phones")
   });
   console.log(phones);
 export default phones
-export async function renderPhones() {
 
 
 
