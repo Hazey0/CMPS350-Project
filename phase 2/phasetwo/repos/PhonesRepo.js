@@ -67,5 +67,5 @@ export async function addPhone(phone) {
   });
 }
 export async function addPhones(phones) {
-  await phones.map((phone) => {addPhone(phone); stats.addPhone()});
+  await phones.map((phone) => {addPhone(phone); stats.addPhone(Number(phone.quantity)) });
 }

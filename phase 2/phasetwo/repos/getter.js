@@ -11,6 +11,7 @@ export async function starter() {
     const customer= await getCustomers()
     const seller= await getSellers()
     const admins= await getAdmins()
+    stats.newGuest()
     console.log(customer+seller+admins+"ksjdbcikjhsbdcjkhsbdckjswhbdcjkhsbdcjkhbscjkhbskjhdcbksbdckjhsbcnjhksdbchkjsbdc");
     if(customer.length==0){
         await stats.resetStats()
