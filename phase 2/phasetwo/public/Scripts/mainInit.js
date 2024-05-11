@@ -1,5 +1,5 @@
 import { logged } from "./LogFunction.js";
-import { renderFeaturedPhones, renderPhone } from "./renderPhones.js";
+import { renderFeaturedPhones, renderPhones } from "./renderPhones.js";
 import { showUserTab } from "./userTabFunction.js";
 import { renderSort } from "./sortFunction.js";
 //import { yourPath, mainPath } from "./paths.js"
@@ -7,25 +7,15 @@ import { searchPhone } from "./searchFunction.js";
 
 
 
-document.addEventListener("DOMContentLoaded",async () => {
 
-    const userData = localStorage.getItem("user");
+    
+    const userData =  localStorage.getItem("user");
     const user = JSON.parse(userData);
 
-    const userDatas = localStorage.getItem("users");
-    const users = JSON.parse(userDatas);
-    console.log(users)
-    const phones = PhonesRepo.getAllPhones 
-    await fetch('/api/phones/route.js')
-    .then((response) => response.json())
-    .then((phones) => {
-        phones.map((phone)=>{
+    const usersDatas =await fetch("http://localhost:3000/api/users")
+    const users =await usersDatas.json()
+    console.log(users) 
 
-            renderPhone(phone)
-            
-        })
-        console.log(phones)
-    })
 
 
     
@@ -51,7 +41,7 @@ document.addEventListener("DOMContentLoaded",async () => {
 
         //localStorage.removeItem("phone");
 
-        if (mainPath == yourPath) {
+        //if (mainPath == yourPath) {
             const searchButton = document.querySelector("#searchButton");
             const searchImg = document.querySelector(".searchImage");
             document.addEventListener("keypress", (event) => { event.key == "Enter" ? searchPhone() : null })
@@ -68,7 +58,7 @@ document.addEventListener("DOMContentLoaded",async () => {
                     searchPhone();
                 }
             })
-        }
+       // }
     }
 
 
@@ -85,7 +75,7 @@ document.addEventListener("DOMContentLoaded",async () => {
     renderSort();
     renderFeaturedPhones();
     renderPhones();
-});
+
 
 
 

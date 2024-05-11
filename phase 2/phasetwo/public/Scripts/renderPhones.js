@@ -14,19 +14,13 @@ const phonesd = await fetch("http://localhost:3000/api/phones")
   console.log(phones);
 
 
+
+
+export function renderPhones(){
+ 
   const container = document.querySelector("#items");
-
-//console.log(featuredPhones)
-await fetch('/api/phones')
-.then((response) => response.json())
-.then((phones) => {
-    phones.map((phone)=>{
-
-        container.appendChild(renderPhone(phone))
-    })
-    
-})
-
+  phones.map((phone=>{container.appendChild(renderPhone(phone))}))
+}
 export function renderPhone(phone) {
     const wholeLink = document.createElement("a");
     wholeLink.classList.add("phoneLink");
@@ -99,6 +93,7 @@ export function renderFeaturedPhones() {
   const checkIfFeaturedPhonesExist=phones.reduce((a,v)=>v.featured==true ?v :a,0)
   if(checkIfFeaturedPhonesExist==0){
     const rand= Math.floor((Math.random() * phones.length) + 1);
+    phones[rand].featured=true
   }
   phones.map((phone)=>phone.featured==true &&phone.sold==false ?featuredTab.appendChild( renderFeaturedPhone(phone)) :null )
  

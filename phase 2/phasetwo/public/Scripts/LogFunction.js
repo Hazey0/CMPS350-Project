@@ -1,7 +1,7 @@
 //import { mainPath } from "./paths.js";
 import { resetSearch } from "./searchFunction.js";
-const data=await fetch("/api/users")
-const users=data.json()
+const data=await fetch("http://localhost:3000/api/users")
+const users=await data.json()
 const datau=localStorage.getItem("user");
 const user=JSON.parse(datau);
 
@@ -84,7 +84,7 @@ function logout() {
     
     resetSearch()
    
-    //window.open("./" + mainPath, "_self");
+    window.open("./main.html" , "_self");
 
 }
 function updateUser(){
