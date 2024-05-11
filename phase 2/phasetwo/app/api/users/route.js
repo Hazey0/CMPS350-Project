@@ -1,5 +1,5 @@
 
-import UsersRepo from '@/repos/UsersRepo'
+import UsersRepo from '@/app/repos/UsersRepo'
 export async function GET(request) {
 
     const allUsers= await UsersRepo.getAllUsers()

@@ -1,7 +1,6 @@
-import { renderPhone,renderPhones } from "./renderPhones.js";
-const phones = [];
-const phonesd = []//await fetch("/api")
-
+import { renderPhone } from "./renderPhones.js";
+const data=localStorage.getItem("phones");
+const phones=JSON.parse(data);
 let searchedPhones=[]
 export function resetSearch(){
     searchedPhones=[]
@@ -17,9 +16,6 @@ export function searchPhone() {
 
     const searchResult = searchAlgo();
     
-
-
-
     const container = document.querySelector("#items");
     container.replaceChildren();
     console.log(searchResult);

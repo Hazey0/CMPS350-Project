@@ -1,5 +1,5 @@
 import VerticalDividers from "@/components/box";
-import { getStats } from "@/repos/stats";
+import { getStats } from "@/app/repos/stats";
 import { StepLabel,Divider,Button } from "@mui/material";
 import "@/app/globals.css"
 import "@/public/Styles/MyStyle.css"

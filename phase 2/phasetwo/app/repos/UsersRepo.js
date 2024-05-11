@@ -2,24 +2,28 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 class UsersRepo {
-  async getAllUsers() {
-    const allUsers = [];
 
-    const cust = await prisma.customer.findMany();
-    const sell = await prisma.customer.findMany();
-    const admin = await prisma.customer.findMany();
-    cust.map((u) => {
-      allUsers.push(u);
-    });
-    sell.map((u) => {
-      allUsers.push(u);
-    });
-    admin.map((u) => {
-      allUsers.push(u);
-    });
-    console.log(allUsers);
-    return allUsers;
-  }
+  async  getCustomers() {
+    return await prisma.customer.findMany();
+}
+async  getAdmins() {
+  return await prisma.admin.findMany();
+}
+async  getSellers() {
+  return await prisma.seller.findMany();
+}
+
+async  getAllUsers() {
+  const allUsers = [];
+  const customers = await getCustomers(prisma);
+  const sellers = await getSellers(prisma);
+  const admins = await getAdmins(prisma);
+
+  // Concatenate all users into one array
+  return [...customers, ...sellers, ...admins];
+}
+
+
   async addUser(userData, userType) {
     switch (userType) {
       case "seller":

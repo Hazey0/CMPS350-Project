@@ -11,66 +11,92 @@ datasource db {
 }
 
 model Seller {
-  id           String        @unique @default(cuid())
-  username     String        @unique
+  id           String  @id @default(cuid())
+  username     String  @unique
   password     String
-  phones       Phone[] 
-  transactions Transaction[]
+  //phones       Phone[] (commented out if not used)
+  //transactions Transaction[] (commented out if not used)
+  phones       String? // Assuming this should still be part of the model; adjust as necessary
+  transaction  String? // Assuming this should still be part of the model; adjust as necessary
   companyName  String
   bankAccount  String
+  type         String  @default("seller")
 }
+
+    // {
+    //     "username": "tom",
+    //     "password": "8793",
+    //     "type": "Seller",
+    //     "transaction": [],
+    //     "companyName":"ooredoo",
+    //     "bankAccount":"QIB234482300000069823"
+    // },
 
 model Customer {
-  id           String        @unique @default(cuid())
-  username     String        @unique
+  id           String  @id @default(cuid())
+  username     String  @unique
   password     String
-  transactions Transaction[]
-
+  //transactions Transaction[] (commented out if not used)
+  transaction  String? // Assuming this should still be part of the model; adjust as necessary
   surname      String
   money        Int
+  type         String  @default("customer")
+  address      String
 }
+
+    // {
+    //     "username": "walter",
+    //     "password": "420",
+    //     "type": "Customer",
+    //     "money": 2500,
+    //     "transaction": null,
+    //     "surname":"White",
+    //     "address":"USA 308 Negra Arroyo Lane, Albuquerque, New Mexico 87104 "
+        
+    // }
 
 model Admin {
-  id       String @unique @default(cuid())
-  username String @unique
-  password String
+  id           String  @id @default(cuid())
+  username     String  @unique
+  password     String
+  type         String  @default("admin")
 }
 
+
 model Phone {
-  id          String @unique @default(cuid())
-  img         String
-  brand       String
-  name        String
-  year        Int
-  price       Int
-  storage     Int
-  seller      String
-  quantity    Int
-  sellerPhone Seller @relation(fields: [seller], references: [username],onDelete: Cascade )
-  sold Boolean @default(false)
+  id       String  @unique @default(cuid())
+  img      String
+  brand    String
+  name     String
+  year     Int
+  price    Int
+  storage  Int
+  seller   String
+  quantity Int
+  //sellerPhone Seller @relation(fields: [seller], references: [username],onDelete: Cascade )
+  sold     Boolean @default(false)
   featured Boolean @default(false)
-  
 }
 
 model Transaction {
-  id          String   @unique @default(cuid())
-  buyer       String
-  seller      String
-  phone       String
-  quantity    Int
-  date        DateTime @default(now())
-  total       Int
-  buyerTrans  Customer @relation(fields: [buyer], references: [username],onDelete: Cascade)
-  sellerTrans Seller   @relation(fields: [seller], references: [username],onDelete: Cascade)
+  id       String   @unique @default(cuid())
+  buyer    String
+  seller   String
+  phone    String
+  quantity Int
+  date     DateTime @default(now())
+  total    Int
+  //buyerTrans  Customer @relation(fields: [buyer], references: [username],onDelete: Cascade)
+  //sellerTrans Seller   @relation(fields: [seller], references: [username],onDelete: Cascade)
 }
 
 model Stat {
-  id                 String @unique @default(cuid())
+  id                 String   @unique @default(cuid())
   currentListedPhone Int
   soldPhones         Int
   numberOfSellers    Int
   numberOfCustomers  Int
-  vistedToday Int @default(0)
-  listedToday Int @default(0)
-  date DateTime @default(now())
+  vistedToday        Int      @default(0)
+  listedToday        Int      @default(0)
+  date               DateTime @default(now())
 }
