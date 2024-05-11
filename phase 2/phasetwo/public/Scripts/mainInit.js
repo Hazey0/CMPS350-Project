@@ -2,7 +2,7 @@ import { logged } from "./LogFunction.js";
 import { renderFeaturedPhones, renderPhone } from "./renderPhones.js";
 import { showUserTab } from "./userTabFunction.js";
 import { renderSort } from "./sortFunction.js";
-import { yourPath, mainPath } from "./paths.js"
+//import { yourPath, mainPath } from "./paths.js"
 import { searchPhone } from "./searchFunction.js";
 
 

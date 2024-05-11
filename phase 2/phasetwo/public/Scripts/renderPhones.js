@@ -220,12 +220,4 @@ export function removeFromFeatured(ph) {
   localStorage.setItem("featuredPhones", JSON.stringify(featuredPhones));
   renderFeaturedPhones();
   window.open("/main.html", "_self");
-
-export function removeFromFeatured(ph){
-    const featuredData = localStorage.getItem("featuredPhones")
-    let featuredPhones = JSON.parse(featuredData);
-    featuredPhones=featuredPhones.filter((phone)=> phone!=ph.id)
-    localStorage.setItem("featuredPhones",JSON.stringify(featuredPhones))
-    renderFeaturedPhones();
-    window.open("main.html","_self")
 }
