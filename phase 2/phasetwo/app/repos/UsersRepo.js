@@ -2,27 +2,46 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 class UsersRepo {
+  async updateCustomerBalance(customerId, amount) {
+    return await prisma.customer.update({
+      where: { id: customerId },
+      data: { money: { decrement: amount } },
+    });
+  }
 
-  async  getCustomers() {
+  async updateSellerBalance(sellerId, amount) {
+    return await prisma.seller.update({
+      where: { id: sellerId },
+      data: { bankAccount: { increment: amount } },
+    });
+  }
+
+  async addTransactionToCustomer(customerId, transaction) {
+    return await prisma.customer.update({
+      where: { id: customerId },
+      data: { transactions: { push: transaction } },
+    });
+  }
+
+  async getCustomers() {
     return await prisma.customer.findMany();
-}
-async  getAdmins() {
-  return await prisma.admin.findMany();
-}
-async  getSellers() {
-  return await prisma.seller.findMany();
-}
+  }
+  async getAdmins() {
+    return await prisma.admin.findMany();
+  }
+  async getSellers() {
+    return await prisma.seller.findMany();
+  }
 
-async  getAllUsers() {
-  const allUsers = [];
-  const customers = await getCustomers(prisma);
-  const sellers = await getSellers(prisma);
-  const admins = await getAdmins(prisma);
+  async getAllUsers() {
+    const allUsers = [];
+    const customers = await getCustomers(prisma);
+    const sellers = await getSellers(prisma);
+    const admins = await getAdmins(prisma);
 
-  // Concatenate all users into one array
-  return [...customers, ...sellers, ...admins];
-}
-
+    // Concatenate all users into one array
+    return [...customers, ...sellers, ...admins];
+  }
 
   async addUser(userData, userType) {
     switch (userType) {
@@ -43,30 +62,27 @@ async  getAllUsers() {
         password: seller.password,
         companyName: seller.companyName,
         bankAccount: seller.bankAccount,
-
       },
     });
   }
-  async addCustomer(customer){
+  async addCustomer(customer) {
     await prisma.customer.create({
-        data:{
-            username    :customer.username    ,
-            password    :customer.password    ,
-            surname     :customer.surname    ,
-            money       :customer.money    ,
-            address:customer.address,
-
-        }
-        
-    })
+      data: {
+        username: customer.username,
+        password: customer.password,
+        surname: customer.surname,
+        money: customer.money,
+        address: customer.address,
+      },
+    });
   }
-  async addAdmin(admin){
+  async addAdmin(admin) {
     await prisma.admin.create({
-        data:{
-            username    :admin.username    ,
-            password    :admin.password    ,
-        }
-    })
+      data: {
+        username: admin.username,
+        password: admin.password,
+      },
+    });
   }
 
   async updateUser(id, updatedData, userType) {

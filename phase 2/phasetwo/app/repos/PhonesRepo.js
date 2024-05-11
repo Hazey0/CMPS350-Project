@@ -4,6 +4,12 @@ const prisma = new PrismaClient();
 
 
 class PhonesRepo {
+    async decrementPhoneQuantity(phoneId, quantity) {
+        return await prisma.phone.update({
+            where: { id: phoneId },
+            data: { quantity: { decrement: quantity } }
+        });
+    }
     async getAllPhones() {
         return await prisma.phone.findMany();
     }

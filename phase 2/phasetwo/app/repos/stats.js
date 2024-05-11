@@ -7,6 +7,7 @@ export async function addPhone(quan){
         },
         data:{
             currentListedPhone: {increment : quan},
+            listedToday:{increment : quan},
         }
     })
 }

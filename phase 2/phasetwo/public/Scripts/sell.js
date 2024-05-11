@@ -17,7 +17,6 @@ async function incrementListedPhones(q){
     
  }
 
-document.addEventListener("DOMContentLoaded",async () => {
     //const usersDatas =await fetch("http://localhost:3000/api/users")
     //const users =await usersDatas.json()
     const data = localStorage.getItem("user");
@@ -136,7 +135,28 @@ document.addEventListener("DOMContentLoaded",async () => {
     //    console.log(mainPath+"target path")
     //    file.Move(mainPath);
     // }
-
+    async function handleSale(phoneId, sellerId, customerId, price) {
+        try {
+            // Assuming each sale decrements the quantity by 1
+            const phone = await PhonesRepo.decrementPhoneQuantity(phoneId, 1);
+            await UsersRepo.updateCustomerBalance(customerId, price);
+            await UsersRepo.updateSellerBalance(sellerId, price);
+    
+            // Record the transaction for the customer
+            const transaction = {
+                date: new Date(),
+                type: 'purchase',
+                details: {
+                    phoneId: phoneId,
+                    amount: price,
+                    description: `Purchased phone: ${phone.name}`
+                }
+            };
+            await UsersRepo.addTransactionToCustomer(customerId, transaction);
+        } catch (error) {
+            console.error("Failed to complete the sale:", error);
+        }
+    }
 
     init();
     logged()
@@ -144,4 +164,3 @@ document.addEventListener("DOMContentLoaded",async () => {
 
 
 
-});
