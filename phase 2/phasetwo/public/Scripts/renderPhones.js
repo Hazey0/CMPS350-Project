@@ -1,5 +1,6 @@
 
 //import { mainPath, yourPath } from "./paths.js";
+
 import { resetSearch } from "./searchFunction.js";
 const phones = [];
 const phonesd = await fetch("http://localhost:3000/api/phones")
@@ -9,11 +10,11 @@ const phonesd = await fetch("http://localhost:3000/api/phones")
       phones.push(phone);
     });
   });
+
   console.log(phones);
-export default phones
 
 
-
+  const container = document.querySelector("#items");
 
 //console.log(featuredPhones)
 await fetch('/api/phones')
@@ -21,7 +22,7 @@ await fetch('/api/phones')
 .then((phones) => {
     phones.map((phone)=>{
 
-        renderPhone(phone)
+        container.appendChild(renderPhone(phone))
     })
     
 })
@@ -98,10 +99,8 @@ export function renderFeaturedPhones() {
   const checkIfFeaturedPhonesExist=phones.reduce((a,v)=>v.featured==true ?v :a,0)
   if(checkIfFeaturedPhonesExist==0){
     const rand= Math.floor((Math.random() * phones.length) + 1);
-
-    phones[rand].featured=true
   }
-phones.map((phone)=>phone.featured==true &&phone.sold==false ?featuredTab.appendChild( renderFeaturedPhone(phone)) :null )
+  phones.map((phone)=>phone.featured==true &&phone.sold==false ?featuredTab.appendChild( renderFeaturedPhone(phone)) :null )
  
 }
 
@@ -118,6 +117,7 @@ export function addFeatured(id) {
 
 }
 function renderFeaturedPhone(phone) {
+  
     const wholeLink = document.createElement("a");
     wholeLink.classList.add("phoneLink");
     wholeLink.href = "./item.html";
@@ -219,5 +219,5 @@ export function removeFromFeatured(ph) {
   featuredPhones = featuredPhones.filter((phone) => phone != ph.id);
   localStorage.setItem("featuredPhones", JSON.stringify(featuredPhones));
   renderFeaturedPhones();
-  window.open("/main.html", "_self");
+  window.open("./main.html", "_self");
 }

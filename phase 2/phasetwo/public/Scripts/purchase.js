@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         await incrementSold(inc)
         alert("Phone purchased Successfully")
         
-        window.open("transactions.html","_self")
+        window.open("./transactions.html","_self")
         logged();
        
 

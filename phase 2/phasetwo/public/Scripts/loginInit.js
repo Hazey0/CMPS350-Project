@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
   const getPage = (a) => a.split("/").reduce((a, v) => v);
   const yourPath = getPage(window.location.pathname);
-  const mainPath = "/login.html";
+  const mainPath = "login.html";
   const prevData = localStorage.getItem("prevPath");
   const prevPath = JSON.parse(prevData);
   console.log("current :" + yourPath);
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
           alert("Login successful");
           localStorage.setItem("user", JSON.stringify(tempUser[0]));
           localStorage.setItem("prevPath", JSON.stringify(mainPath));
-          window.open("/main.html");
+          window.open("./main.html");
 
           //close() //apply on main.html part
         } else {

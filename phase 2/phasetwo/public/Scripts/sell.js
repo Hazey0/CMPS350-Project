@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(phones)
         localStorage.setItem("phone",JSON.stringify(newPhone))
         alert("phone listed successfully")
-        window.open("/item.html","_self");
+        window.open("./item.html","_self");
         
     }
 

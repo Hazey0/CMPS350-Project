@@ -54,4 +54,3 @@ export async function DELETE(request) {
     }
     return new Response(null, { status: 204 });
 }
-

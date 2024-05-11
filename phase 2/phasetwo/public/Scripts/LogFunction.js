@@ -33,7 +33,7 @@ export function logged() {
         loginButton.addEventListener("click",(event)=>{
 
             resetSearch()
-            window.open("login.html","_self")
+            window.open("./login.html","_self")
         })
         nav2.appendChild(loginButton);
         

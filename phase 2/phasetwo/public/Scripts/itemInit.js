@@ -21,7 +21,7 @@ const user = JSON.parse(userData);
 //
 const getPage = (a) => a.split("/").reduce((a, v) => v);
 const yourPath = getPage(window.location.pathname);
-const mainPath = "/item.html";
+const mainPath = "./item.html";
 const prevData = localStorage.getItem("prevPath");
 const prevPath = JSON.parse(prevData);
 console.log("current :" + yourPath);
@@ -134,7 +134,7 @@ function renderPhonie(phone) {
 
             //localStorage.setItem("featuredPhones",JSON.stringify(dta))
             addFeatured(phone.id);
-            window.open("/main.html", "_self");
+            window.open("./main.html", "_self");
           });
           if (checkFeatured(phone) == false) {
             bottom.appendChild(setFeatureButton);
