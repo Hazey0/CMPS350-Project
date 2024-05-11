@@ -27,10 +27,12 @@ class PhonesRepo {
     }
 
     async updatePhone(id, updatedData) {
-        return await prisma.phone.update({
+         await prisma.phone.update({
             where: { id },
             data: updatedData
         });
+        //await prisma.phone.
+        
     }
 
     async deletePhone(id) {

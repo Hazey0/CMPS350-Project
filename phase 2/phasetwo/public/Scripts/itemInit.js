@@ -119,11 +119,11 @@ function renderPhonie(phone) {
 
   if (checkStock()) {
     if (user != null) {
-      if (user.type == "Seller" || user.type == "Admin") {
+      if (user.type == "seller" || user.type == "admin") {
         if (user.username == phone.seller) {
           bottom.appendChild(editQuanButton);
           bottom.appendChild(removeButton);
-        } else if (user.type == "Admin") {
+        } else if (user.type == "admin") {
           bottom.appendChild(removeButton);
           const setFeatureButton = document.createElement("button");
           setFeatureButton.classList.add("buyButton");
@@ -176,7 +176,7 @@ function renderPhonie(phone) {
 }
 function purchase() {
   if (user != null) {
-    if (user.type == "Customer") {
+    if (user.type == "customer") {
       localStorage.setItem("phone", JSON.stringify(phone));
       //user.transactions.push(phone);
       window.open("./purchase.html", "_self");

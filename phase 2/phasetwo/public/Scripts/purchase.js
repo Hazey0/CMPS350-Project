@@ -19,18 +19,20 @@ async function incrementSold(q){
     }
    
 }
-document.addEventListener("DOMContentLoaded", async() => {
-    const countries=await getCountries();
-    const userData = await fetch('http://localhost:3000/api/users')
-    const user = await userData.json()
-    const data = await fetch('http://localhost:3000/api/')
-    const phones = await data.json()
+const countries=await getCountries();
+const usersData = await fetch('http://localhost:3000/api/users')
+const users = await usersData.json()
+const userData=localStorage.getItem("user")
+const user=JSON.parse(userData);
+const data = await fetch('http://localhost:3000/api/')
+const phones = await data.json()
+
+   
     // const userData = localStorage.getItem("user");
     // const user = JSON.parse(userData);
     // const data = localStorage.getItem("phone");
     // const phone = JSON.parse(data);
 
-    console.log(phone)
     
 
     const phonesData = localStorage.getItem("phone");
@@ -52,6 +54,8 @@ document.addEventListener("DOMContentLoaded", async() => {
 
         document.querySelector("#submit").addEventListener("click",async(event)=>{
             if(checkInputs()){
+                alert(getTotal())
+                alert(user.money)
             if(user.money>=getTotal()){
               
              await  purchase();
@@ -101,6 +105,8 @@ document.addEventListener("DOMContentLoaded", async() => {
         transaction.seller=seller;
         transaction.quantity=document.querySelector("#quantity").value
         console.log(transaction)
+        user.transactions=[]
+        alert(user.transactions)
         user.transactions.push(transaction)
         editMoney();
      
@@ -118,7 +124,7 @@ document.addEventListener("DOMContentLoaded", async() => {
 
         const res= await fetch('http://localhost:3000/api/phones',{
                 method:"PUT",
-                body: JSON.stringify({id:phone,quan:q}),
+                body: JSON.stringify({id:phone.id  ,  data:phone}),
             })
         const data= await res.json()     
 
@@ -126,7 +132,8 @@ document.addEventListener("DOMContentLoaded", async() => {
 
 
 
-        window.open("./transactions.html","_self")
+        //window.open("./transactions.html","_self")
+        window.open("./main.html","_self")
         logged();
        
 
@@ -199,7 +206,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         users[f].money=mon
         user.money=mon;
         console.log(users)
-        localStorage.removeItem("users");
+    
        
         
         
@@ -211,10 +218,10 @@ document.addEventListener("DOMContentLoaded", async() => {
     }
 
     function updateUser(tran,usr){
-        const f=users.findIndex((u)=> usr==u.username );
-       const t=users[f].transactions
-       t.push(tran);
-       users[f].transactions=t;
+      //  const f=users.findIndex((u)=> usr==u.username );
+      // const t=users[f].transactions
+      // t.push(tran);
+      // users[f].transactions=t;
 
     }
 
@@ -225,4 +232,4 @@ document.addEventListener("DOMContentLoaded", async() => {
     init();
     setCountries()
     loadPhone();
-})
+

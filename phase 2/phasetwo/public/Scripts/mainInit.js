@@ -14,7 +14,6 @@ import { searchPhone } from "./searchFunction.js";
 
     const usersDatas =await fetch("http://localhost:3000/api/users")
     const users =await usersDatas.json()
-    console.log(users) 
 
 
 
