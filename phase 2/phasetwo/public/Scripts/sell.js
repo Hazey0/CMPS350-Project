@@ -17,14 +17,16 @@ async function incrementListedPhones(q){
     
  }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const userData = localStorage.getItem("user");
-    const user = JSON.parse(userData);
+document.addEventListener("DOMContentLoaded",async () => {
+    const usersDatas =await fetch("http://localhost:3000/api/users")
+    const users =await usersDatas.json()
     //const data = localStorage.getItem("item");
     //const phone = JSON.parse(data);
 
-    const phonesData = localStorage.getItem("phones");
+    const phonesData = await fetch("http://localhost:3000/api/phones")
     const phones = JSON.parse(phonesData);
+
+
 
 
     const getPage = (a) => a.split("/").reduce((a, v) => v)
