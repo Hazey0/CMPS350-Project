@@ -1,4 +1,5 @@
 //import { mainPath, yourPath } from "./paths.js";
+import { random } from "nanoid";
 import { resetSearch } from "./searchFunction.js";
 const phones = [];
 const phonesd = await fetch("http://localhost:3000/api/phones")
@@ -90,6 +91,10 @@ export function renderPhone(phone) {
 
 export function renderFeaturedPhones() {
   const featuredTab=document.querySelector("#featuredPhones")
+  const checkIfFeaturedPhonesExist=phones.reduce((a,v)=>v.featured==true ?v :a,0)
+  if(checkIfFeaturedPhonesExist==0){
+    const rand= random
+  }
 phones.map((phone)=>phone.featured==true &&phone.sold==false ?featuredTab.appendChild( renderFeaturedPhone(phone)) :null )
  
 }
