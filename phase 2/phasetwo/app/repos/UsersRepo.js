@@ -43,6 +43,7 @@ async  getAllUsers() {
         password: seller.password,
         companyName: seller.companyName,
         bankAccount: seller.bankAccount,
+
       },
     });
   }
@@ -53,7 +54,8 @@ async  getAllUsers() {
             password    :customer.password    ,
             surname     :customer.surname    ,
             money       :customer.money    ,
-            address:customer.address
+            address:customer.address,
+
         }
         
     })

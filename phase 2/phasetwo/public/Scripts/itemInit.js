@@ -8,7 +8,7 @@ import {
 } from "./renderPhones.js";
 
 const phones = [];
-const phonesd = await fetch("http://localhost:3000/api/phones")
+const phonesd = await fetch("http://localhost:3000/api")
   .then((res) => res.json())
   .then((phs) => {
     phs.map((phone) => {

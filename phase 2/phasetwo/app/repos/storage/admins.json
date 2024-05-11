@@ -1,8 +1,8 @@
 [
     {
         "username": "admin",
-        "password": "123",
-        "type" : "admin"
+        "password": "123"
+
     
     }
 ]

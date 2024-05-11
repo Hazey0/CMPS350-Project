@@ -18,13 +18,13 @@ async function incrementListedPhones(q){
  }
 
 document.addEventListener("DOMContentLoaded",async () => {
-    const usersDatas =await fetch("http://localhost:3000/api/users")
-    const users =await usersDatas.json()
-    //const data = localStorage.getItem("item");
-    //const phone = JSON.parse(data);
+    //const usersDatas =await fetch("http://localhost:3000/api/users")
+    //const users =await usersDatas.json()
+    const data = localStorage.getItem("user");
+    const user = JSON.parse(data);
 
-    const phonesData = await fetch("http://localhost:3000/api/phones")
-    const phones = JSON.parse(phonesData);
+    //const phonesData = await fetch("http://localhost:3000/api/phones")
+    //const phones = JSON.parse(phonesData);
 
 
 
@@ -114,10 +114,9 @@ document.addEventListener("DOMContentLoaded",async () => {
         newPhone.quantity=quantity;
         incrementListedPhones(quantity)
         newPhone.seller=user.username;
-        phones.push(newPhone);
-        localStorage.removeItem("phones");
-        //localStorage.setItem("phones",JSON.stringify(phones));
-        console.log(phones)
+  
+
+
         localStorage.setItem("phone",JSON.stringify(newPhone))
         alert("phone listed successfully")
         window.open("./item.html","_self");

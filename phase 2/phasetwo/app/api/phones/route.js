@@ -7,8 +7,7 @@ export async function GET() {
     //const name = searchParams.get('name');
     //const storage = searchParams.get('storage');
 
-    const data= await PhonesRepo.getAllPhones()
-    return Response.json(data,{status:200})
+
 
     //if (brand) {
     //    const phones = await PhonesRepo.getPhonesByBrand(brand);
@@ -43,6 +42,7 @@ export async function PUT(request) {
         return new Response(JSON.stringify({ error: "Phone not found or update data invalid" }), { status: 404 });
     }
     return new Response(JSON.stringify(updatedPhone), { status: 200 });
+    
 }
 
 export async function DELETE(request) {

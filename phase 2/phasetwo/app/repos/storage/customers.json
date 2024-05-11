@@ -2,7 +2,6 @@
     {
         "username": "ahmad",
         "password": "974",
-        "type": "Customer",
         "money": 100000,
         "transaction": null,
         "surname":"AL-Thani",
@@ -13,7 +12,6 @@
     {
         "username": "walter",
         "password": "420",
-        "type": "Customer",
         "money": 2500,
         "transaction": null,
         "surname":"White",

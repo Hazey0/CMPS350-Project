@@ -18,6 +18,7 @@ model Seller {
   transactions Transaction[] 
   companyName  String
   bankAccount  String
+  type String @default("seller")
 
 }
 
@@ -30,6 +31,7 @@ model Customer {
   surname      String
   money        Int
   address      String
+  type String @default("customer")
 }
 
 
@@ -37,6 +39,7 @@ model Admin {
   id           String  @id @default(cuid())
   username     String  @unique
   password     String
+  type String @default("admin")
 }
 
 

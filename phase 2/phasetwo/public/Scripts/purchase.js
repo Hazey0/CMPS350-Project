@@ -23,19 +23,18 @@ document.addEventListener("DOMContentLoaded", async() => {
     const countries=await getCountries();
     const userData = await fetch('http://localhost:3000/api/users')
     const user = await userData.json()
-    const data = await fetch('http://localhost:3000/api/phones')
-    const phone = await data.json()
+    const data = await fetch('http://localhost:3000/api/')
+    const phones = await data.json()
     // const userData = localStorage.getItem("user");
     // const user = JSON.parse(userData);
     // const data = localStorage.getItem("phone");
     // const phone = JSON.parse(data);
-    const datau = localStorage.getItem("users");
-    const users = JSON.parse(datau)
+
     console.log(phone)
     
 
-    const phonesData = localStorage.getItem("phones");
-    const phones = JSON.parse(phonesData);
+    const phonesData = localStorage.getItem("phone");
+    const phone = JSON.parse(phonesData);
     document.querySelector("#quantity").addEventListener("click",(event)=>{
         const quantity= document.querySelector("#quantity").value
         const total=document.querySelector("#total")
@@ -118,8 +117,8 @@ document.addEventListener("DOMContentLoaded", async() => {
         //1. Update Sellers transactions
 
         const res= await fetch('http://localhost:3000/api/phones',{
-                method:"POST",
-                body: JSON.stringify({method:"sold",quan:q}),
+                method:"PUT",
+                body: JSON.stringify({id:phone,quan:q}),
             })
         const data= await res.json()     
 

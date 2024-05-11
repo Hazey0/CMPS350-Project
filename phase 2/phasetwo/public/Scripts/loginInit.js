@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
   const datau = localStorage.getItem("user");
   const user = JSON.parse(datau);
   console.log(users);
-  alert(users)
+
 
   const getPage = (a) => a.split("/").reduce((a, v) => v);
   const yourPath = getPage(window.location.pathname);
