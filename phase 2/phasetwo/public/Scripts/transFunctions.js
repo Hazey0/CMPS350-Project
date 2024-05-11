@@ -32,7 +32,7 @@ export function loadSeller() {
                 `;
             phoneElement.addEventListener("click", (event) => {
                 localStorage.setItem("phone", JSON.stringify(phone))
-                window.open("item.html", "_self")
+                window.open("/item.html", "_self")
             })
             container.appendChild(phoneElement);
         });

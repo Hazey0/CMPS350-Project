@@ -1,5 +1,4 @@
 //import { mainPath, yourPath } from "./paths.js";
-import { random } from "nanoid";
 import { resetSearch } from "./searchFunction.js";
 const phones = [];
 const phonesd = await fetch("http://localhost:3000/api/phones")
@@ -9,6 +8,7 @@ const phonesd = await fetch("http://localhost:3000/api/phones")
       phones.push(phone);
     });
   });
+  console.log(phones);
 export default phones
 export async function renderPhones() {
 
@@ -93,7 +93,9 @@ export function renderFeaturedPhones() {
   const featuredTab=document.querySelector("#featuredPhones")
   const checkIfFeaturedPhonesExist=phones.reduce((a,v)=>v.featured==true ?v :a,0)
   if(checkIfFeaturedPhonesExist==0){
-    const rand= random
+    const rand= Math.floor((Math.random() * phones.length) + 1);
+
+    phones[rand].featured=true
   }
 phones.map((phone)=>phone.featured==true &&phone.sold==false ?featuredTab.appendChild( renderFeaturedPhone(phone)) :null )
  
@@ -189,5 +191,5 @@ export function removeFromFeatured(ph) {
   featuredPhones = featuredPhones.filter((phone) => phone != ph.id);
   localStorage.setItem("featuredPhones", JSON.stringify(featuredPhones));
   renderFeaturedPhones();
-  window.open("main.html", "_self");
+  window.open("/main.html", "_self");
 }

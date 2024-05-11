@@ -1,4 +1,4 @@
-import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js'
+
 import { logged } from "./LogFunction.js";
 import { showUserTab } from "./userTabFunction.js";
 async function incrementListedPhones(q){
@@ -112,14 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
         newPhone.quantity=quantity;
         incrementListedPhones(quantity)
         newPhone.seller=user.username;
-        newPhone.id=nanoid(8);
         phones.push(newPhone);
         localStorage.removeItem("phones");
         //localStorage.setItem("phones",JSON.stringify(phones));
         console.log(phones)
         localStorage.setItem("phone",JSON.stringify(newPhone))
         alert("phone listed successfully")
-        window.open("item.html","_self");
+        window.open("/item.html","_self");
         
     }
 
