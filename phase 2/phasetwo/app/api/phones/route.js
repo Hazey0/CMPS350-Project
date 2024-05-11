@@ -1,6 +1,6 @@
 import PhonesRepo from "@/repos/PhonesRepo";
 
-export async function GET(request) {
+export async function GET() {
     //const { searchParams } = new URL(request.url);
     
     //const brand = searchParams.get('brand');
@@ -8,7 +8,7 @@ export async function GET(request) {
     //const storage = searchParams.get('storage');
 
     const data= await PhonesRepo.getAllPhones()
-    return Response.json(data)
+    return Response.json(data,{status:200})
 
     //if (brand) {
     //    const phones = await PhonesRepo.getPhonesByBrand(brand);

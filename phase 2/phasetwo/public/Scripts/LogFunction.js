@@ -1,4 +1,4 @@
-import { mainPath } from "./paths.js";
+//import { mainPath } from "./paths.js";
 import { resetSearch } from "./searchFunction.js";
 const data=localStorage.getItem("users");
 const users=JSON.parse(data);
@@ -84,7 +84,7 @@ function logout() {
     
     resetSearch()
    
-    window.open("./" + mainPath, "_self");
+    //window.open("./" + mainPath, "_self");
 
 }
 function updateUser(){

@@ -1,22 +1,22 @@
-import { mainPath, yourPath } from "./paths.js";
+//import { mainPath, yourPath } from "./paths.js";
 import { resetSearch } from "./searchFunction.js";
-
-export async function renderPhones() {
-    alert("lols")
-  const phones = [];
-  const phonesd = await fetch("/api/phones")
-    .then((res) => res.json())
-    .then((phs) => {
-      phs.map((phone) => {
-        phones.push(phone);
-      });
+const phones = [];
+const phonesd = await fetch("http://localhost:3000/api/phones")
+  .then((res) => res.json())
+  .then((phs) => {
+    phs.map((phone) => {
+      phones.push(phone);
     });
+  });
+export default phones
+export async function renderPhones() {
+
   console.log(phones);
 
-  console.log(mainPath + yourPath);
+  //console.log(mainPath + yourPath);
 
   //if (mainPath == yourPath) {
-  alert("j");
+  //alert("j");
   const container = document.querySelector("#items");
   container.replaceChildren();
   phones.forEach((phone) => container.appendChild(renderPhone(phone)));
@@ -24,7 +24,7 @@ export async function renderPhones() {
 }
 
 export function renderPhone(phone) {
-  alert(phone);
+
   const wholeLink = document.createElement("a");
   wholeLink.classList.add("phoneLink");
   wholeLink.href = "./item.html";
@@ -89,46 +89,12 @@ export function renderPhone(phone) {
 }
 
 export function renderFeaturedPhones() {
-  const featuredData = localStorage.getItem("featuredPhones");
-  let featuredPhones = JSON.parse(featuredData);
-
-  if (
-    featuredPhones != null &&
-    featuredPhones.length >= 1 &&
-    featuredPhones != undefined
-  ) {
-    featuredPhones = featuredPhones.map((s) => (checkPhone(s) ? s : ""));
-    featuredPhones = featuredPhones.filter((s) => s != null);
-    featuredPhones = featuredPhones.filter((s) => checkPhone(s));
-    if (mainPath == yourPath && featuredPhones.length >= 1) {
-      const container = document.querySelector("#featuredPhones");
-      container.replaceChildren();
-      console.log(featuredPhones);
-      if (featuredPhones.length >= 1 && featuredPhones[0] != null) {
-        featuredPhones.forEach((id) =>
-          container.appendChild(renderFeaturedPhone(getPhone(id)))
-        );
-      }
-    }
-    localStorage.setItem("featuredPhones", JSON.stringify(featuredPhones));
-  } else {
-    const container = document.querySelector("#featuredPhones");
-    featuredPhones = [];
-    const rand = Math.floor(Math.random() * phones.length);
-    const randPhone = phones[rand];
-    featuredPhones.push(randPhone.id);
-    localStorage.setItem("featuredPhones", JSON.stringify(featuredPhones));
-    container.appendChild(renderFeaturedPhone(getPhone(randPhone.id)));
-  }
+  const featuredTab=document.querySelector("#featuredPhones")
+phones.map((phone)=>phone.featured==true &&phone.sold==false ?featuredTab.appendChild( renderFeaturedPhone(phone)) :null )
+ 
 }
 
-export function addFeatured(id) {
-  const featuredData = localStorage.getItem("featuredPhones");
-  let featuredPhones = JSON.parse(featuredData);
 
-  featuredPhones.push(id);
-  localStorage.setItem("featuredPhones", JSON.stringify(featuredPhones));
-}
 function renderFeaturedPhone(phone) {
   const wholeLink = document.createElement("a");
   wholeLink.classList.add("phoneLink");
