@@ -1,5 +1,4 @@
 [
-
   {
     "brand": "Samsung",
     "name": "Galaxy S23",
@@ -247,7 +246,8 @@
     "price": 499,
     "storage": 128,
     "img": "../Media/images/Axon.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Motorola",
@@ -256,7 +256,8 @@
     "price": 1496.3,
     "storage": 128,
     "img": "../Media/images/MotoG83.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "LG",
@@ -265,7 +266,8 @@
     "price": 2773.3,
     "storage": 256,
     "img": "../Media/images/LGWing5G.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Asus",
@@ -274,7 +276,8 @@
     "price": 4086.3,
     "storage": 512,
     "img": "../Media/images/AsusROGPhone6.PNG",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "BlackBerry",
@@ -283,7 +286,8 @@
     "price": 1298.3,
     "storage": 64,
     "img": "../Media/images/BlackBerryKEY2LE.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "TCL",
@@ -292,7 +296,8 @@
     "price": 1846.3,
     "storage": 128,
     "img": "../Media/images/TCL20Pro5G.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Sharp",
@@ -301,7 +306,8 @@
     "price": 3356.3,
     "storage": 256,
     "img": "../Media/images/SharpAquosZero3.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Sony",
@@ -310,7 +316,8 @@
     "price": 5193.3,
     "storage": 512,
     "img": "../Media/images/SonyXperia1V.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Google",
@@ -319,7 +326,8 @@
     "price": 1846.3,
     "storage": 128,
     "img": "../Media/images/Pixel8a.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "OnePlus",
@@ -328,7 +336,8 @@
     "price": 2606.3,
     "storage": 256,
     "img": "../Media/images/OnePlusNord3.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Xiaomi",
@@ -337,7 +346,8 @@
     "price": 4836.3,
     "storage": 256,
     "img": "../Media/images/RedmiNote13Pro.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Nokia",
@@ -346,7 +356,8 @@
     "price": 1496.3,
     "storage": 128,
     "img": "../Media/images/NokiaX30.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Samsung",
@@ -355,7 +366,8 @@
     "price": 1666.3,
     "storage": 128,
     "img": "../Media/images/A54.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Apple",
@@ -364,7 +376,8 @@
     "price": 2043.3,
     "storage": 128,
     "img": "../Media/images/iPhoneSE4.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Vivo",
@@ -373,7 +386,8 @@
     "price": 8541.3,
     "storage": 512,
     "img": "../Media/images/VivoX90Pro+.jpeg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Huawei",
@@ -382,7 +396,8 @@
     "price": 1846.3,
     "storage": 128,
     "img": "../Media/images/HuaweiNova10SE.PNG",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Honor",
@@ -391,7 +406,8 @@
     "price": 6716.3,
     "storage": 256,
     "img": "../Media/images/HonorMagicVs.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "ZTE",
@@ -400,7 +416,8 @@
     "price": 3111.3,
     "storage": 512,
     "img": "../Media/images/ZTENubiaZ50Ultra.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Microsoft",
@@ -409,7 +426,8 @@
     "price": 8996.3,
     "storage": 512,
     "img": "../Media/images/SurfaceDuo3.PNG",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Tecno",
@@ -418,7 +436,8 @@
     "price": 3333.3,
     "storage": 256,
     "img": "../Media/images/TecnoPhantomX3.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   },
   {
     "brand": "Samsung",
@@ -427,6 +446,7 @@
     "price": 8999,
     "storage": 512,
     "img": "../Media/images/GalaxyZFold5.jpg",
-    "quantity": 1,"seller":"jim"
+    "quantity": 1,
+    "seller": "jim"
   }
 ]

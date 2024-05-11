@@ -9,6 +9,7 @@ class PhonesRepo {
     }
 
     async addPhone(phoneData) {
+        console.log(JSON.stringify(phoneData));
        await stats.addPhone(phoneData.quantity)
         return await prisma.phone.create({
             data:{
@@ -56,7 +57,7 @@ export default new PhonesRepo();
 
 export async function addPhone(phone){
     stats.addPhone(Number(phone.quantity))
-    console.log(phone);
+    try{
     await prisma.phone.create({
          data:{
              img:phone.img,
@@ -69,7 +70,11 @@ export async function addPhone(phone){
              quantity:phone.quantity,
              
          }
-     })
+     })}
+     catch(e){
+        console.log(JSON.stringify(phone)+"phone not added");
+     }
+     
  }
 
  export async function addPhones(phones){

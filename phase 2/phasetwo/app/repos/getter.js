@@ -7,12 +7,11 @@ import adminsData from './storage/admins.json' with {type:"json"}
 import prisma from './prisma'
 import * as stats from './stats'
 export async function starter() {
-    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
     const customer= await getCustomers()
     const seller= await getSellers()
     const admins= await getAdmins()
     stats.newGuest()
-    console.log(customer+seller+admins+"ksjdbcikjhsbdcjkhsbdckjswhbdcjkhsbdcjkhbscjkhbskjhdcbksbdckjhsbcnjhksdbchkjsbdc");
+  
     if(customer.length==0){
         await stats.resetStats()
        await customersData.map(async (user)=>{ await UsersRepo.addCustomer(user)
@@ -20,18 +19,21 @@ export async function starter() {
        })
     }
     if(seller.length==0){
-        await sellersData.map((user)=>{
-            UsersRepo.addSeller(user)
+        await sellersData.map(async(user)=>{
+           await UsersRepo.addSeller(user)
            stats.addSeller() 
         })
+
     }
     if(admins.length==0){
-        await adminsData.map(async(user)=>{await UsersRepo.addAdmin(user)})
+        adminsData.map(async(user)=>{await UsersRepo.addAdmin(user)})
     }
+    setTimeout(function(){
+        console.log("Executed after 1 second");
+    }, 1000);
     const e=await PhonesRepo.getAllPhones()
     if(e.length==0){
     await addPhones(phones)
-    
     }
 
 }

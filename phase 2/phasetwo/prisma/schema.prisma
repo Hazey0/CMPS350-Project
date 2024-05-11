@@ -46,7 +46,7 @@ model Phone {
   brand    String
   name     String
   year     Int
-  price    Int
+  price    Float
   storage  Int
   seller   String
   quantity Int
