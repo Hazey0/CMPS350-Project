@@ -33,7 +33,7 @@ export function renderPhone(phone) {
     bottom.classList.add("bottom")
     ////elements of the phone///
     const brand = document.createElement("p");
-    const name = document.createElement("p");
+  const name = document.createElement("p");
     name.classList.add("name");
     const year = document.createElement("p");
     year.classList.add("year");

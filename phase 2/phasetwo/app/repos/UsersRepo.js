@@ -41,7 +41,6 @@ async  getAllUsers() {
       data: {
         username: seller.username,
         password: seller.password,
-        phones: seller.phones,
         companyName: seller.companyName,
         bankAccount: seller.bankAccount,
       },
@@ -54,6 +53,7 @@ async  getAllUsers() {
             password    :customer.password    ,
             surname     :customer.surname    ,
             money       :customer.money    ,
+            address:customer.address
         }
         
     })

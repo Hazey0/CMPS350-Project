@@ -55,16 +55,16 @@ class PhonesRepo {
 export default new PhonesRepo();
 
 export async function addPhone(phone){
-
+    stats.addPhone(Number(phone.quantity))
     await prisma.phone.create({
          data:{
+             img:phone.img,
              brand:phone.brand,
-             year:phone.year,
              name:phone.name,
+             year:phone.year,
              price:phone.price,
              storage:phone.storage,
              seller:phone.seller,
-             img:phone.img,
              quantity:phone.quantity,
              
          }

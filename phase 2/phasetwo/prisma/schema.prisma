@@ -14,33 +14,22 @@ model Seller {
   id           String  @id @default(cuid())
   username     String  @unique
   password     String
-  //phones       Phone[] (commented out if not used)
-  //transactions Transaction[] (commented out if not used)
-  phones       String? // Assuming this should still be part of the model; adjust as necessary
-  transaction  String? // Assuming this should still be part of the model; adjust as necessary
+  phones       Phone[] 
+  transactions Transaction[] 
   companyName  String
   bankAccount  String
-  type         String  @default("seller")
+
 }
 
-    // {
-    //     "username": "tom",
-    //     "password": "8793",
-    //     "type": "Seller",
-    //     "transaction": [],
-    //     "companyName":"ooredoo",
-    //     "bankAccount":"QIB234482300000069823"
-    // },
 
 model Customer {
   id           String  @id @default(cuid())
   username     String  @unique
   password     String
-  //transactions Transaction[] (commented out if not used)
-  transaction  String? // Assuming this should still be part of the model; adjust as necessary
+  transactions Transaction[] 
+
   surname      String
   money        Int
-  type         String  @default("customer")
   address      String
 }
 
@@ -59,7 +48,6 @@ model Admin {
   id           String  @id @default(cuid())
   username     String  @unique
   password     String
-  type         String  @default("admin")
 }
 
 
@@ -73,7 +61,7 @@ model Phone {
   storage  Int
   seller   String
   quantity Int
-  //sellerPhone Seller @relation(fields: [seller], references: [username],onDelete: Cascade )
+  sellerPhone Seller @relation(fields: [seller], references: [username],onDelete: Cascade )
   sold     Boolean @default(false)
   featured Boolean @default(false)
 }
@@ -86,8 +74,8 @@ model Transaction {
   quantity Int
   date     DateTime @default(now())
   total    Int
-  //buyerTrans  Customer @relation(fields: [buyer], references: [username],onDelete: Cascade)
-  //sellerTrans Seller   @relation(fields: [seller], references: [username],onDelete: Cascade)
+  buyerTrans  Customer @relation(fields: [buyer], references: [username],onDelete: Cascade)
+  sellerTrans Seller   @relation(fields: [seller], references: [username],onDelete: Cascade)
 }
 
 model Stat {
