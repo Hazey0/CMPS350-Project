@@ -2,6 +2,8 @@ import { logged } from "./LogFunction.js";
 import { getCountries } from "./countries.js";
 import { renderPhone } from "./renderPhones.js";
 import { showUserTab } from "./userTabFunction.js";
+
+
 async function incrementSold(q){
    try{ 
    const res= await fetch('../api/stats',{
@@ -19,10 +21,14 @@ async function incrementSold(q){
 }
 document.addEventListener("DOMContentLoaded", async() => {
     const countries=await getCountries();
-    const userData = localStorage.getItem("user");
-    const user = JSON.parse(userData);
-    const data = localStorage.getItem("phone");
-    const phone = JSON.parse(data);
+    const userData = await fetch('http://localhost:3000/api/users')
+    const user = await userData.json()
+    const data = await fetch('http://localhost:3000/api/phones')
+    const phone = await data.json()
+    // const userData = localStorage.getItem("user");
+    // const user = JSON.parse(userData);
+    // const data = localStorage.getItem("phone");
+    // const phone = JSON.parse(data);
     const datau = localStorage.getItem("users");
     const users = JSON.parse(datau)
     console.log(phone)
@@ -105,10 +111,22 @@ document.addEventListener("DOMContentLoaded", async() => {
         //localStorage.setItem("phones",JSON.stringify(phones))
         console.log(inc+"quantity");
         await incrementSold(inc)
-        
-
         alert("Phone purchased Successfully")
         
+        
+        //Buying Phone
+        //1. Update Sellers transactions
+
+        const res= await fetch('http://localhost:3000/api/phones',{
+                method:"POST",
+                body: JSON.stringify({method:"sold",quan:q}),
+            })
+        const data= await res.json()     
+
+        //2. Update Buyers 
+
+
+
         window.open("./transactions.html","_self")
         logged();
        
