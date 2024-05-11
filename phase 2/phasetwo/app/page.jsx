@@ -8,7 +8,7 @@ export default async function Home() {
   await starter();
 
   redirect("/Websites/main.html")
-
+  
 
   
 }
