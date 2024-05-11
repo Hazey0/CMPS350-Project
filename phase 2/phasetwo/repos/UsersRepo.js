@@ -17,6 +17,7 @@ class UsersRepo {
     admin.map((u) => {
       allUsers.push;
     });
+    console.log(allUsers);
     return allUsers;
   }
   async addUser(userData, userType) {

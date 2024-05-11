@@ -1,7 +1,7 @@
 //import { mainPath } from "./paths.js";
 import { resetSearch } from "./searchFunction.js";
-const data=localStorage.getItem("users");
-const users=JSON.parse(data);
+const data=await fetch("/api/users")
+const users=data.json()
 const datau=localStorage.getItem("user");
 const user=JSON.parse(datau);
 
@@ -28,7 +28,7 @@ export function logged() {
      
         nav2.addEventListener("click", (event) => {
 
-            localStorage.setItem("prevPath", (JSON.stringify(mainPath)))
+            //localStorage.setItem("prevPath", (JSON.stringify(mainPath)))
         })
         loginButton.addEventListener("click",(event)=>{
 
