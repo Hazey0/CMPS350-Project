@@ -79,7 +79,7 @@ function renderPhonie(phone) {
     phones.splice(delet, 1);
     //localStorage.setItem("phones", JSON.stringify(phones))
 
-    window.open("main.html", "_self");
+    window.open("/main.html", "_self");
   });
 
   const seller = document.createElement("p");
